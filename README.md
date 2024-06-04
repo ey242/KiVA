@@ -4,7 +4,7 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 
 In this repository, you will find:
 
-**Dataset**: all object transformation stimuli for both the original task and the hard task, and code used to generate the various transformations in the benchmark (Object_Transformations.py) 
+**Dataset**: all object transformation stimuli for both the original task and the hard task, and code used to generate the various transformations in the benchmark
 
 **Model Queries**: model query scripts for GPT-4V, LLaVA-1.5 and MANTIS, including single-image and multi-image queries as well as prompts used for in-context learning and prompt engineering (code, instructions, reflection)
 
