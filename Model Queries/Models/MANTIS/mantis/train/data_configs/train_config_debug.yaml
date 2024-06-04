@@ -1,9 +1,0 @@
-data:  
-  - 
-    name: "multi_vqa"
-    type: huggingface
-    path: "TIGER-Lab/Mantis-Instruct"
-    format: chat
-    split: train
-    shuffle: true
-    revision: script
