@@ -6,8 +6,8 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 ## Dataset Artifacts
 
 * We provide the individual PNG images for each object in the dataset in its original format under *Objects100*. 
-* We provide the transformed images of each object required for the *easy* experiment under Stimuli/Stimuli_50. 
-* We provide the transformed images of each object required for the *hard* experiment under Stimuli/Stimuli_50_Hard.
+* We provide the transformed images of each object required for running *KiVA* experiments under Stimuli/Stimuli_50. 
+* We provide the transformed images of each object required for running *KiVA-adults* experiments under Stimuli/Stimuli_50_Hard.
 
 The python scripts that run the experiments (as outlined below) use the images under Stimuli to construct our puzzle.
 
