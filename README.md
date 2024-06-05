@@ -61,4 +61,5 @@ As outlined in our paper, we test additional prompt settings for KiVA. You can f
 
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
+
 [2] Stojanov, S., Mishra, S., Thai, N. A., Dhanda, N., Humayun, A., Yu, C., ... & Rehg, J. M. (2019). Incremental object learning from contiguous views. In Proceedings of the ieee/cvf conference on computer vision and pattern recognition (pp. 8777-8786).
