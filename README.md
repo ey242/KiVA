@@ -55,7 +55,7 @@ Given:
 python chat_system_multi_image_mantis_[DIFFICULTY].py --concept [CONCEPT]
 ```
 
-## Supplemntary Prompts 
+## Supplementary Prompts 
 
 As outlined in our paper, we test additional prompt settings (instruction prompting, reflection prompting, code prompting and in-context learning) for KiVA. You can find the scripts for these attempts under chat_systems_supp folder. 
 
