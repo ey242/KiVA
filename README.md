@@ -59,6 +59,9 @@ python chat_system_multi_image_mantis_[DIFFICULTY].py --concept [CONCEPT]
 
 As outlined in our paper, we test additional prompt settings (instruction prompting, reflection prompting, code prompting and in-context learning) for KiVA. You can find the scripts for these attempts under chat_systems_supp folder. 
 
+## Human Data
+
+We provide scores and reaction times of child and adult participants for KiVA (KiVA_children and KiVA_adults); scores and response times of adult participants for KiVA-adults (KiVA-adults_adults) under human_data. Participant identifiers are removed for confidentiality.
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
 
