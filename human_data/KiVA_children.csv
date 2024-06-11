@@ -1,0 +1,586 @@
+Participant ID,ParticipantAge,Concept,Transformation,Variation,Task,Score,ReactionTime
+1,5,Color,ColourRed,47,Cross Domain,1,15455
+1,5,Color,ColourRed,47,Within Domain,1,6937
+1,5,Color,ColourRed,47,Extrapolation,1,7081
+1,5,Size,Resize0.5XY,23,Cross Domain,1,12842
+1,5,Size,Resize0.5XY,23,Within Domain,1,8264
+1,5,Size,Resize0.5XY,23,Extrapolation,1,11629
+1,5,Size,Resize2XY,16,Cross Domain,1,12465
+1,5,Size,Resize2XY,16,Within Domain,1,5463
+1,5,Size,Resize2XY,16,Extrapolation,1,5111
+1,5,Color,ColourGreen,28,Cross Domain,1,5562
+1,5,Color,ColourGreen,28,Within Domain,1,4376
+1,5,Color,ColourGreen,28,Extrapolation,1,5327
+1,5,Reflection,ReflectY,19,Cross Domain,1,11685
+1,5,Reflection,ReflectY,19,Within Domain,1,8048
+1,5,Reflection,ReflectY,19,Extrapolation,1,4060
+1,5,Number,Counting-1,8,Cross Domain,1,8327
+1,5,Number,Counting-1,8,Within Domain,0,36548
+1,5,Number,Counting-1,8,Extrapolation,1,9228
+1,5,Reflection,ReflectX,1,Cross Domain,1,11723
+1,5,Reflection,ReflectX,1,Within Domain,1,6738
+1,5,Reflection,ReflectX,1,Extrapolation,1,7974
+1,5,Rotation,2DRotation-90,18,Cross Domain,1,7053
+1,5,Rotation,2DRotation-90,18,Within Domain,1,15033
+1,5,Rotation,2DRotation-90,18,Extrapolation,1,10983
+1,5,Rotation,2DRotation180,31,Cross Domain,1,12985
+1,5,Rotation,2DRotation180,31,Within Domain,1,5847
+1,5,Rotation,2DRotation180,31,Extrapolation,1,5587
+1,5,Number,Counting+2,4,Cross Domain,1,6680
+1,5,Number,Counting+2,4,Within Domain,0,18505
+1,5,Number,Counting+2,4,Extrapolation,1,5444
+2,5,Rotation,2DRotation+90,29,Cross Domain,1,18152
+2,5,Rotation,2DRotation+90,29,Within Domain,0,5481
+2,5,Rotation,2DRotation+90,29,Extrapolation,0,11260
+2,5,Number,Counting-2,17,Cross Domain,1,12751
+2,5,Number,Counting-2,17,Within Domain,1,6378
+2,5,Number,Counting-2,17,Extrapolation,1,5854
+2,5,Color,ColourRed,38,Cross Domain,1,11652
+2,5,Color,ColourRed,38,Within Domain,1,9172
+2,5,Color,ColourRed,38,Extrapolation,1,7449
+2,5,Size,Resize0.5XY,23,Cross Domain,1,17358
+2,5,Size,Resize0.5XY,23,Within Domain,1,1169
+2,5,Size,Resize0.5XY,23,Extrapolation,1,5184
+2,5,Color,ColourBlue,48,Cross Domain,1,9048
+2,5,Color,ColourBlue,48,Within Domain,1,5513
+2,5,Color,ColourBlue,48,Extrapolation,1,4393
+2,5,Size,Resize2XY,12,Cross Domain,1,10048
+2,5,Size,Resize2XY,12,Within Domain,0,657
+2,5,Size,Resize2XY,12,Extrapolation,1,7048
+2,5,Reflection,ReflectX,44,Cross Domain,1,13898
+2,5,Reflection,ReflectX,44,Within Domain,1,1074
+2,5,Reflection,ReflectX,44,Extrapolation,1,11132
+2,5,Rotation,2DRotation180,21,Cross Domain,1,12345
+2,5,Rotation,2DRotation180,21,Within Domain,1,2362
+2,5,Rotation,2DRotation180,21,Extrapolation,1,6400
+2,5,Reflection,ReflectY,27,Cross Domain,1,9895
+2,5,Reflection,ReflectY,27,Within Domain,1,6642
+2,5,Reflection,ReflectY,27,Extrapolation,1,4381
+2,5,Number,Counting-1,24,Cross Domain,1,7105
+2,5,Number,Counting-1,24,Within Domain,1,7508
+2,5,Number,Counting-1,24,Extrapolation,1,6868
+3,4,Number,Counting-2,40,Cross Domain,1,33019
+3,4,Number,Counting-2,40,Within Domain,1,13993
+3,4,Number,Counting-2,40,Extrapolation,1,20995
+3,4,Rotation,2DRotation+90,30,Cross Domain,1,36419
+3,4,Rotation,2DRotation+90,30,Within Domain,1,8637
+3,4,Rotation,2DRotation+90,30,Extrapolation,1,22203
+3,4,Reflection,ReflectY,26,Cross Domain,1,60395
+3,4,Reflection,ReflectY,26,Within Domain,1,11018
+3,4,Reflection,ReflectY,26,Extrapolation,0,14085
+3,4,Size,Resize2XY,32,Cross Domain,1,24507
+3,4,Size,Resize2XY,32,Within Domain,0,16718
+3,4,Size,Resize2XY,32,Extrapolation,1,8176
+3,4,Color,ColourGreen,6,Cross Domain,1,11118
+3,4,Color,ColourGreen,6,Within Domain,1,6041
+3,4,Color,ColourGreen,6,Extrapolation,1,11984
+3,4,Number,Counting+1,24,Cross Domain,0,34390
+3,4,Number,Counting+1,24,Extrapolation,1,14303
+3,4,Color,ColourRed,47,Cross Domain,1,31015
+3,4,Color,ColourRed,47,Within Domain,0,9907
+3,4,Color,ColourRed,47,Extrapolation,1,16411
+3,4,Reflection,ReflectX,13,Cross Domain,1,9182
+3,4,Reflection,ReflectX,13,Within Domain,1,887
+3,4,Reflection,ReflectX,13,Extrapolation,1,15737
+3,4,Rotation,2DRotation180,21,Cross Domain,1,9939
+3,4,Rotation,2DRotation180,21,Within Domain,1,788
+3,4,Rotation,2DRotation180,21,Extrapolation,1,11839
+3,4,Size,Resize0.5XY,27,Cross Domain,1,9404
+3,4,Size,Resize0.5XY,27,Within Domain,1,704
+3,4,Size,Resize0.5XY,27,Extrapolation,1,10238
+4,4,Color,ColourBlue,42,Cross Domain,1,16712
+4,4,Color,ColourBlue,42,Within Domain,0,13080
+4,4,Color,ColourBlue,42,Extrapolation,0,13664
+4,4,Number,Counting-2,47,Cross Domain,1,15931
+4,4,Number,Counting-2,47,Within Domain,1,12398
+4,4,Number,Counting-2,47,Extrapolation,1,14314
+4,4,Reflection,ReflectX,27,Cross Domain,0,50464
+4,4,Reflection,ReflectX,27,Extrapolation,0,25048
+4,4,Size,Resize2XY,19,Cross Domain,1,14830
+4,4,Size,Resize2XY,19,Within Domain,1,5698
+4,4,Size,Resize2XY,19,Extrapolation,1,44332
+4,4,Rotation,2DRotation180,17,Cross Domain,0,37863
+4,4,Rotation,2DRotation180,17,Extrapolation,1,35900
+4,4,Reflection,ReflectY,40,Cross Domain,0,27049
+4,4,Reflection,ReflectY,40,Extrapolation,0,52647
+4,4,Rotation,2DRotation-90,44,Cross Domain,0,20648
+4,4,Rotation,2DRotation-90,44,Extrapolation,0,14964
+4,4,Number,Counting-1,11,Cross Domain,1,28911
+4,4,Number,Counting-1,11,Within Domain,1,11665
+4,4,Number,Counting-1,11,Extrapolation,1,48631
+4,4,Size,Resize0.5XY,15,Cross Domain,1,28948
+4,4,Size,Resize0.5XY,15,Within Domain,1,12433
+4,4,Size,Resize0.5XY,15,Extrapolation,1,155600
+4,4,Color,ColourRed,7,Cross Domain,1,17662
+4,4,Color,ColourRed,7,Within Domain,1,9415
+4,4,Color,ColourRed,7,Extrapolation,1,19598
+5,4,Number,Counting-2,38,Cross Domain,1,27886
+5,4,Number,Counting-2,38,Within Domain,1,9529
+5,4,Number,Counting-2,38,Extrapolation,1,22785
+5,4,Color,ColourGreen,36,Cross Domain,1,15848
+5,4,Color,ColourGreen,36,Within Domain,1,6150
+5,4,Color,ColourGreen,36,Extrapolation,1,16801
+5,4,Reflection,ReflectX,16,Cross Domain,1,29980
+5,4,Reflection,ReflectX,16,Within Domain,0,16550
+5,4,Reflection,ReflectX,16,Extrapolation,1,12919
+5,4,Reflection,ReflectY,25,Cross Domain,1,22549
+5,4,Reflection,ReflectY,25,Within Domain,1,19870
+5,4,Reflection,ReflectY,25,Extrapolation,1,15498
+5,4,Size,Resize2XY,3,Cross Domain,1,17654
+5,4,Size,Resize2XY,3,Within Domain,1,7612
+5,4,Size,Resize2XY,3,Extrapolation,0,52352
+5,4,Rotation,2DRotation-90,44,Cross Domain,1,8949
+5,4,Rotation,2DRotation-90,44,Within Domain,1,8983
+5,4,Rotation,2DRotation-90,44,Extrapolation,0,13566
+5,4,Color,ColourRed,49,Cross Domain,1,10831
+5,4,Color,ColourRed,49,Within Domain,1,10069
+5,4,Color,ColourRed,49,Extrapolation,1,13234
+5,4,Number,Counting+1,8,Cross Domain,1,10547
+5,4,Number,Counting+1,8,Within Domain,1,10068
+5,4,Number,Counting+1,8,Extrapolation,1,14499
+5,4,Size,Resize0.5XY,27,Cross Domain,1,9882
+5,4,Size,Resize0.5XY,27,Within Domain,1,4501
+5,4,Size,Resize0.5XY,27,Extrapolation,1,19251
+5,4,Rotation,2DRotation180,10,Cross Domain,1,11762
+5,4,Rotation,2DRotation180,10,Within Domain,1,2067
+5,4,Rotation,2DRotation180,10,Extrapolation,1,22517
+6,5,Reflection,ReflectY,29,Cross Domain,1,36516
+6,5,Reflection,ReflectY,29,Within Domain,1,13200
+6,5,Reflection,ReflectY,29,Extrapolation,1,51132
+6,5,Reflection,ReflectX,6,Cross Domain,1,25600
+6,5,Reflection,ReflectX,6,Within Domain,1,20567
+6,5,Reflection,ReflectX,6,Extrapolation,1,25849
+6,5,Number,Counting-2,21,Cross Domain,1,12482
+6,5,Number,Counting-2,21,Within Domain,0,24318
+6,5,Number,Counting-2,21,Extrapolation,0,12335
+6,5,Size,Resize2XY,49,Cross Domain,1,17782
+6,5,Size,Resize2XY,49,Within Domain,1,4585
+6,5,Size,Resize2XY,49,Extrapolation,1,9550
+6,5,Number,Counting-1,47,Cross Domain,1,35030
+6,5,Number,Counting-1,47,Within Domain,0,11451
+6,5,Number,Counting-1,47,Extrapolation,0,20849
+6,5,Color,ColourRed,26,Cross Domain,0,14918
+6,5,Color,ColourRed,26,Extrapolation,1,37550
+6,5,Rotation,2DRotation180,46,Cross Domain,1,14284
+6,5,Rotation,2DRotation180,46,Within Domain,1,10968
+6,5,Rotation,2DRotation180,46,Extrapolation,1,20015
+6,5,Color,ColourGreen,38,Cross Domain,1,8484
+6,5,Color,ColourGreen,38,Within Domain,1,10417
+6,5,Color,ColourGreen,38,Extrapolation,1,26733
+6,5,Rotation,2DRotation+90,30,Cross Domain,1,21900
+6,5,Rotation,2DRotation+90,30,Within Domain,0,12066
+6,5,Rotation,2DRotation+90,30,Extrapolation,0,21000
+6,5,Size,Resize0.5XY,33,Cross Domain,1,10166
+6,5,Size,Resize0.5XY,33,Within Domain,1,8515
+6,5,Size,Resize0.5XY,33,Extrapolation,0,27816
+7,5,Reflection,ReflectX,33,Cross Domain,1,40905
+7,5,Reflection,ReflectX,33,Within Domain,1,2258
+7,5,Reflection,ReflectX,33,Extrapolation,0,13260
+7,5,Number,Counting+1,46,Cross Domain,1,27696
+7,5,Number,Counting+1,46,Within Domain,1,10520
+7,5,Number,Counting+1,46,Extrapolation,1,12142
+7,5,Number,Counting-2,10,Cross Domain,1,14974
+7,5,Number,Counting-2,10,Within Domain,0,14572
+7,5,Number,Counting-2,10,Extrapolation,1,9933
+7,5,Rotation,2DRotation180,44,Cross Domain,1,18434
+7,5,Rotation,2DRotation180,44,Within Domain,1,11075
+7,5,Rotation,2DRotation180,44,Extrapolation,1,19129
+7,5,Size,Resize2XY,26,Cross Domain,1,17399
+7,5,Size,Resize2XY,26,Within Domain,1,7331
+7,5,Size,Resize2XY,26,Extrapolation,1,10635
+7,5,Color,ColourRed,16,Cross Domain,1,14102
+7,5,Color,ColourRed,16,Within Domain,1,9305
+7,5,Color,ColourRed,16,Extrapolation,1,7000
+7,5,Size,Resize0.5XY,34,Cross Domain,1,15043
+7,5,Size,Resize0.5XY,34,Within Domain,0,10957
+7,5,Size,Resize0.5XY,34,Extrapolation,1,5872
+7,5,Reflection,ReflectY,17,Cross Domain,0,20438
+7,5,Reflection,ReflectY,17,Extrapolation,1,11744
+7,5,Color,ColourBlue,43,Cross Domain,1,24422
+7,5,Color,ColourBlue,43,Within Domain,1,8993
+7,5,Color,ColourBlue,43,Extrapolation,1,7775
+7,5,Rotation,2DRotation-90,24,Cross Domain,1,14836
+7,5,Rotation,2DRotation-90,24,Within Domain,1,6492
+7,5,Rotation,2DRotation-90,24,Extrapolation,0,8209
+8,5,Reflection,ReflectY,4,Cross Domain,0,18662
+8,5,Reflection,ReflectY,4,Extrapolation,0,9655
+8,5,Color,ColourGreen,26,Cross Domain,0,9048
+8,5,Color,ColourGreen,26,Extrapolation,1,5272
+8,5,Size,Resize0.5XY,45,Cross Domain,1,8542
+8,5,Size,Resize0.5XY,45,Within Domain,0,7623
+8,5,Size,Resize0.5XY,45,Extrapolation,0,7345
+8,5,Reflection,ReflectX,29,Cross Domain,0,7020
+8,5,Reflection,ReflectX,29,Extrapolation,1,12148
+8,5,Rotation,2DRotation-90,12,Cross Domain,1,7845
+8,5,Rotation,2DRotation-90,12,Within Domain,0,8867
+8,5,Rotation,2DRotation-90,12,Extrapolation,1,5397
+8,5,Number,Counting+1,8,Cross Domain,1,7282
+8,5,Number,Counting+1,8,Within Domain,1,9060
+8,5,Number,Counting+1,8,Extrapolation,1,6301
+8,5,Size,Resize2XY,44,Cross Domain,1,8306
+8,5,Size,Resize2XY,44,Within Domain,1,3536
+8,5,Size,Resize2XY,44,Extrapolation,1,3223
+8,5,Rotation,2DRotation180,40,Cross Domain,0,5784
+8,5,Rotation,2DRotation180,40,Extrapolation,0,11464
+8,5,Number,Counting-1,13,Cross Domain,0,11435
+8,5,Number,Counting-1,13,Extrapolation,0,6649
+8,5,Color,ColourBlue,46,Cross Domain,1,5476
+8,5,Color,ColourBlue,46,Within Domain,1,5472
+8,5,Color,ColourBlue,46,Extrapolation,0,15936
+9,4,Color,ColourRed,6,Cross Domain,1,18898
+9,4,Color,ColourRed,6,Within Domain,1,9415
+9,4,Color,ColourRed,6,Extrapolation,1,16232
+9,4,Rotation,2DRotation-90,39,Cross Domain,0,57335
+9,4,Rotation,2DRotation-90,39,Extrapolation,1,14830
+9,4,Reflection,ReflectY,16,Cross Domain,1,31467
+9,4,Reflection,ReflectY,16,Within Domain,1,12165
+9,4,Reflection,ReflectY,16,Extrapolation,0,21467
+9,4,Number,Counting+2,28,Cross Domain,1,15618
+9,4,Number,Counting+2,28,Within Domain,1,17416
+9,4,Number,Counting+2,28,Extrapolation,1,60984
+9,4,Number,Counting+1,34,Cross Domain,1,12883
+9,4,Number,Counting+1,34,Within Domain,1,8765
+9,4,Number,Counting+1,34,Extrapolation,1,14435
+9,4,Size,Resize0.5XY,20,Cross Domain,1,12350
+9,4,Size,Resize0.5XY,20,Within Domain,1,8650
+9,4,Size,Resize0.5XY,20,Extrapolation,1,20565
+9,4,Color,ColourGreen,33,Cross Domain,1,8499
+9,4,Color,ColourGreen,33,Within Domain,1,10216
+9,4,Color,ColourGreen,33,Extrapolation,1,14799
+9,4,Rotation,2DRotation180,47,Cross Domain,1,11335
+9,4,Rotation,2DRotation180,47,Within Domain,0,16702
+9,4,Rotation,2DRotation180,47,Extrapolation,0,20398
+9,4,Reflection,ReflectX,10,Cross Domain,1,14416
+9,4,Reflection,ReflectX,10,Within Domain,1,14268
+9,4,Reflection,ReflectX,10,Extrapolation,1,30598
+9,4,Size,Resize2XY,26,Cross Domain,1,10282
+9,4,Size,Resize2XY,26,Within Domain,1,6801
+9,4,Size,Resize2XY,26,Extrapolation,1,21799
+10,4,Size,Resize2XY,14,Cross Domain,1,12446
+10,4,Size,Resize2XY,14,Within Domain,1,4214
+10,4,Size,Resize2XY,14,Extrapolation,1,82931
+10,4,Rotation,2DRotation180,10,Cross Domain,1,11714
+10,4,Rotation,2DRotation180,10,Within Domain,1,1532
+10,4,Rotation,2DRotation180,10,Extrapolation,1,18614
+10,4,Color,ColourRed,24,Cross Domain,1,14764
+10,4,Color,ColourRed,24,Within Domain,1,2116
+10,4,Color,ColourRed,24,Extrapolation,1,12696
+10,4,Number,Counting+2,19,Cross Domain,1,9963
+10,4,Number,Counting+2,19,Within Domain,1,4233
+10,4,Number,Counting+2,19,Extrapolation,1,10712
+10,4,Reflection,ReflectY,1,Cross Domain,1,13014
+10,4,Reflection,ReflectY,1,Within Domain,1,8664
+10,4,Reflection,ReflectY,1,Extrapolation,1,12548
+10,4,Rotation,2DRotation-90,42,Cross Domain,1,41428
+10,4,Rotation,2DRotation-90,42,Within Domain,1,10298
+10,4,Rotation,2DRotation-90,42,Extrapolation,0,47064
+10,4,Size,Resize0.5XY,0,Cross Domain,1,10730
+10,4,Size,Resize0.5XY,0,Within Domain,1,4015
+10,4,Size,Resize0.5XY,0,Extrapolation,1,11398
+10,4,Number,Counting+1,35,Cross Domain,1,19180
+10,4,Number,Counting+1,35,Within Domain,1,2065
+10,4,Number,Counting+1,35,Extrapolation,1,13166
+10,4,Color,ColourGreen,27,Cross Domain,1,8812
+10,4,Color,ColourGreen,27,Within Domain,1,1248
+10,4,Color,ColourGreen,27,Extrapolation,1,7947
+10,4,Reflection,ReflectX,17,Cross Domain,1,16763
+10,4,Reflection,ReflectX,17,Within Domain,1,1381
+10,4,Reflection,ReflectX,17,Extrapolation,1,7416
+11,4,Color,ColourBlue,17,Cross Domain,1,15776
+11,4,Color,ColourBlue,17,Within Domain,1,6366
+11,4,Color,ColourBlue,17,Extrapolation,1,7062
+11,4,Reflection,ReflectY,42,Cross Domain,0,9016
+11,4,Reflection,ReflectY,42,Extrapolation,1,5376
+11,4,Number,Counting-2,12,Cross Domain,1,10631
+11,4,Number,Counting-2,12,Within Domain,1,8934
+11,4,Number,Counting-2,12,Extrapolation,1,8249
+11,4,Color,ColourRed,10,Cross Domain,1,10188
+11,4,Color,ColourRed,10,Within Domain,1,4220
+11,4,Color,ColourRed,10,Extrapolation,1,9697
+11,4,Number,Counting+1,40,Cross Domain,1,12569
+11,4,Number,Counting+1,40,Within Domain,0,15643
+11,4,Number,Counting+1,40,Extrapolation,0,9129
+11,4,Reflection,ReflectX,28,Cross Domain,1,12284
+11,4,Reflection,ReflectX,28,Within Domain,1,8300
+11,4,Reflection,ReflectX,28,Extrapolation,1,4702
+11,4,Size,Resize2XY,11,Cross Domain,1,10276
+11,4,Size,Resize2XY,11,Within Domain,1,10992
+11,4,Size,Resize2XY,11,Extrapolation,1,5244
+11,4,Rotation,2DRotation+90,8,Cross Domain,1,10265
+11,4,Rotation,2DRotation+90,8,Within Domain,1,6229
+11,4,Rotation,2DRotation+90,8,Extrapolation,1,7645
+11,4,Rotation,2DRotation180,39,Cross Domain,1,13605
+11,4,Rotation,2DRotation180,39,Within Domain,1,733
+11,4,Rotation,2DRotation180,39,Extrapolation,1,12590
+11,4,Size,Resize0.5XY,4,Cross Domain,1,6808
+11,4,Size,Resize0.5XY,4,Within Domain,1,6346
+11,4,Size,Resize0.5XY,4,Extrapolation,1,7141
+12,4,Size,Resize2XY,23,Cross Domain,1,19488
+12,4,Size,Resize2XY,23,Within Domain,0,11689
+12,4,Size,Resize2XY,23,Extrapolation,1,6957
+12,4,Number,Counting-2,34,Cross Domain,0,10658
+12,4,Number,Counting-2,34,Extrapolation,0,28021
+12,4,Number,Counting+2,16,Cross Domain,0,16770
+12,4,Number,Counting+2,16,Extrapolation,0,18092
+12,4,Color,ColourBlue,49,Cross Domain,1,35304
+12,4,Color,ColourBlue,49,Within Domain,1,17280
+12,4,Color,ColourBlue,49,Extrapolation,1,9035
+12,4,Size,Resize0.5XY,13,Cross Domain,0,22966
+12,4,Size,Resize0.5XY,13,Extrapolation,1,6155
+12,4,Reflection,ReflectX,17,Cross Domain,1,10596
+12,4,Reflection,ReflectX,17,Within Domain,1,2800
+12,4,Reflection,ReflectX,17,Extrapolation,1,6704
+12,4,Reflection,ReflectY,30,Cross Domain,1,12387
+12,4,Reflection,ReflectY,30,Within Domain,1,5150
+12,4,Reflection,ReflectY,30,Extrapolation,1,9684
+12,4,Color,ColourGreen,27,Cross Domain,1,10158
+12,4,Color,ColourGreen,27,Within Domain,1,6702
+12,4,Color,ColourGreen,27,Extrapolation,1,6487
+12,4,Rotation,2DRotation180,40,Cross Domain,1,13213
+12,4,Rotation,2DRotation180,40,Within Domain,1,7246
+12,4,Rotation,2DRotation180,40,Extrapolation,0,6416
+12,4,Rotation,2DRotation-90,43,Cross Domain,1,11084
+12,4,Rotation,2DRotation-90,43,Within Domain,0,1410
+12,4,Rotation,2DRotation-90,43,Extrapolation,0,7029
+13,3,Number,Counting-2,49,Cross Domain,1,14497
+13,3,Number,Counting-2,49,Within Domain,1,14199
+13,3,Number,Counting-2,49,Extrapolation,1,15565
+13,3,Color,ColourBlue,7,Cross Domain,1,15698
+13,3,Color,ColourBlue,7,Within Domain,1,6347
+13,3,Color,ColourBlue,7,Extrapolation,1,10014
+13,3,Size,Resize2XY,27,Cross Domain,1,9931
+13,3,Size,Resize2XY,27,Within Domain,1,1265
+13,3,Size,Resize2XY,27,Extrapolation,1,25064
+13,3,Size,Resize0.5XY,13,Cross Domain,1,14382
+13,3,Size,Resize0.5XY,13,Within Domain,1,930
+13,3,Size,Resize0.5XY,13,Extrapolation,1,34481
+13,3,Rotation,2DRotation-90,30,Cross Domain,0,15647
+13,3,Rotation,2DRotation-90,30,Extrapolation,0,12697
+13,3,Reflection,ReflectY,33,Cross Domain,1,34314
+13,3,Reflection,ReflectY,33,Within Domain,1,15781
+13,3,Reflection,ReflectY,33,Extrapolation,1,20048
+13,3,Rotation,2DRotation+90,8,Cross Domain,0,22965
+13,3,Rotation,2DRotation+90,8,Extrapolation,1,9932
+13,3,Reflection,ReflectX,39,Cross Domain,1,33082
+13,3,Reflection,ReflectX,39,Within Domain,0,9097
+13,3,Reflection,ReflectX,39,Extrapolation,1,9514
+13,3,Color,ColourRed,20,Cross Domain,1,30197
+13,3,Color,ColourRed,20,Within Domain,1,1333
+13,3,Color,ColourRed,20,Extrapolation,1,20265
+13,3,Number,Counting+1,35,Cross Domain,1,10114
+13,3,Number,Counting+1,35,Within Domain,1,4698
+13,3,Number,Counting+1,35,Extrapolation,1,12647
+14,5,Reflection,ReflectY,40,Cross Domain,1,28583
+14,5,Reflection,ReflectY,40,Within Domain,1,12715
+14,5,Reflection,ReflectY,40,Extrapolation,0,24950
+14,5,Number,Counting+1,10,Cross Domain,1,12567
+14,5,Number,Counting+1,10,Within Domain,1,8532
+14,5,Number,Counting+1,10,Extrapolation,1,23903
+14,5,Size,Resize2XY,39,Cross Domain,1,9215
+14,5,Size,Resize2XY,39,Within Domain,1,4433
+14,5,Size,Resize2XY,39,Extrapolation,1,9118
+14,5,Color,ColourGreen,28,Cross Domain,1,16199
+14,5,Color,ColourGreen,28,Within Domain,1,6866
+14,5,Color,ColourGreen,28,Extrapolation,1,9949
+14,5,Rotation,2DRotation-90,1,Cross Domain,1,11250
+14,5,Rotation,2DRotation-90,1,Within Domain,1,7165
+14,5,Rotation,2DRotation-90,1,Extrapolation,1,23034
+14,5,Rotation,2DRotation+90,17,Cross Domain,1,14399
+14,5,Rotation,2DRotation+90,17,Within Domain,1,5868
+14,5,Rotation,2DRotation+90,17,Extrapolation,1,16598
+14,5,Color,ColourBlue,31,Cross Domain,1,11749
+14,5,Color,ColourBlue,31,Within Domain,1,5899
+14,5,Color,ColourBlue,31,Extrapolation,1,13402
+14,5,Number,Counting-1,45,Cross Domain,1,9085
+14,5,Number,Counting-1,45,Within Domain,1,11098
+14,5,Number,Counting-1,45,Extrapolation,0,27088
+14,5,Reflection,ReflectX,22,Cross Domain,1,28069
+14,5,Reflection,ReflectX,22,Within Domain,1,12600
+14,5,Reflection,ReflectX,22,Extrapolation,1,9064
+14,5,Size,Resize0.5XY,5,Cross Domain,1,8981
+14,5,Size,Resize0.5XY,5,Within Domain,0,11067
+14,5,Size,Resize0.5XY,5,Extrapolation,0,13367
+15,4,Rotation,2DRotation-90,5,Cross Domain,0,21077
+15,4,Rotation,2DRotation-90,5,Extrapolation,1,18729
+15,4,Size,Resize2XY,11,Cross Domain,1,26465
+15,4,Size,Resize2XY,11,Within Domain,1,5365
+15,4,Size,Resize2XY,11,Extrapolation,1,11082
+15,4,Color,ColourRed,2,Cross Domain,1,16080
+15,4,Color,ColourRed,2,Within Domain,1,6031
+15,4,Color,ColourRed,2,Extrapolation,1,11514
+15,4,Size,Resize0.5XY,3,Cross Domain,1,12797
+15,4,Size,Resize0.5XY,3,Within Domain,1,6031
+15,4,Size,Resize0.5XY,3,Extrapolation,1,9248
+15,4,Rotation,2DRotation+90,37,Cross Domain,1,11781
+15,4,Rotation,2DRotation+90,37,Within Domain,1,19697
+15,4,Rotation,2DRotation+90,37,Extrapolation,1,11847
+15,4,Color,ColourGreen,48,Cross Domain,1,12163
+15,4,Color,ColourGreen,48,Within Domain,1,6915
+15,4,Color,ColourGreen,48,Extrapolation,1,7948
+15,4,Reflection,ReflectY,21,Cross Domain,1,42830
+15,4,Reflection,ReflectY,21,Within Domain,1,8599
+15,4,Reflection,ReflectY,21,Extrapolation,1,13966
+15,4,Reflection,ReflectX,15,Cross Domain,1,11631
+15,4,Reflection,ReflectX,15,Within Domain,1,8314
+15,4,Reflection,ReflectX,15,Extrapolation,1,9748
+15,4,Number,Counting+2,1,Cross Domain,1,11631
+15,4,Number,Counting+2,1,Within Domain,1,26016
+15,4,Number,Counting+2,1,Extrapolation,1,9648
+15,4,Number,Counting+1,10,Cross Domain,1,11115
+15,4,Number,Counting+1,10,Within Domain,1,6248
+15,4,Number,Counting+1,10,Extrapolation,1,12931
+16,4,Size,Resize2XY,29,Cross Domain,1,20896
+16,4,Size,Resize2XY,29,Within Domain,1,11331
+16,4,Size,Resize2XY,29,Extrapolation,1,48148
+16,4,Rotation,2DRotation180,32,Cross Domain,1,69148
+16,4,Rotation,2DRotation180,32,Within Domain,1,2047
+16,4,Rotation,2DRotation180,32,Extrapolation,1,34547
+16,4,Reflection,ReflectY,28,Cross Domain,0,41814
+16,4,Reflection,ReflectY,28,Extrapolation,0,104014
+16,4,Rotation,2DRotation+90,13,Cross Domain,1,12164
+16,4,Rotation,2DRotation+90,13,Within Domain,0,8548
+16,4,Rotation,2DRotation+90,13,Extrapolation,1,16864
+16,4,Reflection,ReflectX,23,Cross Domain,0,81763
+16,4,Reflection,ReflectX,23,Extrapolation,1,12830
+16,4,Size,Resize0.5XY,20,Cross Domain,1,29264
+16,4,Size,Resize0.5XY,20,Within Domain,1,6297
+16,4,Size,Resize0.5XY,20,Extrapolation,1,18364
+16,4,Color,ColourBlue,3,Cross Domain,1,13977
+16,4,Color,ColourBlue,3,Within Domain,1,5947
+16,4,Color,ColourBlue,3,Extrapolation,1,51481
+16,4,Number,Counting+1,27,Cross Domain,1,19030
+16,4,Number,Counting+1,27,Within Domain,1,7281
+16,4,Number,Counting+1,27,Extrapolation,0,132666
+16,4,Color,ColourGreen,37,Cross Domain,1,92760
+16,4,Color,ColourGreen,37,Within Domain,1,6829
+16,4,Color,ColourGreen,37,Extrapolation,1,12982
+16,4,Number,Counting+2,34,Cross Domain,1,15114
+16,4,Number,Counting+2,34,Within Domain,1,64800
+16,4,Number,Counting+2,34,Extrapolation,1,17581
+17,4,Number,Counting-2,36,Cross Domain,1,26299
+17,4,Number,Counting-2,36,Within Domain,0,11470
+17,4,Number,Counting-2,36,Extrapolation,1,13222
+17,4,Color,ColourRed,20,Cross Domain,0,16922
+17,4,Color,ColourRed,20,Extrapolation,1,11053
+17,4,Reflection,ReflectY,34,Cross Domain,0,17266
+17,4,Reflection,ReflectY,34,Extrapolation,1,23382
+17,4,Reflection,ReflectX,1,Cross Domain,0,10321
+17,4,Reflection,ReflectX,1,Extrapolation,1,11895
+17,4,Size,Resize2XY,13,Cross Domain,0,11484
+17,4,Size,Resize2XY,13,Extrapolation,1,5486
+17,4,Number,Counting-1,40,Cross Domain,1,11207
+17,4,Number,Counting-1,40,Within Domain,1,8103
+17,4,Number,Counting-1,40,Extrapolation,0,9634
+17,4,Size,Resize0.5XY,4,Cross Domain,1,8203
+17,4,Size,Resize0.5XY,4,Within Domain,0,5220
+17,4,Size,Resize0.5XY,4,Extrapolation,1,6962
+17,4,Rotation,2DRotation180,32,Cross Domain,1,7796
+17,4,Rotation,2DRotation180,32,Within Domain,1,4682
+17,4,Rotation,2DRotation180,32,Extrapolation,0,8224
+17,4,Color,ColourBlue,33,Cross Domain,1,8553
+17,4,Color,ColourBlue,33,Within Domain,1,5172
+17,4,Color,ColourBlue,33,Extrapolation,1,4127
+17,4,Rotation,2DRotation-90,48,Cross Domain,0,7359
+17,4,Rotation,2DRotation-90,48,Extrapolation,0,4181
+18,7,Number,Counting+1,27,Cross Domain,1,30075
+18,7,Number,Counting+1,27,Within Domain,1,15197
+18,7,Number,Counting+1,27,Extrapolation,1,35640
+18,7,Rotation,2DRotation-90,19,Cross Domain,1,22150
+18,7,Rotation,2DRotation-90,19,Within Domain,1,9602
+18,7,Rotation,2DRotation-90,19,Extrapolation,1,24691
+18,7,Size,Resize2XY,3,Cross Domain,1,24890
+18,7,Size,Resize2XY,3,Within Domain,1,8821
+18,7,Size,Resize2XY,3,Extrapolation,1,12009
+18,7,Reflection,ReflectY,5,Cross Domain,1,18790
+18,7,Reflection,ReflectY,5,Within Domain,1,13230
+18,7,Reflection,ReflectY,5,Extrapolation,1,12371
+18,7,Rotation,2DRotation+90,26,Cross Domain,1,14715
+18,7,Rotation,2DRotation+90,26,Within Domain,1,8358
+18,7,Rotation,2DRotation+90,26,Extrapolation,1,11147
+18,7,Color,ColourGreen,24,Cross Domain,1,16731
+18,7,Color,ColourGreen,24,Within Domain,1,5948
+18,7,Color,ColourGreen,24,Extrapolation,1,12932
+18,7,Reflection,ReflectX,1,Cross Domain,1,11169
+18,7,Reflection,ReflectX,1,Within Domain,1,9287
+18,7,Reflection,ReflectX,1,Extrapolation,1,10133
+18,7,Rotation,2DRotation180,12,Cross Domain,1,11723
+18,7,Rotation,2DRotation180,12,Within Domain,1,20870
+18,7,Rotation,2DRotation180,12,Extrapolation,1,8366
+18,7,Number,Counting+2,16,Cross Domain,1,13060
+18,7,Number,Counting+2,16,Within Domain,1,11540
+18,7,Number,Counting+2,16,Extrapolation,1,18119
+18,7,Number,Counting-2,2,Cross Domain,1,13815
+18,7,Number,Counting-2,2,Within Domain,1,9607
+18,7,Number,Counting-2,2,Extrapolation,1,8412
+18,7,Number,Counting-1,9,Cross Domain,1,10731
+18,7,Number,Counting-1,9,Within Domain,1,13102
+18,7,Number,Counting-1,9,Extrapolation,1,8614
+18,7,Color,ColourBlue,9,Cross Domain,1,14434
+18,7,Color,ColourBlue,9,Within Domain,1,7197
+18,7,Color,ColourBlue,9,Extrapolation,1,6524
+18,7,Color,ColourRed,34,Cross Domain,1,11963
+18,7,Color,ColourRed,34,Within Domain,1,5376
+18,7,Color,ColourRed,34,Extrapolation,1,7712
+18,7,Size,Resize0.5XY,32,Cross Domain,1,11460
+18,7,Size,Resize0.5XY,32,Within Domain,1,4944
+18,7,Size,Resize0.5XY,32,Extrapolation,1,10184
+19,6,Number,Counting+2,3,Cross Domain,1,24625
+19,6,Number,Counting+2,3,Within Domain,1,64358
+19,6,Number,Counting+2,3,Extrapolation,1,41431
+19,6,Reflection,ReflectX,14,Cross Domain,1,27248
+19,6,Reflection,ReflectX,14,Within Domain,0,10961
+19,6,Reflection,ReflectX,14,Extrapolation,1,40144
+19,6,Color,ColourGreen,49,Cross Domain,1,13737
+19,6,Color,ColourGreen,49,Within Domain,1,7326
+19,6,Color,ColourGreen,49,Extrapolation,1,14483
+19,6,Size,Resize2XY,32,Cross Domain,1,12613
+19,6,Size,Resize2XY,32,Within Domain,1,9331
+19,6,Size,Resize2XY,32,Extrapolation,1,14330
+19,6,Size,Resize0.5XY,17,Cross Domain,1,13530
+19,6,Size,Resize0.5XY,17,Within Domain,1,14361
+19,6,Size,Resize0.5XY,17,Extrapolation,1,13128
+19,6,Reflection,ReflectY,19,Cross Domain,1,31381
+19,6,Reflection,ReflectY,19,Within Domain,1,12530
+19,6,Reflection,ReflectY,19,Extrapolation,1,17376
+19,6,Color,ColourRed,38,Cross Domain,1,15899
+19,6,Color,ColourRed,38,Within Domain,1,22828
+19,6,Color,ColourRed,38,Extrapolation,1,8663
+19,6,Rotation,2DRotation+90,22,Cross Domain,1,22894
+19,6,Rotation,2DRotation+90,22,Within Domain,1,13035
+19,6,Rotation,2DRotation+90,22,Extrapolation,1,9191
+19,6,Number,Counting-2,36,Cross Domain,1,16516
+19,6,Number,Counting-2,36,Within Domain,1,21096
+19,6,Number,Counting-2,36,Extrapolation,1,14846
+19,6,Rotation,2DRotation-90,11,Cross Domain,1,16813
+19,6,Rotation,2DRotation-90,11,Within Domain,1,7864
+19,6,Rotation,2DRotation-90,11,Extrapolation,0,23664
+20,6,Color,ColourBlue,7,Cross Domain,1,16196
+20,6,Color,ColourBlue,7,Within Domain,1,7926
+20,6,Color,ColourBlue,7,Extrapolation,1,22293
+20,6,Size,Resize0.5XY,9,Cross Domain,1,17711
+20,6,Size,Resize0.5XY,9,Within Domain,1,6213
+20,6,Size,Resize0.5XY,9,Extrapolation,1,14430
+20,6,Reflection,ReflectY,24,Cross Domain,1,20857
+20,6,Reflection,ReflectY,24,Within Domain,1,9012
+20,6,Reflection,ReflectY,24,Extrapolation,1,14250
+20,6,Size,Resize2XY,11,Cross Domain,1,16195
+20,6,Size,Resize2XY,11,Within Domain,1,4744
+20,6,Size,Resize2XY,11,Extrapolation,1,12749
+20,6,Color,ColourGreen,32,Cross Domain,1,16380
+20,6,Color,ColourGreen,32,Within Domain,1,6012
+20,6,Color,ColourGreen,32,Extrapolation,1,13230
+20,6,Number,Counting+2,45,Cross Domain,1,15180
+20,6,Number,Counting+2,45,Within Domain,1,11461
+20,6,Number,Counting+2,45,Extrapolation,1,13196
+20,6,Rotation,2DRotation-90,47,Cross Domain,1,17366
+20,6,Rotation,2DRotation-90,47,Within Domain,0,16794
+20,6,Rotation,2DRotation-90,47,Extrapolation,1,18930
+20,6,Number,Counting-2,6,Cross Domain,1,19480
+20,6,Number,Counting-2,6,Within Domain,0,16036
+20,6,Number,Counting-2,6,Extrapolation,1,20338
+20,6,Rotation,2DRotation180,22,Cross Domain,1,16882
+20,6,Rotation,2DRotation180,22,Within Domain,0,13434
+20,6,Rotation,2DRotation180,22,Extrapolation,0,15292
+20,6,Reflection,ReflectX,19,Cross Domain,1,20031
+20,6,Reflection,ReflectX,19,Within Domain,1,8700
+20,6,Reflection,ReflectX,19,Extrapolation,1,15577
