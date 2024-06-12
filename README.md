@@ -57,6 +57,14 @@ Given:
 python chat_system_multi_image_mantis_[DIFFICULTY].py --concept [CONCEPT]
 ```
 
+In summary,
+* to run KiVA on GPT-4V and LLaVA with a given training transformation and test transformation options as a single image, run chat_system_single_image_easy.py
+* to run KiVA on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_easy.py
+* to run KiVA on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_easy.py
+* to run KiVA-adults on GPT-4V and LLaVA with a given training transformation and test transformation options as a single image, run chat_system_single_image_hard.py
+* to run KiVA-adults on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_hard.py
+* to run KiVA-adults on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_hard.py
+
 ## Supplementary Prompts 
 
 As outlined in our paper, we test additional prompt settings (instruction prompting, reflection prompting, code prompting and in-context learning) for KiVA. You can find the scripts for these attempts under chat_systems_supp folder. 
