@@ -16,6 +16,8 @@ The python scripts that run the experiments (as outlined below) use the images u
 
 Please find below instructions on how to reproduce our results for each model. 
 
+The scripts that are prefixed with "chat_system" generates the input data to the models, including the exact images and text on which they are evaluated. 
+
 ### GPT4
 
 We support both single image and multiple image format for GPT4 on both KiVA (easy) and KiVA-adults (hard) experiments.
