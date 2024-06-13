@@ -5,9 +5,11 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 
 ## Dataset Artifacts
 
+
+* For *KiVA*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA folder.
+* For *KiVA-adults*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA-adults folder.
+* We provide the individual (without stitching) images of each object before and after transformation under the stimuli/KiVA-adults folder.
 * We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the objects folder. 
-* For *KiVA*: we provide the transformed images of each object under the stimuli/KiVA folder; we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA folder.
-* For *KiVA-adults*: we provide the transformed images of each object under the stimuli/KiVA-adults folder; we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA-adults folder.
 
 The python scripts that run the experiments (as outlined below) use the images under Stimuli to construct our trial.
 
