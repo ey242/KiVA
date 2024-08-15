@@ -17,9 +17,9 @@ concept = args.concept
 query_repeats = None # Number of times to repeat process, set to None for max. # of trials with given stimuli
 model_name = args.model
 
-stimuli_directory = f"Stimuli/Stimuli100_50_Hard/{args.concept}_Objects100" # Insert object file directory
-text_files_dir = "Stimuli/Stimuli100_50_Hard/Txt_files"
-output_directory = f"output_hard/output_100_one_image_format/output_{args.model}/{args.concept}_Objects100"
+stimuli_directory = f"stimuli/KiVA-adults/{concept}" # Insert object file directory
+text_files_dir = f"stimuli/KiVA-adults/trial_tracker/"
+output_directory = f"output/single_image_adults/output_{args.model}/{args.concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
 os.makedirs(output_directory, exist_ok=True)

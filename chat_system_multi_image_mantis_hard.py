@@ -13,9 +13,9 @@ args = parser.parse_args()
 concept = args.concept
 query_repeats = None # Number of times to repeat process, set to None for max. # of trials with given stimuli
 
-stimuli_directory = f"Stimuli/Stimuli100_50_Hard/{concept}_Objects100" # Insert object file directory
-text_files_dir = "Stimuli/Stimuli100_50_Hard/Txt_files"
-output_directory = f"output_hard/output_100_multi_image_format/output_mantis/{concept}"
+stimuli_directory = f"stimuli/KiVA-adults/{concept}" # Insert object file directory
+text_files_dir = f"stimuli/KiVA-adults/trial_tracker/"
+output_directory = f"output/multi_image_adults/output_mantis/{args.concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
 os.makedirs(output_directory, exist_ok=True)

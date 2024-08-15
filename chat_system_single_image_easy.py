@@ -19,9 +19,9 @@ query_repeats = None # Number of times to repeat process, set to None for max. #
 model_name = args.model
 step_by_step_text = "step-by-step"
 
-stimuli_directory = f"Stimuli/Stimuli100_50/{concept}_Objects100" # Insert object file directory
-text_files_dir = f"Stimuli/Stimuli100_50/txt_files/"
-output_directory = f"output/output_100/output_{model_name}_oneimage/output_{concept}"
+stimuli_directory = f"stimuli/KiVA/{concept}" # Insert object file directory
+text_files_dir = f"stimuli/KiVA/trial_tracker/"
+output_directory = f"output/single_image/output_{args.model}/{args.concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
 

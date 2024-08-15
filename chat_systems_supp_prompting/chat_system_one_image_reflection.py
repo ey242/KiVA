@@ -20,8 +20,8 @@ model_name = args.model
 step_by_step_text = "step-by-step"
 num_revise_times = 2
 
-stimuli_directory = f"Stimuli/Stimuli100_50/{concept}_Objects100" # Insert object file directory
-text_files_dir = f"Stimuli/Stimuli100_50/txt_files/"
+stimuli_directory = f"stimuli/KiVA/{concept}" # Insert object file directory
+text_files_dir = f"stimuli/KiVA/trial_tracker/"
 output_directory = f"output/output_oneimage_reflection/output_{model_name}_{num_revise_times}/output_{concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
