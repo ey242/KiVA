@@ -26,7 +26,7 @@ We support both single image and multiple image format for GPT4 on both KiVA (ea
 
 Given: 
 * CONCEPT: 2DRotation/Colour/Resize/Reflect/Counting
-* DIFFICULTY: easy/hard
+* DIFFICULTY: KiVA/KiVA-adults (easy/hard)
 * SETTING: single/multi
 
 Please run: 
@@ -41,7 +41,7 @@ We support single image format for LLaVA-1.5. Please follow the [HuggingFace Tut
 
 Given: 
 * CONCEPT: 2DRotation/Colour/Resize/Reflect/Counting
-* DIFFICULTY: easy/hard
+* DIFFICULTY: KiVA/KiVA-adults (easy/hard)
 
 ```
 python chat_system_single_image_[DIFFICULTY].py --concept [CONCEPT] --model llava
@@ -53,7 +53,7 @@ We support multiple image format for MANTIS. Please follow the [Model Github](ht
 
 Given: 
 * CONCEPT: 2DRotation/Colour/Resize/Reflect/Counting
-* DIFFICULTY: easy/hard
+* DIFFICULTY: KiVA/KiVA-adults (easy/hard)
 
 ```
 python chat_system_multi_image_mantis_[DIFFICULTY].py --concept [CONCEPT]
@@ -61,13 +61,13 @@ python chat_system_multi_image_mantis_[DIFFICULTY].py --concept [CONCEPT]
 
 In summary,
 
-* to run KiVA on GPT-4V and LLaVA with a given training transformation and test transformation options altogether as a single image, run chat_system_single_image_easy.py
-* to run KiVA on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_easy.py
-* to run KiVA on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_easy.py
+* to run KiVA on GPT-4V and LLaVA with a given training transformation and test transformation options altogether as a single image, run chat_system_single_image_kiva.py
+* to run KiVA on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_kiva.py
+* to run KiVA on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_kiva.py
 
-* to run KiVA-adults on GPT-4V and LLaVA with a given training transformation and test transformation options altogether as a single image, run chat_system_single_image_hard.py
-* to run KiVA-adults on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_hard.py
-* to run KiVA-adults on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_hard.py
+* to run KiVA-adults on GPT-4V and LLaVA with a given training transformation and test transformation options altogether as a single image, run chat_system_single_image_kiva-adults.py
+* to run KiVA-adults on GPT-4V with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_kiva-adults.py
+* to run KiVA-adults on MANTIS with a given training transformation and test transformation options as multiple separate images, run chat_system_multi_image_mantis_kiva-adults.py
 
 ## Supplementary Prompts 
 
