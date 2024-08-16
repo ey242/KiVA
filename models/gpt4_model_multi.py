@@ -47,6 +47,51 @@ class GPT4Model(ChatModel):
 		}
 		return payload
 
+	def first_extrapolation_call(self, prompt, encoded_images):
+		payload = {
+			"model": "gpt-4-vision-preview",
+			"messages": 
+			[
+				{
+					"role": "system",
+					"content": [self.system_prompt]
+				},
+				{"role": "user",
+					"content": [
+						{
+							"type": "text",
+							"text": prompt
+						},
+						{
+							"type": "image_url",
+							"image_url": {
+							"url": f"data:image/jpeg;base64,{encoded_images[0]}"
+							},
+						},
+						{
+							"type": "image_url",
+							"image_url": {
+							"url": f"data:image/jpeg;base64,{encoded_images[1]}"
+							},
+						},
+						{
+							"type": "image_url",
+							"image_url": {
+							"url": f"data:image/jpeg;base64,{encoded_images[2]}"
+							},
+						},
+						{
+							"type": "image_url",
+							"image_url": {
+							"url": f"data:image/jpeg;base64,{encoded_images[3]}"
+							},
+						}
+					]
+				},
+			],
+			"max_tokens": self.max_tokens
+		}
+		return payload
 
 	def update_history(self, response):
 		response_message = {"role": "assistant", 
@@ -128,9 +173,12 @@ class GPT4Model(ChatModel):
 			return base64.b64encode(image_file.read()).decode('utf-8')
 
 
-	def run_model_multi(self, prompt, final_image_paths):
+	def run_model_multi(self, prompt, final_image_paths, extrapolation_only=False):
 		encoded_images = [self.encode_image(image_path) for image_path in final_image_paths]
-		payload = self.last_call(prompt, encoded_images)
+		if extrapolation_only == False:
+			payload = self.last_call(prompt, encoded_images)
+		else:
+			payload = self.first_extrapolation_call(prompt, encoded_images)
 		self.history = payload
 
 		response = self.make_api_call(payload)
