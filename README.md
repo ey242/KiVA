@@ -84,11 +84,16 @@ As outlined in our paper, we test additional prompt settings (instruction prompt
 
 ## Model Data
 
-We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and KiVA-adults under model_data. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
+We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and KiVA-adults under the model_data folder. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
 
 ## Human Data
 
-We provide scores and reaction times of child and adult participants for KiVA (KiVA_children and KiVA_adults); scores and response times of adult participants for KiVA-adults (KiVA-adults_adults) under human_data. Participant identifiers are removed for confidentiality.
+We provide scores and reaction times of child and adult participants for KiVA (KiVA_children and KiVA_adults); scores and response times of adult participants for KiVA-adults (KiVA-adults_adults) under the human_data folder. Participant identifiers are removed for confidentiality.
+
+## Basic Analysis
+
+We provide some basic analyses that compare model and human performance on KiVA under the analysis folder. We provide two tables that summarize the mean accuracies and standard errors across 14 different transformations and 3 question types (cross-domain, within-domain and extrapolation). 
+Table14_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Table14_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
 
