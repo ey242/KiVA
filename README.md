@@ -35,6 +35,12 @@ Please run:
 python chat_system_[SETTING]_image_[DIFFICULTY].py --concept [CONCEPT] --model gpt4 --api_key ****
 ```
 
+To evaluate GPT4's performance on the non-verbal visual extrapolation task only, please run:
+
+```
+python chat_system_[SETTING]_image_[DIFFICULTY])_extrapolation_only.py --concept [CONCEPT] --model gpt4 --api_key ****
+```
+
 ### LLaVA
 
 We support single image format for LLaVA-1.5. Please follow the [HuggingFace Tutorial](https://huggingface.co/liuhaotian/llava-v1.5-13b) for model installation. 
