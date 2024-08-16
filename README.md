@@ -7,11 +7,14 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 
 
 * For *KiVA*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA folder.
+* We provide the individual (without stitching) images of each object before and after transformation under the stimuli/KiVA folder.
+
 * For *KiVA-adults*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA-adults folder.
 * We provide the individual (without stitching) images of each object before and after transformation under the stimuli/KiVA-adults folder.
+  
 * We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the objects folder. 
 
-The python scripts that run the experiments (as outlined below) use the images under Stimuli to construct our trial.
+The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
 
 
 ## Benchmarking the Models
@@ -81,7 +84,7 @@ As outlined in our paper, we test additional prompt settings (instruction prompt
 
 ## Model Data
 
-We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and Kiva-adults under model_data. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
+We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and KiVA-adults under model_data. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
 
 ## Human Data
 
