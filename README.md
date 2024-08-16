@@ -92,8 +92,12 @@ We provide scores and reaction times of child and adult participants for KiVA (K
 
 ## Basic Analysis
 
-We provide some basic analyses that compare model and human performance on KiVA under the analysis folder. We provide two tables that summarize the mean accuracies and standard errors across 14 different transformations and 3 question types (cross-domain, within-domain and extrapolation). 
+We provide some basic analyses that compare model and human performance on KiVA under the analysis folder. 
+
+We provide two tables that summarize the mean accuracies and standard errors across 14 different transformations and 3 question types (cross-domain, within-domain and extrapolation). 
 Table14_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Table14_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
+
+We provide a tabulation of the frequency of options selected by each model in Model_Label_Biases.xlsx.
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
 
