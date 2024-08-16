@@ -79,6 +79,10 @@ In summary,
 
 As outlined in our paper, we test additional prompt settings (instruction prompting, reflection prompting, code prompting and in-context learning) for KiVA. You can find the scripts for these attempts under the chat_systems_supp_prompting folder. 
 
+## Model Data
+
+We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and Kiva-adults under model_data. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
+
 ## Human Data
 
 We provide scores and reaction times of child and adult participants for KiVA (KiVA_children and KiVA_adults); scores and response times of adult participants for KiVA-adults (KiVA-adults_adults) under human_data. Participant identifiers are removed for confidentiality.
