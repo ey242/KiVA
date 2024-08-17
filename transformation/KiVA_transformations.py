@@ -112,7 +112,7 @@ def save_image(image_input, transformation, param, index, file_suffix, final = F
     for image, suffix in zip(image_input,file_suffix):
         cropped = crop(image)
         if final:
-            file_path = os.path.join(out_directory, f"{transformation}{param}_{index}_{suffix}")   #maybe separate function for this
+            file_path = os.path.join(out_directory, f"{transformation}{param}_{index}_{suffix}") 
             cropped.save(file_path,format="PNG")
         all_i.append(cropped)
     return all_i
