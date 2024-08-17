@@ -95,7 +95,7 @@ We provide scores and reaction times of child and adult participants for KiVA (K
 We provide some basic analyses that compare model and human performance on KiVA under the analysis folder. 
 
 * Comparing models and humans: We provide two tables that summarize the mean accuracies and standard errors across 14 different transformations and 3 question types (cross-domain, within-domain and extrapolation). 
-Table14_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Table14_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
+Performance_14Transformations_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Performance_14Transformations_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
 
 * Analyzing model errors and biases: We provide a table of the frequency of option labels selected by each model in Model_option_frequency.xlsx. We provide a table of the frequency of different types of wrong responses (incorrect transformation, "No change", "Doesn't apply") made by each model in Model_wrong_frequency.xlsx.
 
