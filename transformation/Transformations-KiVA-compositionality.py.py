@@ -33,7 +33,6 @@ Transformations:
         "+90", "-90", "180"
 '''
 
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Process images with specific transformations.")
 
