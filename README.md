@@ -51,10 +51,14 @@ python Transformations-KiVA.py \
 python Transformations-KiVA-compositionality.py \
     --input_directory <input_dir> \
     --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
     --next_index <start_index> \
-    --trials <num_trials>
+    --trials <num_trials> \
+    --colour <colour_transformation> \
+    --rotate <rotation_angle> \
+    --count <math_operation> \
+    --resize <resize_factor> \
+    --reflect <reflection_axis> \
+    --randomize <randomize_parameters>
 ```
 
 # KiVA Adults
