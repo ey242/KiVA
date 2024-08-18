@@ -35,7 +35,7 @@ pip install Pillow numpy
 Run the scripts
 * Use the following commands to run the transformation scripts:
 
-# Basic KiVA Transformations
+#### Basic KiVA Transformations
 ```
 python Transformations-KiVA.py \
     --input_directory <input_dir> \
@@ -46,7 +46,7 @@ python Transformations-KiVA.py \
     --trials <num_trials>
 ```
 
-# KiVA Compositionality
+#### KiVA Compositionality
 ```
 python Transformations-KiVA-compositionality.py \
     --input_directory <input_dir> \
@@ -61,7 +61,7 @@ python Transformations-KiVA-compositionality.py \
     --randomize <randomize_parameters>
 ```
 
-# KiVA Adults
+#### KiVA Adults
 ```
 python Transformations-KiVA-adults.py \
     --input_directory <input_dir> \
