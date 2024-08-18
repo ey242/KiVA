@@ -72,9 +72,6 @@ python Transformations-KiVA-adults.py \
     --trials <num_trials>
 ```
 
-### Parameters
-* <>
-
 ## Benchmarking the Models
 
 Please find below instructions on how to reproduce our results for each model. 
