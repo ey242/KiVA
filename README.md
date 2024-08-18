@@ -16,6 +16,41 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 
 The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
 
+## Running the Transformation Scripts
+
+The instructions to run the scripts for stimuli creation are as follows. 
+
+### Prerequisites
+
+Ensure the following Python libraries are installed:
+
+` ```bash
+pip install Pillow numpy `
+
+### Step-by-Step Guide
+* Prepare the images for transformation in the input directory
+* Create an output directory for which the transformed images will be saved
+
+Run the scripts
+* Use the following commands to run the transformation scripts:
+
+Basic KiVA Transformations
+` ```bash
+python Transformations-KiVA.py --input_directory <input_dir> --output_directory <output_dir> --transformation <transformation_type> --parameter <parameter> --next_index <start_index> --trials <num_trials>
+`
+
+KiVA Compositionality
+` ```bash
+python Transformations-KiVA-compositionality.py --input_directory <input_dir> --output_directory <output_dir> --transformation <transformation_type> --parameter <parameter> --next_index <start_index> --trials <num_trials>
+`
+
+KiVA Adults
+` ```bash
+python Transformations-KiVA-adults.py --input_directory <input_dir> --output_directory <output_dir> --transformation <transformation_type> --parameter <parameter> --next_index <start_index> --trials <num_trials>
+`
+
+### Parameters
+* <>
 
 ## Benchmarking the Models
 
