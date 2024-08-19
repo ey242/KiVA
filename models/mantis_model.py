@@ -21,7 +21,7 @@ class MantisModel(ChatModel):
 		model = LlavaForConditionalGeneration.from_pretrained("TIGER-Lab/Mantis-8B-siglip-llama3", device_map="cuda", torch_dtype=torch.bfloat16, attn_implementation=attn_implementation)
 
 		generation_kwargs = {
-			"max_new_tokens": 100,
+			"max_new_tokens": self.new_tokens,
 			"num_beams": 1,
 			"do_sample": False
 		}

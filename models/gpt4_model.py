@@ -18,18 +18,6 @@ class GPT4Model(ChatModel):
 	def init_history(self):
 		self.history = {}
 		self.n_runs = 0 
-
-	def get_history(self):
-		new_history = {} 
-		for k, v in self.history.items():
-			if type(v) == list:
-				new_history[k] = v[:]
-				print('hellooooo')
-			else:
-				new_history[k] = v
-
-		self.history["messages"].append("hi")
-		return new_history
 	
 	def set_history(self, history):
 		self.history = history
