@@ -100,7 +100,7 @@ Performance_14Transformations_fullbenchmark_withoutkids.xlsx compares models to 
 
 ## Generating your own dataset with the Transformation scripts
 
-The instructions to run the scripts for stimuli creation are as follows. 
+Our transformation scripts take in any .png image file (note transparent background for color transformations) and perform transformations specified by the user, automatically saving output files annotated with the ground truth. The instructions to run the scripts for stimuli creation are as follows. 
 
 ### Prerequisites
 
