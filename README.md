@@ -141,7 +141,7 @@ python Transformations-KiVA-adults.py \
 ```
 
 #### KiVA-compositionality
-This benchmark combines various transformation domains of KiVA to test compositionality.
+This benchmark combines various transformation domains of KiVA to test compositionality. The user can specify the parameters of color, rotation, number, size and reflection in the following code:
 ```
 python Transformations-KiVA-compositionality.py \
     --input_directory <input_dir> \
