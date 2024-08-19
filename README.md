@@ -33,7 +33,9 @@ pip install Pillow numpy
 * Create an output directory for which the transformed images will be saved
 
 Use the following commands to run the transformation scripts. Detailed documentation on the input parameters can be found in the code.
-#### Basic KiVA Transformations
+
+#### KiVA
+This benchmark features 5 domains (14 subdomains) of transformations. It is solvable by young children.
 ```
 python Transformations-KiVA.py \
     --input_directory <input_dir> \
@@ -44,7 +46,20 @@ python Transformations-KiVA.py \
     --trials <num_trials>
 ```
 
-#### KiVA Compositionality
+#### KiVA-adults
+This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
+```
+python Transformations-KiVA-adults.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials>
+```
+
+#### KiVA-compositionality
+This benchmark combines various transformation domains of KiVA to test compositionality.
 ```
 python Transformations-KiVA-compositionality.py \
     --input_directory <input_dir> \
@@ -57,17 +72,6 @@ python Transformations-KiVA-compositionality.py \
     --resize <resize_factor> \
     --reflect <reflection_axis> \
     --randomize <randomize_parameters>
-```
-
-#### KiVA Adults
-```
-python Transformations-KiVA-adults.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
-    --next_index <start_index> \
-    --trials <num_trials>
 ```
 
 ## Benchmarking the Models
