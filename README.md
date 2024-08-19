@@ -16,64 +16,6 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 
 The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
 
-## Running the Transformation Scripts
-
-The instructions to run the scripts for stimuli creation are as follows. 
-
-### Prerequisites
-
-Ensure the following Python libraries are installed:
-
-```
-pip install Pillow numpy
-```
-
-### Step-by-Step Guide
-* Prepare the images for transformation in the input directory
-* Create an output directory for which the transformed images will be saved
-
-Use the following commands to run the transformation scripts. Detailed documentation on the input parameters can be found in the code.
-
-#### KiVA
-This benchmark features 5 domains (14 subdomains) of transformations. It is solvable by young children.
-```
-python Transformations-KiVA.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
-    --next_index <start_index> \
-    --trials <num_trials>
-```
-
-#### KiVA-adults
-This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
-```
-python Transformations-KiVA-adults.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
-    --next_index <start_index> \
-    --trials <num_trials>
-```
-
-#### KiVA-compositionality
-This benchmark combines various transformation domains of KiVA to test compositionality.
-```
-python Transformations-KiVA-compositionality.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --next_index <start_index> \
-    --trials <num_trials> \
-    --colour <colour_transformation> \
-    --rotate <rotation_angle> \
-    --count <math_operation> \
-    --resize <resize_factor> \
-    --reflect <reflection_axis> \
-    --randomize <randomize_parameters>
-```
-
 ## Benchmarking the Models
 
 Please find below instructions on how to reproduce our results for each model. 
@@ -155,6 +97,64 @@ We provide some basic analyses that compare model and human performance on KiVA 
 Performance_14Transformations_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Performance_14Transformations_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
 
 * Analyzing model errors and biases: We provide a table of the frequency of option labels selected by each model in Model_option_frequency.xlsx. We provide a table of the frequency of different types of wrong responses (incorrect transformation, "No change", "Doesn't apply") made by each model in Model_wrong_frequency.xlsx.
+
+## Generating your own dataset with the Transformation scripts
+
+The instructions to run the scripts for stimuli creation are as follows. 
+
+### Prerequisites
+
+Ensure the following Python libraries are installed:
+
+```
+pip install Pillow numpy
+```
+
+### Step-by-Step Guide
+* Prepare the images for transformation in the input directory
+* Create an output directory for which the transformed images will be saved
+
+Use the following commands to run the transformation scripts. Detailed documentation on the input parameters can be found in the code.
+
+#### KiVA
+This benchmark features 5 domains (14 subdomains) of transformations. It is solvable by young children.
+```
+python Transformations-KiVA.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials>
+```
+
+#### KiVA-adults
+This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
+```
+python Transformations-KiVA-adults.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials>
+```
+
+#### KiVA-compositionality
+This benchmark combines various transformation domains of KiVA to test compositionality.
+```
+python Transformations-KiVA-compositionality.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --colour <colour_transformation> \
+    --rotate <rotation_angle> \
+    --count <math_operation> \
+    --resize <resize_factor> \
+    --reflect <reflection_axis> \
+    --randomize <randomize_parameters>
+```
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
 
