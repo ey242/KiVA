@@ -32,8 +32,7 @@ pip install Pillow numpy
 * Prepare the images for transformation in the input directory
 * Create an output directory for which the transformed images will be saved
 
-Use the following commands to run the transformation scripts:
-
+Use the following commands to run the transformation scripts. Detailed documentation on the input parameters can be found in the code.
 #### Basic KiVA Transformations
 ```
 python Transformations-KiVA.py \
