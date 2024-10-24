@@ -12,7 +12,6 @@ parser.add_argument('--concept', type=str, default="2DRotation", help='The conce
 parser.add_argument('--model', type=str, default="gpt4o", help='model')
 parser.add_argument('--api_key', type=str, default="API-KEY", help='gpt4_api_key')
 
-step_by_step_text = "step-by-step"
 args = parser.parse_args()
 
 concept = args.concept
@@ -21,14 +20,15 @@ model_name = args.model
 
 stimuli_directory = f"stimuli/KiVA-adults/{concept}" # Insert object file directory
 text_files_dir = f"stimuli/KiVA-adults/trial_tracker/"
-output_directory = f"output/multi_image_adults/output_{args.model}/{args.concept}"
+output_directory = f"output/multi_image_adults/output_{model_name}/{args.concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
-
 os.makedirs(output_directory, exist_ok=True)
 os.makedirs(stitched_images_directory, exist_ok=True)
+step_by_step_text = "step-by-step"
 
 #——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 system_prompt = ("You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning.")
 system_prompt += f"You will think {step_by_step_text} and carefully examine the visual evidence before providing an answer."
 
@@ -48,28 +48,27 @@ extrapolation_prompt = ("Now you are given three images. Each image contains a l
 						"Answer with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
-
 concept_to_parameters = {
-	"2DRotation": (["+90", "-90", 180]),
-	"Counting": (["+1","+2","-1","-2"]),  
-	"Colour": (["Red", "Green", "Blue"]), 
-	"Reflect": (["X", "Y"]), 
-	"Resize": (["2XY", "0.5XY"]) 
+    "2DRotation": (["+45", "-45", "+90", "-90", "+135", "-135", 180]), #7 
+    "Counting": (["+1","-1","+2","-2","x2","x3","d2","d3"]), #8 
+    "Colour": (["Red", "Yellow", "Green", "Blue", "Grey"]), #5
+    "Reflect": (["X", "Y", "XY"]), #3
+    "Resize": (["0.5X", "0.5Y", "0.5XY", "2X", "2Y", "2XY"]) #6
 }
 
 concept_headers = [
-	"Variation",
-	"Regeneration",
-	"Train_input",
-	"Train_output",
-	"Test_input",
-	"Test_output",
-	"Full#1",
-	"Full#2",
-	"Full#3",
-	"MCResponse#1",
-	"MCResponse#2",
-	"MCResponse#3",
+    "Variation",
+    "Regeneration",
+    "Train_input",
+    "Train_output",
+    "Test_input",
+    "Test_output",
+    "Full#1",
+    "Full#2",
+    "Full#3",
+    "MCResponse#1",
+    "MCResponse#2",
+    "MCResponse#3",
 	"Response#1",
 	"Response#2",
 	"Response#3"
@@ -94,7 +93,7 @@ def update_concept_result(param):
 			"Response#3": []
 		}
 	return concept_result
-
+  
 def correct_cross_domain(concept):
 	if concept == "2DRotation":
 		return "Orientation of objects"
@@ -106,7 +105,7 @@ def correct_cross_domain(concept):
 		return "Orientation of objects"
 	elif concept == "Resize":
 		return "Size of objects"
-	
+
 def get_indexed_files(param):
 	indexed_files = {}
 	beginning = concept + str(param)
@@ -148,30 +147,70 @@ def word_mc_options(selected_mc_options):
 
 	for option in selected_mc_options:
 		if concept == "2DRotation":
-			if option == "-90" or option == "+90":
-				worded_options += [f"Objects turn 90 degrees"]
-			else:
-				worded_options += [f"Objects turn 180 degrees"]
+			if option == "180" or option == 180:
+				worded_options += ["Objects turn 180 degrees"]
+			else: 
+				worded_options += [f"Objects turn {option[1:]} degrees"]
 		elif concept == "Counting":
 			counting_type, option = option[0], option[1:]
 			if counting_type == "+":
 				worded_options += [f"Things go up by {option}"] 
 			elif counting_type == "-":
 				worded_options += [f"Things go down by {option}"] 
+			elif counting_type == "x":
+				worded_options += [f"Things multiply by {option}"] 
+			elif counting_type == "d":
+				worded_options += [f"Things divide by {option}"] 
 		elif concept == "Colour":
 			worded_options += [f"Objects turn {option}"]
 		elif concept == "Reflect":
 			if option == "X":
 				worded_options += [f"Objects flip upside down"]
 			elif option == "Y":
-				worded_options += [f"Objects flip sideways"]  
+				worded_options += [f"Objects flip sideways"]
+			elif option == "XY":
+				worded_options += [f"Objects flip sideways and upside down"]
 		elif concept == "Resize":
-			if option == "0.5XY":
+			if option == "0.5X":
+				worded_options += [f"Objects become thinner only"]
+			elif option == "0.5Y":
+				worded_options += [f"Objects become shorter only"]
+			elif option == "0.5XY":
 				worded_options += [f"Objects become smaller"]
+			elif option == "2X":
+				worded_options += [f"Objects become wider only"]
+			elif option == "2Y":
+				worded_options += [f"Objects become taller only"]
 			elif option == "2XY":
 				worded_options += [f"Objects become bigger"]
 		
 	return worded_options
+
+def add_angles(x, y):
+    if x.startswith('+'):
+        angle_x = int(x[1:]) 
+    elif x.startswith('-'):
+        angle_x = -int(x[1:])
+    else:
+        angle_x = int(x)  
+    
+    if y.startswith('+'):
+        angle_y = int(y[1:]) 
+    elif y.startswith('-'):
+        angle_y = -int(y[1:])
+    else:
+        angle_y = int(y)  
+    
+    result = angle_x + angle_y
+    
+    if result == 180:
+        result_str = str(result)
+    elif result == -180:
+        result_str = str(result)[1:]
+    else:
+        result_str = f"+{result}" if result > 0 else f"{result}"
+    
+    return result_str
 
 def eval_response(response, answers, all_choices, heading=None, all_descriptions=None): 
 	all_available_choices = {}
@@ -200,7 +239,6 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 	elif heading is not None:
 		try:
 			extracted_choice_description = all_descriptions[int(extracted_choice[1]) - 1]  # Retrieve the corresponding option description
-			print("ADDING EXTRACTED DESCRIPTION: ", extracted_choice_description)
 			concept_result[heading] += [extracted_choice_description]
 		except (IndexError, ValueError):
 			concept_result[heading] += ["Null"]
@@ -210,7 +248,6 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 			return True 
 
 	return False
-
 
 if model_name == "gpt4":
 	from models.gpt4_model_multi import GPT4Model
@@ -224,22 +261,25 @@ elif model_name == "gpt4o":
 else: 
 	raise ValueError("Model name not recognized.")
 
+
 for param in concept_to_parameters[concept]:
 	stimuli_set = get_indexed_files(param)
 	output_file = output_directory + f"/{concept}{param}.csv"
 	if query_repeats is None:
 		query_repeats = len(stimuli_set)
 
+	concept_result = update_concept_result(param)
 	
 	print("----------------------------------------------")
 	print(f"Beginning Sub-Concept {concept} {param}")
 
-	for query in list(range(query_repeats)): 
+	for query in list(range(query_repeats)):
+
 		print("----------------------------------------------")
 		print(f"Beginning Variation {query + 1} of {query_repeats}")
 
-		for regeneration in range(3): 
-
+		for regeneration in range(3):
+			
 			if os.path.exists(output_file): 
 				df = pd.read_csv(output_file)
 				if len(df[(df["Variation"] == query) & (df["Regeneration"] == regeneration)]) > 0:
@@ -264,7 +304,7 @@ for param in concept_to_parameters[concept]:
 				mc_1 = lines[3+(query*4)].rstrip().split(": ")[1]
 				mc_2 = 0
 
-			stimuli_mc_1 = mc_1
+				stimuli_mc_1 = mc_1
 
 			# Alter necessary variables as needed
 			if concept == "Counting":
@@ -282,16 +322,34 @@ for param in concept_to_parameters[concept]:
 						stimuli_mc_1 = "+1"
 					elif option == "2":
 						mc_1 = "+2"
+						stimuli_mc_1 = "+1"
+				elif counting_type == "x":
+					if option == "2":
+						mc_1 = "d2"
+						stimuli_mc_1 = "+1"
+					elif option == "3":
+						mc_1 = "d3"
+						stimuli_mc_1 = "+1"
+				elif counting_type == "d":
+					if option == "2":
+						mc_1 = "x2"
+						stimuli_mc_1 = "-1"
+					elif option == "3":
+						mc_1 = "x3"
 						stimuli_mc_1 = "-1"
 
-			if concept == "2DRotation" and param == "+90":
-				test_output_result = int(Test_input) + 90
+			if concept == "2DRotation" and param != 180:
+				test_output_result = add_angles(Test_input, param)
 			elif concept == "Counting":
 				counting_type, option = param[0], param[1:]
 				if counting_type == "+":
 					test_output_result = int(Test_input) + int(option)
 				elif counting_type == "-":
 					test_output_result = int(Test_input) - int(option)
+				elif counting_type == "x":
+					test_output_result = int(Test_input) * int(option)
+				elif counting_type == "d":
+					test_output_result = float(Test_input) / int(option)
 			else:
 				test_output_result = param
 
@@ -308,9 +366,9 @@ for param in concept_to_parameters[concept]:
 			# Set up train stimuli
 			train_stimuli_set = format_files_by_type(stimuli_set, query, 'train')
 			
-			train0_image = stitch_images_train(read_image(f"{stimuli_directory}/{train_stimuli_set[0]}").convert("RGB"), read_image(f"{stimuli_directory}/{train_stimuli_set[1]}").convert("RGB"))
-			train0_image_path = f"{stitched_images_directory}/{concept}{param}_{query}_{regeneration}_train.jpg"
-			train0_image.save(train0_image_path)
+			train_image = stitch_images_train(read_image(f"{stimuli_directory}/{train_stimuli_set[0]}").convert("RGB"), read_image(f"{stimuli_directory}/{train_stimuli_set[1]}").convert("RGB"))
+			train_image_path = f"{stitched_images_directory}/{concept}{param}_{query}_{regeneration}_train.jpg"
+			train_image.save(train_image_path)
 
 			# Set up test stimuli
 			test_stimuli_set = format_files_by_type(stimuli_set, query, 'test')
@@ -360,8 +418,7 @@ for param in concept_to_parameters[concept]:
 			for lcc in labeled_cross_choices:
 				str_general_cross_rule_prompt += lcc + "\n" 
 
-			out_chatmodel = chat_model.run_model_indiv(general_cross_rule_prompt.format(str_general_cross_rule_prompt), train0_image, train0_image_path)
-
+			out_chatmodel = chat_model.run_model_indiv(general_cross_rule_prompt.format(str_general_cross_rule_prompt), train_image, train_image_path)
 			concept_result["Full#1"] += [out_chatmodel["response"]]
 
 			print("Cross Domain Response: ", out_chatmodel["response"])
@@ -387,7 +444,6 @@ for param in concept_to_parameters[concept]:
 				random.shuffle(potential_choices)
 				potential_choices = word_mc_options(potential_choices)
 				potential_choices += ["No change between pictures", "Doesn't apply"]
-
 
 				labels = ["(1) ", "(2) ", "(3) ", "(4) "]
 				labeled_within_choices = [label + arg for label, arg in zip(labels, potential_choices)]
@@ -422,7 +478,7 @@ for param in concept_to_parameters[concept]:
 				concept_result["MCResponse#2"] += [""]
 				concept_result["Response#2"] += [""]
 
-			out_chatmodel = chat_model.run_model_multi(extrapolation_prompt, final_image_paths=test_stimuli_image_paths)            
+			out_chatmodel = chat_model.run_model_multi(extrapolation_prompt, final_image_paths=test_stimuli_image_paths)
 			test_stimuli_set += ["No change between pictures", "Doesn't apply"]
 
 			labels = ["(A) ", "(B) ", "(C) ", "(D) "]
@@ -461,12 +517,18 @@ for param in concept_to_parameters[concept]:
 				df = pd.DataFrame(concept_result)
 				df.to_csv(output_file, index=False)
 
-
-	# with open(output_file, 'w', newline='') as file:
-	# 	writer = csv.DictWriter(file, fieldnames=concept_headers)
-	# 	writer.writeheader()
+'''
+	with open(output_file, 'w', newline='') as file:
+		writer = csv.DictWriter(file, fieldnames=concept_headers)
+		writer.writeheader()
 		
-	# 	for i in range(len(concept_result["Variation"])):
-	# 		row = {header: concept_result[header][i] for header in concept_headers} # Create a dictionary for the current row
-	# 		writer.writerow(row)
-	# 	print(f"Saved Results for {concept} {param}.")
+		print(concept_result)
+
+		for i in range(len(concept_result["Variation"])):
+			print(len(concept_result["Variation"]))
+			#print(concept_result[header][i])
+			print(concept_result[header][i] for header in concept_headers)
+			row = {header: concept_result[header][i] for header in concept_headers} # Create a dictionary for the current row
+			writer.writerow(row)
+		print(f"Saved Results for {concept} {param}.")
+'''
