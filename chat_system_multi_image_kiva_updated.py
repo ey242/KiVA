@@ -9,7 +9,7 @@ from utils_multi import stitch_images_train, stitch_images_test, read_image
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--concept', type=str, default="2DRotation", help='The concept to be tested')
-parser.add_argument('--model', type=str, default="gpt4o", help='model')
+parser.add_argument('--model', type=str, default="gpt4", help='model')
 parser.add_argument('--api_key', type=str, default="API-KEY", help='gpt4_api_key')
 
 step_by_step_text = "step-by-step"
@@ -19,9 +19,9 @@ concept = args.concept
 query_repeats = None # Number of times to repeat process, set to None for max. # of trials with given stimuli
 model_name = args.model
 
-stimuli_directory = f"stimuli/KiVA-adults/{concept}" # Insert object file directory
-text_files_dir = f"stimuli/KiVA-adults/trial_tracker/"
-output_directory = f"output/multi_image_adults/output_{args.model}/{args.concept}"
+stimuli_directory = f"stimuli/KiVA/{concept}" # Insert object file directory
+text_files_dir = f"stimuli/KiVA/trial_tracker/"
+output_directory = f"output/multi_image/output_{args.model}/{args.concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
 
@@ -51,7 +51,7 @@ extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your 
 
 concept_to_parameters = {
 	"2DRotation": (["+90", "-90", 180]),
-	"Counting": (["+1","+2","-1","-2"]),  
+	"Counting": (["+1","+2","-1","-2"]), 
 	"Colour": (["Red", "Green", "Blue"]), 
 	"Reflect": (["X", "Y"]), 
 	"Resize": (["2XY", "0.5XY"]) 
@@ -181,7 +181,8 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 
 	if len(all_available_choices) == 0:
 		return False
-	# Get the earliest choice 
+	
+	# Get the earliest choice
 	extracted_choice = min(all_available_choices, key=all_available_choices.get)
 
     # Add the extracted choice + description to concept result
@@ -195,14 +196,13 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 			concept_result[heading] += ["No change"]
 		elif "D" in extracted_choice:
 			concept_result[heading] += ["Doesn't apply"]
-		else:
-			concept_result[heading] += ["Null"]
 	elif heading is not None:
-		try:
-			extracted_choice_description = all_descriptions[int(extracted_choice[1]) - 1]  # Retrieve the corresponding option description
-			print("ADDING EXTRACTED DESCRIPTION: ", extracted_choice_description)
+		extracted_index = int(extracted_choice[1]) - 1
+		# Check if the index is within the range of all_descriptions
+		if 0 <= extracted_index < len(all_descriptions):
+			extracted_choice_description = all_descriptions[extracted_index]
 			concept_result[heading] += [extracted_choice_description]
-		except (IndexError, ValueError):
+		else:
 			concept_result[heading] += ["Null"]
 
 	for answer in answers: 
@@ -270,19 +270,17 @@ for param in concept_to_parameters[concept]:
 			if concept == "Counting":
 				counting_type, option = param[0], param[1:]
 				if counting_type == "+":
+					stimuli_mc_1 = "-1"
 					if option == "1":
 						mc_1 = "-1"
-						stimuli_mc_1 = "-1"
 					elif option == "2":
 						mc_1 = "-2"
-						stimuli_mc_1 = "-1"
 				elif counting_type == "-":
+					stimuli_mc_1 = "+1"
 					if option == "1":
 						mc_1 = "+1"
-						stimuli_mc_1 = "+1"
 					elif option == "2":
 						mc_1 = "+2"
-						stimuli_mc_1 = "-1"
 
 			if concept == "2DRotation" and param == "+90":
 				test_output_result = int(Test_input) + 90
@@ -413,6 +411,7 @@ for param in concept_to_parameters[concept]:
 					print(f"Incorrect within response")
 				else:
 					concept_result["MCResponse#2"] += ["Null"]
+					concept_result["Response#2"] += ["Null"]
 					print(f"Uncertain within response")
 
 				print("="*20)
@@ -444,6 +443,7 @@ for param in concept_to_parameters[concept]:
 				print("Incorrect response")
 			else:
 				concept_result["MCResponse#3"] += ["Null"]
+				concept_result["Response#3"] += ["Null"]
 				print("Uncertain response")
 
 			results.append(concept_result)

@@ -220,6 +220,7 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 
 	if len(all_available_choices) == 0:
 		return False
+	
 	# Get the earliest choice 
 	extracted_choice = min(all_available_choices, key=all_available_choices.get)
 
@@ -237,10 +238,12 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 		else:
 			concept_result[heading] += ["Null"]
 	elif heading is not None:
-		try:
-			extracted_choice_description = all_descriptions[int(extracted_choice[1]) - 1]  # Retrieve the corresponding option description
+		extracted_index = int(extracted_choice[1]) - 1
+		# Check if the index is within the range of all_descriptions
+		if 0 <= extracted_index < len(all_descriptions):
+			extracted_choice_description = all_descriptions[extracted_index]
 			concept_result[heading] += [extracted_choice_description]
-		except (IndexError, ValueError):
+		else:
 			concept_result[heading] += ["Null"]
 
 	for answer in answers: 
@@ -310,33 +313,29 @@ for param in concept_to_parameters[concept]:
 			if concept == "Counting":
 				counting_type, option = param[0], param[1:]
 				if counting_type == "+":
+					stimuli_mc_1 = "-1"
 					if option == "1":
 						mc_1 = "-1"
-						stimuli_mc_1 = "-1"
 					elif option == "2":
 						mc_1 = "-2"
-						stimuli_mc_1 = "-1"
 				elif counting_type == "-":
+					stimuli_mc_1 = "+1"
 					if option == "1":
 						mc_1 = "+1"
-						stimuli_mc_1 = "+1"
 					elif option == "2":
 						mc_1 = "+2"
-						stimuli_mc_1 = "+1"
 				elif counting_type == "x":
+					stimuli_mc_1 = "+1"
 					if option == "2":
 						mc_1 = "d2"
-						stimuli_mc_1 = "+1"
 					elif option == "3":
 						mc_1 = "d3"
-						stimuli_mc_1 = "+1"
 				elif counting_type == "d":
+					stimuli_mc_1 = "-1"
 					if option == "2":
 						mc_1 = "x2"
-						stimuli_mc_1 = "-1"
 					elif option == "3":
 						mc_1 = "x3"
-						stimuli_mc_1 = "-1"
 
 			if concept == "2DRotation" and param != 180:
 				test_output_result = add_angles(Test_input, param)
@@ -469,6 +468,7 @@ for param in concept_to_parameters[concept]:
 					print(f"Incorrect within response")
 				else:
 					concept_result["MCResponse#2"] += ["Null"]
+					concept_result["Response#2"] += ["Null"]
 					print(f"Uncertain within response")
 
 				print("="*20)
