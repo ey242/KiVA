@@ -453,8 +453,6 @@ for param in concept_to_parameters[concept]:
                     labeled_correct_within = [option.split(" ")[0] for option in labeled_within_choices if correct_word_param[0] in option][0]
                     labeled_incorrect_within = [option.split(" ")[0] for option in labeled_within_choices if not correct_word_param[0] in option]
 
-                    print(f"labeled {labeled_within_choices}")
-
                     str_general_within_rule_prompt = "\n"
                     for lwc in labeled_within_choices:
                         str_general_within_rule_prompt += lwc + "\n" 
