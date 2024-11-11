@@ -3,7 +3,7 @@ import base64
 import random
 import argparse
 import pandas as pd
-from utils_multi import stitch_images_train, stitch_images_test, read_image
+from utils_single import stitch_images_train, stitch_images_test, read_image, stitch_final_images
 
 parser = argparse.ArgumentParser()
 
@@ -18,7 +18,7 @@ model_name = args.model
 
 stimuli_directory = f"stimuli/KiVA-adults/{concept}" # Insert object file directory
 text_files_dir = f"stimuli/KiVA-adults/trial_tracker/"
-output_directory = f"output/multi_image_adults/output_{model_name}/{concept}"
+output_directory = f"output/single_image_adults/output_{model_name}/{concept}"
 
 stitched_images_directory = f"{output_directory}/{concept}_stitch"
 
@@ -31,26 +31,27 @@ step_by_step_text = "step-by-step"
 system_prompt = ("You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning.")
 system_prompt += f"You will think {step_by_step_text} and carefully examine the visual evidence before providing an answer."
 
-initi_prompt =  ("Observe the left-to-right transformation of an object. The object picture on the left transforms to the object picture on the right."
-                  "Denote this transformation as training transformation. The transformation involves a change of either the size, orientation, number, or color of an object")
+initi_prompt =  ("You are given a visual puzzle. The puzzle features a left-to-right transformation of an object on top and three left-to-right"
+                 "transformations of a different object on the bottom marked by (A) or (B) or (C)."
+                  "The transformations involve a change of either the size, orientation, number, or color of an object")
 
-general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation"
-                             "where the picture on the left transforms to the picture on the right? Answer with the correct rule number")
+general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation on top of the"
+                             "puzzle where the picture on the left transforms to the picture on the right? Answer with the correct rule number")
 general_cross_rule_prompt += f"surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice."
 
-general_within_rule_prompt = ("Which one of the following rules {} best describes the left-to-right transformation where the picture"
+general_within_rule_prompt = ("Which one of the following rules {} best describes the left-to-right transformation in the top of the puzzle where the picture"
                                "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,")
 general_within_rule_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
-extrapolation_prompt = ("Now you are given three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C) )."
-                        "Which one of these three left-to-right transformations follows the identified transformation."
-                        "Answer with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
+extrapolation_prompt = ("Which one of three left-to-right object transformations (marked by either (A), (B) or (C) ) on the bottom of the puzzle is"
+                         "the same as the left-to-right transformation on the top of the puzzle?"
+                        "Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), ")
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 concept_to_parameters = {
-    "2DRotation": (["+45", "-45", "+90", "-90", "+135", "-135", 180]), #7 
+    "2DRotation": (["+45", "-45", "+90", "-90", "+135", "-135", 180]), #7
     "Colour": (["Red", "Yellow", "Green", "Blue", "Grey"]), #5
-    "Counting": (["+1","+2","-1","-2","x2","x3","d2","d3"]), #8 
+    "Counting": (["+1","+2","-1","-2","x2","x3","d2","d3"]), #8
     "Reflect": (["X", "Y", "XY"]), #3
     "Resize": (["0.5X", "0.5Y", "0.5XY", "2X", "2Y", "2XY"]) #6
 }
@@ -73,7 +74,7 @@ concept_headers = [
     "Response#3"
 ]
 
-def update_concept_result(param):
+def update_concept_result():
     concept_result = {
             "Variation": [],
             "Regeneration": [],
@@ -109,6 +110,7 @@ def get_indexed_files(param):
     indexed_files = {}
     beginning = concept + str(param)
 
+
     for filename in os.listdir(stimuli_directory):
         if filename.startswith(beginning + "_"):
             index = int(filename.split('_')[1])
@@ -140,7 +142,7 @@ def format_files_by_type(indexed_files, index, file_type):
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
-
+    
 def word_mc_options(selected_mc_options):
     worded_options = []
 
@@ -247,16 +249,19 @@ def eval_response(response, answers, all_choices, heading=None, all_descriptions
 
     return False
 
+if model_name == "llava":
+    from models.llava_model import LLavaModel
+    chat_model =  LLavaModel(system_prompt, max_token = 300)
+
 if model_name == "gpt4":
-    from models.gpt4_model_multi import GPT4Model
-    chat_model = GPT4Model(system_prompt, api_key=args.api_key, max_token=300)
+    from models.gpt4_model import GPT4Model
+    chat_model = GPT4Model(system_prompt, api_key='API-KEY', max_token=300)
 elif model_name == "gpt4o":
-    from models.gpt4o_model_multi import GPT4OModel
+    from models.gpt4o_model import GPT4OModel
     chat_model = GPT4OModel(system_prompt, api_key=args.api_key, max_token=300)
 
 else: 
     raise ValueError("Model name not recognized.")
-
 
 for param in concept_to_parameters[concept]:
     stimuli_set = get_indexed_files(param)
@@ -273,7 +278,7 @@ for param in concept_to_parameters[concept]:
         print(f"Beginning Variation {query + 1} of {query_repeats}")
 
         for regeneration in range(3):
-            
+
             if os.path.exists(output_file): 
                 df = pd.read_csv(output_file)
                 if len(df[(df["Variation"] == query) & (df["Regeneration"] == regeneration)]) > 0:
@@ -285,8 +290,8 @@ for param in concept_to_parameters[concept]:
 
             while retry_count < 2 and not regeneration_successful: # Redo regeneration if any of model responses are uncertain
 
-                concept_result = update_concept_result(param)
                 chat_model.init_history()
+                concept_result = update_concept_result()
 
                 results = []
 
@@ -302,8 +307,8 @@ for param in concept_to_parameters[concept]:
                     Test_input = lines[2+(query*4)].rstrip().split(": ")[1]
                     mc_1 = lines[3+(query*4)].rstrip().split(": ")[1]
                     mc_2 = 0
-
-                    stimuli_mc_1 = mc_1
+                    
+                stimuli_mc_1 = mc_1
 
                 # Alter necessary variables as needed
                 if concept == "Counting":
@@ -360,10 +365,7 @@ for param in concept_to_parameters[concept]:
 
                 # Set up train stimuli
                 train_stimuli_set = format_files_by_type(stimuli_set, query, 'train')
-                
                 train_image = stitch_images_train(read_image(f"{stimuli_directory}/{train_stimuli_set[0]}").convert("RGB"), read_image(f"{stimuli_directory}/{train_stimuli_set[1]}").convert("RGB"))
-                train_image_path = f"{stitched_images_directory}/{concept}{param}_{query}_{regeneration}_train.jpg"
-                train_image.save(train_image_path)
 
                 # Set up test stimuli
                 test_stimuli_set = format_files_by_type(stimuli_set, query, 'test')
@@ -383,14 +385,18 @@ for param in concept_to_parameters[concept]:
                     stitched_image = read_image(f"{stimuli_directory}/{test_stimuli}").convert("RGB")
                     stitched_images.append(stitched_image) 
 
-                stitched_test_stimuli = stitch_images_test(stitched_images)
+                test_stimuli_image = stitch_images_test(stitched_images)
 
-                test_stimuli_image_paths = []
+                labels = ["(A) ", "(B) ", "(C) ", "(D) "]
+                labeled_choices = [label + arg for label, arg in zip(labels, test_stimuli_set)]
+                extracted_letters = [item.split(" ")[0] for item in labeled_choices]
+                correct = extracted_letters[correct_file_index]
 
-                for num, test_stimuli in enumerate(stitched_test_stimuli):
-                    test_image_path = f"{stitched_images_directory}/{concept}{param}_{query}_{regeneration}_test{num}.jpg"
-                    test_stimuli.save(test_image_path)
-                    test_stimuli_image_paths += [test_image_path]
+                # Set up final stitched train + test stimuli image
+                final_image = stitch_final_images(train_image, test_stimuli_image)
+                final_image_path = f"{stitched_images_directory}/{concept}{param}_{query}_{regeneration}_{correct}.jpg"
+                final_image.save(final_image_path)
+
 
                 # Testing Cross-Domain
                 add_result = True
@@ -413,7 +419,7 @@ for param in concept_to_parameters[concept]:
                 for lcc in labeled_cross_choices:
                     str_general_cross_rule_prompt += lcc + "\n" 
 
-                out_chatmodel = chat_model.run_model_indiv(general_cross_rule_prompt.format(str_general_cross_rule_prompt), train_image, train_image_path)
+                out_chatmodel = chat_model.run_model(general_cross_rule_prompt.format(str_general_cross_rule_prompt), final_image_path)
                 concept_result["Full#1"] += [out_chatmodel["response"]]
 
                 print("Cross Domain Response: ", out_chatmodel["response"])
@@ -428,7 +434,7 @@ for param in concept_to_parameters[concept]:
                     print(f"Incorrect cross response")
                 else:
                     concept_result["MCResponse#1"] += ["Null"]
-                    concept_result["Response#1"] += ["Null"]
+                    concept_result["Response#2"] += ["Null"]
                     print(f"Uncertain cross response")
                 
                 print("="*20)
@@ -447,11 +453,13 @@ for param in concept_to_parameters[concept]:
                     labeled_correct_within = [option.split(" ")[0] for option in labeled_within_choices if correct_word_param[0] in option][0]
                     labeled_incorrect_within = [option.split(" ")[0] for option in labeled_within_choices if not correct_word_param[0] in option]
 
+                    print(f"labeled {labeled_within_choices}")
+
                     str_general_within_rule_prompt = "\n"
                     for lwc in labeled_within_choices:
                         str_general_within_rule_prompt += lwc + "\n" 
 
-                    out_chatmodel = chat_model.run_model_indiv(general_within_rule_prompt.format(str_general_within_rule_prompt))
+                    out_chatmodel = chat_model.run_model(general_within_rule_prompt.format(str_general_within_rule_prompt))
                     concept_result["Full#2"] += [out_chatmodel["response"]]
 
                     print("Within Response: ", out_chatmodel["response"])
@@ -475,7 +483,7 @@ for param in concept_to_parameters[concept]:
                     concept_result["MCResponse#2"] += [""]
                     concept_result["Response#2"] += [""]
 
-                out_chatmodel = chat_model.run_model_multi(extrapolation_prompt, final_image_paths=test_stimuli_image_paths)
+                out_chatmodel = chat_model.run_model(extrapolation_prompt)            
                 test_stimuli_set += ["No change between pictures", "Doesn't apply"]
 
                 labels = ["(A) ", "(B) ", "(C) ", "(D) "]
@@ -500,19 +508,18 @@ for param in concept_to_parameters[concept]:
                     concept_result["Response#3"] += ["Null"]
                     print("Uncertain response")
 
+
                 if "Null" not in [concept_result["MCResponse#1"][-1], concept_result["MCResponse#2"][-1], concept_result["MCResponse#3"][-1]]:
                     regeneration_successful = True
                 elif retry_count == 2:
                     regeneration_successful = True
                 elif retry_count <= 0:
                     retry_count += 1
-                    print(f"Retrying due to null response; this is try {retry_count+1} of 3.")
+                    print(f"Retrying due to null response; this is try {retry_count} of 3.")
 
             results.append(concept_result)
 
             print("="*20)
-
-            print(concept_result)
 
             if os.path.exists(output_file): 
                 df = pd.read_csv(output_file)
