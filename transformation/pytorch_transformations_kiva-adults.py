@@ -123,8 +123,6 @@ def apply_color(image, target_color, type, train_color=None):
     if (type == "train"):
         return initial_image, correct_image, initial_color, target_color
     elif (type == "test"):
-        if initial_color == 'Grey':
-            print("Grey!")
         return initial_image, correct_image, incorrect_image, initial_color, incorrect_color
 
 
@@ -284,7 +282,6 @@ def save_values_to_txt(initial_train, output_train, initial_test, incorrect_test
         output_train (int): Output value for train output.
         initial_test (int): Initial value for test input.
         incorrect_test (int): Incorrect value for test output.
-        filename (str): The name of the text file to save values.
     """
     with open(f"{args.output_directory}/output_{args.transformation}{args.parameter}.txt", "a") as file:
         file.write(f"Train_input: {initial_train}\n")

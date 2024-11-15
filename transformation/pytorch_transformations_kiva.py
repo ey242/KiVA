@@ -89,8 +89,7 @@ def apply_color(image, target_color, type, initial_color=None):
     else:
         raise ValueError("Invalid color. Choose from 'Red', 'Green', or 'Blue'.")
 
-    # Randomly select initial color if not provided
-    initial_color = random.choice(colors) if initial_color is None else initial_color
+    initial_color = random.choice(colors) if initial_color is None else initial_color # Randomly select initial color if not provided
     incorrect_color = colors[0] if initial_color == colors[1] else colors[1]  # Remaining color for incorrect test option
 
     def isolate_channel(img, color):
@@ -234,7 +233,6 @@ def save_values_to_txt(initial_train, output_train, initial_test, incorrect_test
         output_train (int): Output value for train output.
         initial_test (int): Initial value for test input.
         incorrect_test (int): Incorrect value for test output.
-        filename (str): The name of the text file to save values.
     """
     with open(f"{args.output_directory}/output_{args.transformation}{args.parameter}.txt", "a") as file:
         file.write(f"Train_input: {initial_train}\n")
@@ -293,61 +291,3 @@ while True:
     except StopIteration:
         print(f"Finished generating transformed stimuli for {transformation}{args.parameter}")
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-
-# Process & save train and test images
-for i, original_image in enumerate(train_loader):
-    original_image = original_image[0]
-    
-    if args.transformation == "Color":
-        original_image, correct_image, initial_color, train_output  = apply_color(original_image, args.parameter, type="train")
-        # RETURNS: initial_image, correct_image, initial_color, args.parameter
-    elif args.transformation == "Counting":
-        original_image, correct_image, _, initial_option, correct_output, _= apply_counting(original_image, args.parameter)
-    elif args.transformation == "Reflect":
-        correct_image, _ = apply_reflection(original_image, args.parameter)
-    elif args.transformation == "Resize":
-        correct_image, _ = apply_resizing(original_image, args.parameter)
-    elif args.transformation == "2DRotation":
-        correct_image, _ = apply_rotation(original_image, args.parameter)
-
-    save_train_input = initial_option
-    save_train_output = correct_output
-
-    
-    transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"train_{i}_input.png"))
-    transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"train_{i}_output.png"))
-
-
-for i, original_image in enumerate(test_loader):
-    original_image = original_image[0]
-    
-    if args.transformation == "Color":
-        original_image, correct_image, incorrect_image, _, incorrect_option = apply_color(original_image, args.parameter, type="test", initial_color=initial_color)
-    elif args.transformation == "Counting":
-        original_image, correct_image, incorrect_image,  = apply_counting(original_image, args.parameter)
-    elif args.transformation == "Reflect":
-        correct_image, incorrect_image = apply_reflection(original_image, args.parameter)
-    elif args.transformation == "Resize":
-        correct_image, incorrect_image = apply_resizing(original_image, args.parameter)
-    elif args.transformation == "2DRotation":
-        correct_image, incorrect_image = apply_rotation(original_image, args.parameter)
-
-    transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{args.transformation}{args.parameter}_test_{i}_input.png"))
-    transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{args.transformation}{args.parameter}_test_mc_{i}_input.png"))
-    transforms.ToPILImage()(incorrect_image).save(os.path.join(args.output_directory, f"test_mc_{i}_incorrect.png"))
-    '''
