@@ -1,0 +1,336 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full#1,Full#2,Full#3,MCResponse#1,MCResponse#2,MCResponse#3,Response#1,Response#2,Response#3
+5,0,0,0,0,0,"(3) Size of objects
+
+Step-by-step reasoning:
+
+1. The color of the objects remains consistent between the left and the right images—they are both blue.
+2. The number of objects is the same in both images—there is one object in each.
+3. The object on the right appears to be slightly larger than the object on the left, indicating an increase in size from left to right.
+4. The orientation of the object doesn't change, as it maintains the same angle and direction in both images.
+
+Therefore, the rule that best describes the transformation is the change in size of the objects.","[Skipped mcq#2, incorrect previous response]","(C)
+
+Step-by-step reasoning:
+
+1. Transformation (A) shows a change in color from blue to red, which does not match the identified transformation rule (size of objects).
+2. Transformation (B) also shows a change in color from blue to green, which again doesn't match the identified transformation rule.
+3. Transformation (C) shows two apples of the same color, where the apple on the right appears to be larger than the apple on the left, matching the identified transformation rule which is the change in size of objects.
+
+Therefore, the transformation letter that follows the identified transformation is (C).",0,,1,Size of objects,,No change
+5,1,0,0,0,0,"(1) Orientation of objects
+
+To solve the visual puzzle, here's my step-by-step reasoning:
+
+- First, I compare the number of objects in both pictures. The number of objects in the left picture is the same as in the right picture, so rule (3) Number of objects doesn't apply.
+- Next, I check the color of the objects. The color remains consistent between both pictures—dark blue. Therefore, rule (2) Color of objects doesn't apply.
+- Then, I consider the size of the objects. They also appear to remain the same size; thus, size-related change doesn't apply.
+- Looking closely, I observe that the actual transformation that has occurred is in the orientation of the object. In the left picture, the object (which resembles a boat with paddles) is tilted slightly to the right. In the right picture, the object has been rotated clockwise slightly so that it appears more upright. Hence, there's a change in the orientation of the object between the two pictures.
+- There is an evident change between the pictures, so rule (4) No change between pictures does not apply.
+- The transformation pertains to one of the listed rules; therefore, rule (5) Doesn't apply is not applicable.
+
+The only rule that describes the transformation accurately is the change in the orientation, confirming that rule (1) applies.","[Skipped mcq#2, incorrect previous response]","(D)
+
+None of the three transformations (A), (B), or (C) follows the identified transformation, which is the change in the orientation of objects. Here is the step-by-step reasoning for each option:
+
+- Transformation (A) shows a change in color from blue to red, with no change in the orientation of the object. Since this transformation involves color, it does not match the identified transformation concerning orientation.
+
+- Transformation (B) shows no change whatsoever; the color and orientation of the object remain the same from the left picture to the right picture. Thus, this does not follow the identified transformation, which should involve orientation change.
+
+- Transformation (C) again shows a change in color from blue to green but no change in the orientation of the object. Similar to (A), since this transformation involves a change in color and not in orientation, it doesn't match the identified transformation.
+
+Considering all these points, (D) is the correct answer, as none of the given options display a change in the orientation of the object, which was the rule identified in the training transformation.",0,,0,Orientation of objects,,Doesn't apply
+5,2,0,0,0,0,"(4) No change between pictures
+
+Step-by-step reasoning:
+
+1. Size: The size of the object (which appears to be a boat with paddles) remains constant between the left and right images. There is no enlargement or reduction in the scale of the object.
+
+2. Number: There is one object in both the left and right images, so the number of objects does not change.
+
+3. Color: The color of the object is the same in both images, with no variation in hue, saturation, or brightness.
+
+4. Orientation: The orientation of the object is consistent between both images; there is no rotation or flipping apparent.
+
+Since there is no discernible change in size, number, color, or orientation between the two images, the rule that best describes the transformation is that there is no change.","I'm sorry, but there appears to be a misunderstanding as there is no new image provided that is different from the previous one. 
+
+For the image previously provided, that showcased a boat with paddles, the correct rule has already been given as:
+
+(3) No change between pictures
+
+To reiterate the reasoning:
+
+1. Color: The color of the boat with paddles remains the same in both images; the boat does not turn red or green.
+2. No other changes: There are no other changes regarding the number or orientation of the objects. 
+
+If there is a new image that you wish to analyze, please provide it, and I'd be happy to assist you with identifying the transformation.","(A)
+
+Step-by-step reasoning:
+
+1. We need to identify a transformation that involves a change in color, as the previously identified transformation described an object's color change from blue to red.
+
+2. Transformation (A): The apple changes color from blue on the left to red on the right, matching the identified transformation of changing color.
+
+3. Transformation (B): The apple does not change color; it remains consistent in blue between the left and right pictures, so this transformation does not match.
+
+4. Transformation (C): The apple changes color again, but it shifts from blue on the left to green on the right, which is a different color change than the identified transformation.
+
+Given these observations, the transformation that follows the identified pattern of changing color from blue to red is Transformation (A).",1,1.0,0,No change between pictures,No change between pictures,Red
+16,0,0,0,0,0,"(1) Orientation of objects
+
+To determine the rule that best describes the transformation from the left picture to the right picture, let's analyze the changes carefully:
+
+1. The object in both pictures is a green cup with a similar design inside.
+2. The size of the cup appears to remain consistent between the two images; there is no noticeable increase or decrease in scale.
+3. The color of the cup remains the same in both pictures; there is no change in color.
+4. The number of cups remains the same; there is only one cup in both pictures.
+5. The orientation of the cup is what changes between the two pictures. In the left picture, the cup's handle points to the left, while in the right picture, the cup is rotated so that the handle points to the right.
+
+Therefore, the rule that applies here is the change in the orientation of the object.","[Skipped mcq#2, incorrect previous response]","(C)
+
+The identified transformation rule based on the previous question about the coffee cup was a change in the object's orientation. Now, we apply this rule to the three given transformations to identify which one follows the same rule:
+
+- In transformation (A), the orientation of the frog has not changed from the left image to the right image. The frog is facing the same direction in both images.
+- In transformation (B), the color of the frog changes from green to blue, but again, there is no change in its orientation.
+- In transformation (C), there is a change in both the color and the orientation of the frog. In the left image, the frog is green and facing towards the viewer's left side, and in the right image, the frog has turned to face the viewer's right side and its color has changed to orange.
+
+Even though transformation (C) also includes a change in color, it is the only one among the three that includes a transformation of the orientation, aligning with the previously identified transformation rule (1) Orientation of objects. Therefore, (C) is the correct answer.",0,,0,Orientation of objects,,Red
+16,1,0,0,0,0,"(2) Orientation of objects
+
+Step-by-step reasoning:
+
+1. Looking at the color of the objects, we can see that the color remains the green in both the left and right pictures. So, the transformation rule cannot be about a change in color (1).
+
+2. Examining the number of objects, it is apparent that there is one cup in both the left and right pictures. Therefore, the rule cannot be about a change in the number of objects (3).
+
+3. Inspecting the size of the object, there is no noticeable difference in size between the cup on the left and the cup on the right. Therefore, it's not about a change in size.
+
+4. Now, focusing on the orientation, the cup on the left faces towards the left side, and the cup on the right faces towards the right side, indicating that the cup has been rotated or flipped horizontally. This shows a change in orientation.
+
+5. There is no option for ""No change between pictures"" (4) that applies here since there is a clear change in orientation.
+
+Thus, the rule that best describes the left-to-right transformation is the change in orientation of the objects, which is (2).","[Skipped mcq#2, incorrect previous response]","(D)
+
+Step-by-step reasoning:
+
+Let's examine each transformation in terms of orientation, since that is the transformation rule we have identified:
+
+1. In transformation (A), the frog changes from green to orange-brown and the eyes also change color. There is no change in the orientation of the frog. The rule identified was the change in orientation, not color, so (A) does not follow the identified transformation.
+
+2. In transformation (B), the frog changes from green to blue, and also the eyes change color. Similar to (A), the orientation of the frog does not change. Since (B) is a color change and not an orientation change, it does not follow the identified rule.
+
+3. In transformation (C), there is no change at all; both the left and right frogs are identical in color and orientation. Since the identified rule involves a change in orientation and there is none here, (C) also does not follow the rule.
+
+Therefore, none of the given options (A), (B), or (C) show a change in orientation without a change in color or other properties. The correct answer is (D), as none of the options apply to the identified transformation of orientation.",0,,0,Orientation of objects,,Doesn't apply
+16,2,0,0,0,0,"(3) Orientation of objects
+
+Step-by-step reasoning:
+1. Observing both pictures, the color of the objects remains the same – a green cup with a leaf design on its surface.
+2. The number of objects remains constant – there is one cup in the left picture and one cup in the right picture.
+3. There is no discernible change in size between the cups in the two pictures.
+4. Examining the orientation, the cup on the left is tilted slightly to the left, while the cup on the right is tilted slightly to the right. This indicates that the cup has been rotated or reoriented between the two images.
+5. Based on this observation, the transformation involves a change in the orientation of the object.","[Skipped mcq#2, incorrect previous response]","(C)
+
+Step-by-step reasoning:
+
+In the transformation scenario (A), the color of the frog changes from green to blue. This does not match the rule of the identified transformation, which is the orientation of objects, so we can eliminate (A).
+
+In the transformation scenario (B), the color of the frog changes from green to orange, which again does not match the rule of the identified transformation based on the orientation of objects, so we can eliminate (B).
+
+In the transformation scenario (C), there is no change in the color of the frog, and the number of frogs remains the same, with one in each image. The orientation of the frogs in the images is the same, which at first glance seems to mean no transformation has occurred. However, the rule identified as the training transformation was the orientation of objects. Since (C) shows no change in orientation, it technically follows the rule by demonstrating that there is no orientation change between the images when following the transformation pattern identified previously. This may seem counterintuitive, but given that no other transformation scenarios match the orientation change rule, (C) aligns as it maintains the orientation without demonstrating a change.
+
+In this case, since none of the given transformations (A) or (B) indicate a change in orientation, and (C) maintains the same orientation, which adheres to the rule of orientation by showing an instance where the orientation didn't need to change, we can say that (C) follows the identified transformation. If",0,,1,Orientation of objects,,No change
+39,0,0,0,0,0,"(2) Orientation of objects
+
+Step-by-step reasoning:
+
+- The number of butterflies remains the same between the two images.
+- The color of the butterflies does not change between the two images.
+- There is no rule that states 'no change between pictures' as a transformation.
+- The transformation that occurs is in the orientation of the butterfly: The butterfly on the right is a vertically flipped version (mirror image) of the butterfly on the left along the axis that runs from the head to the bottom of the butterfly. Thus, the orientation of the butterfly has been changed.","[Skipped mcq#2, incorrect previous response]","(C)
+
+Step-by-step reasoning:
+
+- In image (A), the transformation involves a change in the color of the objects, from blue to green and purple to yellow. This does not match the previously identified transformation rule concerning the orientation of objects.
+- In image (B), the transformation again involves a change in the color of the objects, from blue to red and purple to orange. This does not match the previously identified transformation rule concerning the orientation of objects.
+- In image (C), the left and right pictures are identical, with no changes in color, orientation, number, or size. Since no change occurs, this should be the answer that matches the training transformation we identified earlier, which is a change in orientation. However, there's no change in the orientation between the images presented in option (C), so technically none of the options presented show the transformation rule we previously identified.
+
+It appears there may be confusion as the images provided for (A), (B), and (C) do not exhibit the orientation change noted in the training transformation. However, given the rules of this activity, the best answer based on the provided options is (C), because it is the only one with no change, which at least maintains consistency in the object's orientation, even though it does not show the previously identified transformation of orientation change.",0,,1,Orientation of objects,,No change
+39,1,0,0,0,0,"(2) Orientation of objects
+
+The left-to-right transformation in this image shows a change in the orientation of the object, which is a butterfly. Here's the step-by-step reasoning:
+
+- Number of objects: There is one butterfly in both the left and the right images, so the number does not change.
+- Orientation of objects: In the left image, the butterfly is oriented with its head pointing to the upper left and its wings open up and down. In the right image, the butterfly's head is pointing to the upper right, and its wings still open up and down, but the image has been mirrored along the vertical axis. Therefore, the orientation has changed.
+- Color of objects: The color of the butterfly appears to be the same in both images.
+- No change between pictures: There is a change between the pictures as discussed; the orientation of the butterfly has changed.
+
+The correct description of the transformation from the left image to the right image is the change in the orientation of the butterfly.","[Skipped mcq#2, incorrect previous response]","(C)
+
+The identified transformation from the previous question was a change in the orientation of an object. When we observe the three sets of images provided, we need to determine which one demonstrates a change in orientation from left to right:
+
+- Transformation (A) shows a change in color from blue to green, not in orientation.
+- Transformation (B) also shows a change in color from blue to red, not in orientation.
+- Transformation (C) does not show any change; both the left and the right images are identical in terms of color, orientation, and number.
+
+Since transformations (A) and (B) involve a change in color and transformation (C) shows no change at all, none of the transformations reflect a change in orientation like that identified in the previous puzzle with the butterfly. Therefore, the correct answer is:
+
+(D) None of the options apply.",0,,1,Orientation of objects,,No change
+39,2,0,0,0,0,"(1) Orientation of objects
+
+To determine this, I'll follow these steps:
+
+- First, I compare the color of the butterflies in both pictures, and they seem to be identical: no change in color.
+- Next, I count the number of butterflies in each picture to see if there is a change in the number of objects. There is one butterfly in both pictures, so there is no change in the number.
+- Then, I consider the size of the butterflies by comparing their relative sizes in the pictures. Both butterflies appear to have the same size: no change in size.
+- Lastly, I examine the orientation of the butterflies. In the first picture, the butterfly's wings are oriented upwards, and in the second picture, the wings are oriented downwards. This indicates that there is a change in the orientation of the object.
+
+Given these observations, the transformation that best describes the left-to-right change is the orientation of objects.","[Skipped mcq#2, incorrect previous response]","(D)
+
+Let's analyze each of the given transformations:
+
+- For transformation (A), it appears that the flowers and their arrangement remain exactly the same between the left and right images, with no discernible change in orientation, color, size, or number.
+- Transformation (B) features a clear change in color from various shades of blue and purple to different shades of green and yellow, but the orientation of the flowers remains the same.
+- In transformation (C), the color changes from shades of blue and purple to shades of red and orange, again with no change in the orientation of the flowers.
+
+None of these transformations involve a change in orientation, which is the rule we identified earlier. As a result, the correct answer is (D) because none of the options apply to the rule of orientation change.",0,,0,Orientation of objects,,Doesn't apply
+40,0,0,0,0,0,"(4) No change between pictures
+
+The image on the left shows a purple object with a textured surface, while the image on the right displays what appears to be the same object with the same color, texture, and orientation. When we examine the following aspects:
+
+1. **Number of objects**: There is one object in both the left and right images. No change in the number of objects is observed.
+2. **Orientation of objects**: The orientation of the object remains consistent between the two images. There is no rotation, flipping, or other alteration to the way the object is positioned.
+3. **Color of objects**: The color of the object does not vary between the two images. Both display the object in the same shade of purple.
+4. **Size of objects**: While this wasn't listed as an option, it's still worth considering. There is no evident change in size between the objects in the two images.
+
+Given that none of the characteristics (number, orientation, color) have changed, the transformation rule indicating 'No change between pictures' applies to this left-to-right transformation.","(3) No change between pictures
+
+The previous step-by-step analysis of the two images indicates that there are no noticeable changes between the picture on the left and the picture on the right. The object retains its purple color throughout, without transitioning to green or red. Its orientation and number remain constant as well, leading to the conclusion that no transformation has occurred between the two images.
+
+Hence, the rule that best describes this situation is 'No change between pictures'.","(C)
+
+To determine which transformation matches the identified rule that 'No change between pictures' applies, let's analyze each given transformation:
+
+(A) The left image shows a blue object, and it transforms into an orange object in the right image. This indicates a change in color.
+
+(B) The left image displays a blue object, and it changes color to green in the right image. Here, again, we see a change in color.
+
+(C) The left image presents a blue object, and the right image also shows a blue object of the same shade. There is no change in color, orientation, or number, which aligns with the previously identified transformation rule of 'No change between pictures'.
+
+Therefore, transformation (C) follows the identified transformation of no change occurring between the two pictures.",1,1.0,1,No change between pictures,No change between pictures,No change
+40,1,0,0,0,0,"(4) No change between pictures
+
+Step-by-step reasoning:
+1. The object in the left picture is a purple spikey ball.
+2. The object in the right picture is also a purple spikey ball.
+3. Both objects have the same size, orientation, and color.
+4. There is no increase or decrease in the number of objects; there is only one object in each picture.
+5. Therefore, since there is no discernible transformation between the two pictures, the rule that best describes the left-to-right transformation is that there is no change between the pictures.","I apologize, but it seems there might have been a misunderstanding or an oversight as there is no new image provided for me to analyze a transformation. 
+
+If you are referring to the previous images of the purple spikey ball, based on those images, the rule would be:
+
+(3) No change between pictures
+
+The reasoning, as I had stated earlier, is that both the object on the left and the object on the right are identical. They both are spikey balls with the same color, orientation, and number of objects. There is no change from the left image to the right image.","(A)
+
+Step-by-step reasoning:
+1. In transformation (A), the object on the left is a blue tram, and the object on the right is the same tram but with a changed color to green.
+2. In transformation (B), the object on the left is also a blue tram, but the object on the right is the same tram with a changed color to red.
+3. In transformation (C), there is no change in color, orientation, size, or number between the object on the left and the object on the right; both are blue trams.
+
+Given that the previously identified transformation involved change in color (from the purple spikey ball to a non-existent green spikey ball as per the suggested transformation rule, which was ""Objects turn Green""), the transformation that follows this rule is the one where the color changes from one to another:
+
+- Transformation (A) changes the object's color from blue to green, which matches the ""Objects turn Green"" rule.
+- Transformation (B) changes the object's color from blue to red, which does not follow the ""Objects turn Green"" rule.
+- Transformation (C) shows no change, so it does not apply to the ""Objects turn Green"" rule. 
+
+Therefore, the correct answer is (A) since it's the only transformation where the object changes color, specifically to green.",1,1.0,0,No change between pictures,No change between pictures,Green
+40,2,0,0,0,0,"(4) No change between pictures
+
+Upon examining the object in the left picture and comparing it to the object in the right picture, we observe the following:
+
+- The color of the object remains the same in both pictures; it is a shade of blue/purple.
+- The size of the object does not seem to change; both objects appear to be of the same dimensions.
+- The orientation of the object is consistent between the two pictures; no rotation or flipping is apparent.
+- The number of objects remains the same; there is one object in both pictures.
+
+Given these observations, it appears that there is no significant transformation or change from the left picture to the right picture. Therefore, the rule that best describes the left-to-right transformation is that there is ""No change between pictures.""","(3) No change between pictures
+
+The step-by-step reasoning for this choice is as follows:
+
+- When comparing the color of both objects from the left picture to the right picture, no change in color is seen; they remain the same blue/purple shade.
+- There is no indication that the objects turn red or green as they are blue/purple in both images.
+- No other transformations are noted, such as a change in size, orientation, or number of objects.
+- Since there is no discernible transformation from one picture to the other, the correct rule to describe this is that there is ""No change between pictures.""","(B)
+
+To arrive at this conclusion, I have analyzed the transformations in each pair of images (A, B, and C) step-by-step:
+
+- For transformation (A), the object on the left is a blue vehicle and it remains the same blue vehicle on the right without any observable changes.
+- For transformation (B), the vehicle changes color from blue on the left to green on the right.
+- For transformation (C), the vehicle changes color from blue on the left to orange on the right.
+
+Comparing these transformations to the initial training transformation where the rule identified was ""No change between pictures,"" the only transformation that exhibits this rule is (A), where there is no change from the left to the right picture. However, you asked which one follows the ""identified transformation."" If by ""identified transformation"" we are referring to any discernible transformation (i.e., a change in color, size, orientation, or number), then (B) demonstrates a color change, just like the previous reference example where the transformation involved a change in color.
+
+Given this context, my response is that the transformation (B) follows an identifiable transformation similar to the previous example where the color of the object changed between the pictures.",1,1.0,0,No change between pictures,No change between pictures,Green
+15,0,0,0,0,0,"(2) Orientation of objects
+
+To determine the rule that best describes the transformation from the left picture to the right picture, let's analyze the characteristics of the object (a green step stool) one by one:
+
+1. Color: The color of the object has not changed between the two pictures; it remains green.
+2. Size: There is no noticeable change in the size of the object. Both images depict the stool in similar proportions.
+3. Number: There is only one stool in both pictures, so the number of objects has not changed.
+4. Orientation: The orientation of the step stool has changed. In the left picture, the stool is oriented so that it appears we are viewing it slightly from the top and side, while in the right picture, the stool is oriented more from the side, showing a drastic change in perspective.
+
+The transformation that has occurred is in the orientation, so the correct rule describing this transformation is rule number (2), Orientation of objects.","[Skipped mcq#2, incorrect previous response]","(D)
+
+To identify which transformation follows the previously identified rule (2) Orientation of objects, we must examine each option:
+
+Transformation (A): 
+- The left image shows a green fruit (looks like an apple) and the right image shows a red fruit.
+- The color changes from green to red.
+- There is no change in orientation between the two pictures.
+Thus, this does not follow the transformation rule (2) as the change is in color, not orientation.
+
+Transformation (B): 
+- Both the left and right images show a green fruit with no change in color.
+- There is also no change in the orientation.
+- Additionally, there is no noticeable change in size or number.
+Thus, this example doesn't follow any transformation rule; there is no change between pictures.
+
+Transformation (C): 
+- The left image shows a green fruit and the right image shows a blue fruit.
+- The color changes from green to blue.
+- There is no change in orientation between the two pictures.
+Thus, this does not follow the transformation rule (2) as the change is in color, not orientation.
+
+Since none of the transformations (A), (B), or (C) involve a change in orientation, none of them follow the identified transformation rule regarding orientation. The answer is (D), meaning none of the options apply.",0,,0,Orientation of objects,,Doesn't apply
+15,1,0,0,0,0,"(1) Orientation of objects
+
+Step-by-step reasoning:
+
+1. Looking at the color of the objects, both are green, so there is no change in the color (Rule 2 is not applicable).
+2. There is only one object in both the left and right images, so the number of objects does not change (Rule 3 is not applicable).
+3. There is no new object in the second picture, so Rule 4 (No change between pictures) is not applicable.
+4. Both objects appear to be the same in size and design, indicating that size (which isn't one of the provided rules) and style have been consistent. 
+5. Looking at the orientation, the object on the right has been rotated compared to the object on the left. Specifically, it seems to be rotated along a vertical axis that runs front to back, as you can tell from the positioning of the steps and the overall structure.
+6. Since there is no alternate rule that fits better, the description that best fits this transformation is the orientation of objects, leading to the conclusion that Rule 1 is applicable.","[Skipped mcq#2, incorrect previous response]","(D)
+
+Step-by-step reasoning:
+
+1. Transformation (A) shows the same fruit (a green apple) on the left and on the right with no noticeable change in size, orientation, or number of objects. Since there is no observable transformation, this does not follow the previously identified transformation of orientation.
+
+2. Transformation (B) shows a color change from a green apple on the left to a red apple on the right. This transformation is a change in color and does not match the orientation change identified.
+
+3. Transformation (C) shows another color change from a green apple on the left to a purple apple on the right. Similarly, this transformation is also a change in color and does not match the orientation change identified.
+
+Since none of the transformations (A), (B), or (C) demonstrates a change in orientation, none of them follows the previously identified orientation transformation rule.",0,,0,Orientation of objects,,Doesn't apply
+15,2,0,0,0,0,"(1) Orientation of objects
+
+In the provided images, we see an object that is green in both the left and right pictures, suggesting there is no change in color. The number of objects remains the same, with one object in the left picture and one in the right. The size of the object also appears consistent between the two images. The noticeable change is in the orientation of the object. The left image shows the object in an upright position, while the right image displays the object rotated slightly to the right around a vertical axis (or from the viewer's perspective, it appears to be a counterclockwise rotation). Therefore, the transformation here involves a change in the orientation of the object.","[Skipped mcq#2, incorrect previous response]","(C)
+
+The identified transformation from the prior question was a change in the orientation of objects without altering their color, size, or number. In the provided options:
+
+- Transformation (A) shows a color change from green to blue without any orientation change.
+- Transformation (B) shows a color change from green to orange without any orientation change.
+- Transformation (C) shows no color change, and the number of objects remains constant; however, when examining the left and right images carefully, it's notable that the orientation has changed slightly. The object on the right seems to be rotated just a bit in comparison with the left one, although the rotation is subtle. 
+
+Since (C) is the only transformation among the three in which the orientation changes while the other aspects (color, size, number) remain constant, it is the one that follows the identified rule of orientation change.",0,,1,Orientation of objects,,No change
