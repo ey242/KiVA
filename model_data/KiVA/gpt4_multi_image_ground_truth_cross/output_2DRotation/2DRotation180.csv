@@ -1,0 +1,151 @@
+Variation,Regeneration,Train_input,Train_output,Full,MCResponse,Response
+43,0,0,180,"(2) Objects turn 90 degrees
+
+Step-by-step reasoning:
+
+1. Looking at the object in the left image, we observe that it is upright and facing towards us.
+2. In the right image, the same object appears to be lying on its back with its belly facing upwards and its head turned to the side, suggesting it has been rotated.
+3. To go from the initial upright position to the position where the belly is facing upwards and the head is turned sideways, the object must have been turned along an axis running from its head to its tail.
+4. This axis of rotation is horizontal, and the object has made a quarter turn (a 90-degree rotation) to match the position in the right image.
+5. The object has not completed a half-turn (180 degrees) because that would have its back facing up; nor is it in the same orientation (no change), and there has definitely been a transformation (so ""doesn't apply"" is incorrect).
+6. Therefore, the rule describing this transformation is that the objects turn 90 degrees.",0,Objects turn 90 degrees
+43,1,0,180,"(1)
+
+Step-by-step reasoning:
+
+1. Observe the orientation of the object in the left picture. The object, which appears to be a toy or model of a lizard, is in an upright position on all fours.
+
+2. Now look at the orientation of the object in the right picture. The same object is now lying on its side.
+
+3. Determine the degree of rotation from the left picture to the right picture. The left picture has the lizard's belly facing down, and the right picture has the lizard's belly facing to the right side, which indicates a 90-degree turn clockwise.
+
+4. Evaluate the rules provided to see which one matches the observed transformation. The rule ""Objects turn 90 degrees"" correctly describes the transformation from the left to the right picture.
+
+Therefore, the correct rule is (1), which states that objects turn 90 degrees.",0,Objects turn 90 degrees
+43,2,0,180,"(2)
+
+Step-by-step reasoning for this choice:
+
+1. Observe the position of the object's features. In the left image, the dinosaur is upright with its head pointed upward and legs positioned to stand.
+2. Look at the right image, where the orientation of the dinosaur has changed. The head is now pointed to the side, and the dinosaur appears to be lying on its back, indicating that the object has been rotated.
+3. Assess the angle of this rotation. When an object rotates 90 degrees from a standing to a lying position, this matches the change observed between the left and right images.
+4. This rotation follows rule (2), which states that the objects turn 90 degrees from the left picture to the right picture.",0,Objects turn 90 degrees
+42,0,0,180,"(1)
+
+Step-by-step reasoning:
+
+- The croissant on the left is oriented with the curve facing downward.
+- The croissant on the right is rotated such that the curve is now facing to the left. 
+- Visually comparing the position of the endpoints and the curvature, it appears to have undergone a quarter turn, or a 90-degree rotation, in the clockwise direction.
+- Therefore, the transformation rule that objects turn 90 degrees best describes the left-to-right transformation.",0,Objects turn 90 degrees
+42,1,0,180,"(1)
+
+Here is the step-by-step reasoning for the transformation of the object from the left picture to the right picture:
+
+1. Observe the orientation of the left image: the croissant is facing down with the curved edge on the left side and the smaller tip on the right side.
+2. Now observe the orientation of the right image: the croissant is facing up with the curved edge on the right side and the smaller tip on the left side.
+3. Comparing both, it's clear that the croissant has been flipped over. If you flip the left image 180 degrees around a horizontal axis going through the middle of the croissant, the resulting orientation matches the right image.
+4. Thus, the object has turned 180 degrees, which corresponds to rule number (1).",1,Objects turn 180 degrees
+42,2,0,180,"(1)
+
+To determine which rule best describes the transformation from the left picture to the right picture, let's analyze the orientation of the object, which is a croissant:
+
+- The croissant in the left picture is lying flat with its curvature facing downwards.
+- The croissant in the right picture appears to be standing upright with its curvature on the left side.
+
+Following this observation, we can deduce that the croissant has been rotated. To confirm this and determine the degree of rotation, let's imagine the axis of rotation and the movement required to reposition the croissant from its initial orientation to its final orientation:
+
+- If we consider the croissant's left end as the pivot point and rotate it upwards, we see that one-quarter rotation, which corresponds to 90 degrees, is needed to match the orientation of the croissant on the right.
+
+Therefore, the best rule that describes the transformation of the croissant from the left picture to the right one is that the object has been rotated 90 degrees, hence rule (1) is the correct answer.",0,Objects turn 90 degrees
+5,0,0,180,"(2)
+
+To solve this visual puzzle, let's observe the orientation of the object from left to right in detail:
+
+1. Looking at the object on the left, it seems to be in a typical orientation where the arch or semi-circular part is on the top side.
+
+2. When we look at the object on the right, the first thing to note is that the arch or semi-circular part which was at the top in the first picture is now at the bottom, which suggests that the object has been rotated.
+
+3. By comparing the specific features of the object (like the edges and the flat surface orientation), we can conclude that the object has been turned around a horizontal axis that runs from left to right or right to left through the object.
+
+4. The object's turn is specifically by 90 degrees because the top surface of the original object has become the side surface on the transformed object, which is indicative of a quarter turn or 90-degree rotation.
+
+Hence, the transformation involves a 90-degree rotation, which corresponds to rule number (2).",0,Objects turn 90 degrees
+5,1,0,180,"(1)
+
+Step-by-step reasoning:
+- Firstly, we notice that the object in the left picture appears to be a 3D representation of a chest or box with a semi-circular end cap facing towards us.
+- In the right picture, the semi-circular end cap is still facing towards us, but the orientation of the box has changed.
+- Comparing both pictures, it appears that the right picture has the object rotated from the position in the left picture.
+- We can determine the degree of rotation by looking at the features of the box. In the left picture, the larger rectangular side is perpendicular to our line of sight, whereas in the right picture, that side is at an angle, which is indicative of a 90-degree rotation.
+- The rotation appears to be either clockwise or counterclockwise when viewed from the top of the box, but determining the exact direction is not necessary for identifying the degree of rotation.
+- Hence, the rule that best describes the transformation from left to right in this case is that the objects turn 90 degrees.",0,Objects turn 90 degrees
+5,2,0,180,"The correct rule that describes the transformation is (1) Objects turn 90 degrees.
+
+Step-by-step reasoning for this choice:
+
+1. Observe the position of the object in the left picture. Note the orientation of the yellow end of the object.
+
+2. Now look at the object in the right picture. The yellow end that was vertical in the left picture has rotated and is now horizontal.
+
+3. Determine the degree of rotation by comparing the orientation of the yellow end in both pictures. The rotation has moved the yellow end from a vertical to a horizontal position, which indicates a 90-degree turn.
+
+4. There is a clear change in orientation between the two pictures, which rules out option (3) No change between pictures.
+
+5. Since the object is not rotated to a position that would require two 90-degree turns, which would make 180 degrees, option (2) Objects turn 180 degrees is ruled out.
+
+6. Given that we can describe the transformation with the options given, option (4) Doesn't apply is ruled out.
+
+Thus, by process of elimination and observing the rotation, the conclusion is that the object has turned 90 degrees.",0,Objects turn 90 degrees
+21,0,0,180,"(1) Objects turn 180 degrees
+
+Step-by-step reasoning:
+
+1. In the left image, the lion is standing on its feet facing the viewer with its head pointing to the left and its tail to the right.
+2. In the right image, the lion is flipped onto its back with its legs in the air, indicating that it has been rotated. 
+3. A direct comparison shows that the lion has been turned upside-down, not just rotated to the left or right.
+4. An upside-down turn is equivalent to a 180-degree rotation along the axis that runs horizontally through the center of the lion.
+5. Therefore, rule (1) Objects turn 180 degrees is the rule that best describes this transformation.",1,Objects turn 180 degrees
+21,1,0,180,"(1) Objects turn 180 degrees
+
+Step-by-step reasoning:
+
+1. Observe the original orientation of the lion on the left. It is standing on all four legs, upright, and facing to the side.
+2. Compare this to the orientation of the lion on the right. It is flipped onto its back, with its legs in the air and its belly facing upward. 
+3. This change in position from standing to being on its back indicates that the lion has been rotated. The bottom of the lion's feet, which were facing downwards, are now facing upwards.
+4. To achieve this orientation, the lion must have been rotated halfway around a horizontal axis running from the head to the tail. A full rotation would be 360 degrees, so rotating halfway around this axis would involve a 180-degree turn.
+5. This transformation aligns with rule (1), where objects turn 180 degrees from their original position to their position in the subsequent picture.",1,Objects turn 180 degrees
+21,2,0,180,"(2) Objects turn 180 degrees
+
+Step-by-step reasoning:
+1. Observing the lion on the left, it's standing on all four legs, with its belly facing the ground and its back facing upwards.
+2. Looking at the lion on the right, it's in a supine position with its belly facing upwards and its back towards the ground.
+3. The transformation from the left picture to the right picture shows a half-turn rotation, meaning the lion was flipped over its side axis.
+4. A half-turn equates to a 180-degree rotation, which is the change occurring between the two pictures.
+5. Therefore, rule number (2), which states that the objects turn 180 degrees, best describes the transformation.",1,Objects turn 180 degrees
+35,0,0,180,"(2)
+
+To determine the transformation from the left picture to the right picture of the shark, let's analyze the orientation of specific features of the shark:
+
+1. In the left picture, the shark is oriented with its belly facing downwards and its dorsal fin facing upwards.
+2. In the right picture, the shark's orientation has changed so that its belly is now facing to the left and its dorsal fin is facing to the right.
+
+This change in orientation suggests that the shark has been rotated clockwise by 90 degrees around an axis running from the head to the tail. Thus, the rule that best describes this transformation is that the objects turn 90 degrees.",0,Objects turn 90 degrees
+35,1,0,180,"(1)
+
+Let's go through the step-by-step reasoning:
+
+1. Look at the orientation of the shark in the left image, paying particular attention to the position of its fins, eyes, and the direction it is facing.
+2. Compare this with the orientation of the shark in the right image.
+3. Notice that the shark in the right image has been rotated in a way that its belly is now facing up, and its back is facing down. In the original, left image, the shark's belly is facing down and its back is facing up.
+4. Determine the degree of rotation required to achieve this change in orientation. This is a 90-degree rotation on what would be the shark's longitudinal axis if it were a real shark.
+
+Therefore, from the step-by-step examination, we conclude that the transformation involved a 90-degree turn of the object. This matches rule (1), which states that objects turn 90 degrees.",0,Objects turn 90 degrees
+35,2,0,180,"(1)
+
+The step-by-step reasoning for this choice is as follows:
+
+- In the left image, the shark is oriented with its belly facing the viewer and its dorsal side (back) away from the viewer.
+- In the right image, the shark is oriented 90 degrees clockwise from its orientation in the left image, such that the left side of the shark is now facing the viewer, and its right side is away from the viewer.
+- This rotation is a quarter turn, equivalent to a 90-degree turn.
+- There is no other transformation applied to the shark between the two images, so the rule that best describes this transformation is indeed the object turning 90 degrees.",0,Objects turn 90 degrees

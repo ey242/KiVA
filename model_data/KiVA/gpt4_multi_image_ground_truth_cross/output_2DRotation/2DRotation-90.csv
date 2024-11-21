@@ -1,0 +1,154 @@
+Variation,Regeneration,Train_input,Train_output,Full,MCResponse,Response
+11,0,0,-90,"(1)
+
+Let's follow a step-by-step reasoning:
+
+1. Observe the initial position of the object in the left image. The hat's brim is on the bottom, and the top of the hat is facing upwards.
+
+2. Now, look closely at the object in the right image. The hat's brim is now at the top, and the top of the hat is facing downwards.
+
+3. For the brim of the hat to move from the bottom to the top while the top moves from the top to the bottom, the hat must have turned 180 degrees.
+
+Therefore, the rule that best describes this transformation is that the objects turn 180 degrees.",0,Objects turn 180 degrees
+11,1,0,-90,"(1)
+
+To determine the rule that best describes the transformation from the left picture to the right picture of the hat, let's analyze the orientation changes step by step:
+
+1. In the left picture, we see a green hat with a band and a buckle positioned in a way that the top of the hat is facing upwards, and the brim of the hat is at the bottom.
+
+2. In the right picture, the orientation of the hat has changed. Now the bottom of the hat (the brim) is facing upwards, and the top is facing downwards.
+
+3. This change in orientation indicates that the hat has been rotated 180 degrees on an axis running from the front to the back of the hat, effectively flipping it upside down.
+
+Considering the available rules, the transformation that best describes this change is that the object turns 180 degrees, which corresponds to rule number (1).",0,Objects turn 180 degrees
+11,2,0,-90,"(2)
+
+To determine the transformation of the object from the left picture to the right picture, we analyze the orientation of the hat:
+
+- In the left image, we see the hat in an upright position with the brim at the bottom and the decoration on the side facing us.
+- In the right image, the hat appears to be upside down with the brim at the top and the top of the hat now facing us, indicating that it has been rotated. Since we can now see the underside of the brim, it means that the hat has been flipped over.
+
+Comparing these orientations, it is clear that the hat has turned 90 degrees along the horizontal axis going from the initial image to the transformed image. We can tell it's a 90-degree rotation and not 180 degrees because a 180-degree rotation would have presented the hat in the same orientation, just facing the opposite direction. 
+
+Therefore, the correct rule that describes the transformation from the left picture to the right picture is rule number (2): Objects turn 90 degrees.",1,Objects turn 90 degrees
+20,0,0,-90,"(1)
+
+The object, which is a figure of the animated character Sonic the Hedgehog, transforms from standing upright on the left to being oriented horizontally on the right. Here's the step-by-step reasoning:
+
+1. In the image on the left, Sonic is standing vertically with his feet on the ground.
+2. In the image on the right, Sonic has been rotated around an axis so that he is now lying down with his face pointing to the sky, representing a 90-degree turn.
+3. The orientation change is evident by comparing the position of the feet, which have moved from the bottom (standing position) to the right side (lying position) in the right image.
+
+Thus, the transformation involves a 90-degree rotation, so the correct rule describing this transformation is (1) Objects turn 90 degrees.",1,Objects turn 90 degrees
+20,1,0,-90,"(1) Objects turn 90 degrees
+
+Step-by-step reasoning:
+
+- In the left image, the object (a model of Sonic the Hedgehog) is standing upright.
+- In the right image, the same object is on its side. Specifically, if we consider the left image as the front view, the right image is the side view after being rotated.
+- The rotation happened around an axis from Sonic's head to his feet, causing the object to fall onto its right side.
+- This implies a 90-degree rotation to the right when viewing the object from the front.
+- Thus, rule number (1) ""Objects turn 90 degrees"" best describes the transformation from the left image to the right image.",1,Objects turn 90 degrees
+20,2,0,-90,"(2) Objects turn 90 degrees
+
+To reach this conclusion, I'll describe my step-by-step reasoning:
+
+1. In the first image on the left, the character is standing upright, facing toward the viewer.
+2. In the second image on the right, the character is lying on its back with its feet facing upward, which indicates it has been rotated from the standing position.
+3. The rotation happens around an axis from left to right, meaning the character has been tipped over to its back.
+4. This tipping motion would result in a 90-degree rotation from the standing to the lying position, transforming the character's orientation from the vertical to the horizontal plane.
+5. Therefore, the best rule describing this transformation is that the objects turn 90 degrees.",1,Objects turn 90 degrees
+8,0,0,-90,"(1)
+
+Step-by-step reasoning:
+
+1. Both images feature the same figurine, which represents Spider-Man.
+2. In the image on the left, Spider-Man is standing upright.
+3. In the image on the right, Spider-Man has been rotated. He is now horizontal and appears to be lying down.
+4. The figure has been turned clockwise if you're looking at it from the top, or counterclockwise if looking from the bottom.
+5. This rotation corresponds to a 90-degree turn around an axis that goes from the head to the feet.
+   
+Thus, rule (1) ""Objects turn 90 degrees"" best describes the left-to-right transformation observed here.",1,Objects turn 90 degrees
+8,1,0,-90,"(1)
+
+To determine the transformation from the left image to the right image, let's analyze the orientation of the object, which in this case is a Spider-Man action figure.
+
+1. In the left image, Spider-Man is upright, standing on his feet with his left hand raised.
+2. In the right image, Spider-Man is horizontal and appears to be lying down with his face and torso facing up.
+
+Now let's consider how the figure would have to rotate to achieve this change in orientation:
+
+- If Spider-Man turned 90 degrees to the right (from our viewing perspective), he would be in the orientation shown in the right image (lying on his back). This means he would have gone from a vertical position to a horizontal one without flipping over, which is what we observe.
+
+Therefore, the rule describing the transformation is that the objects turn 90 degrees.",1,Objects turn 90 degrees
+8,2,0,-90,"(1)
+
+The training transformation here involves the object, which appears to be a Spider-Man action figure, rotating 180 degrees around the horizontal axis. Here's the step-by-step reasoning:
+
+1. In the image on the left, Spider-Man is standing upright.
+2. In the image on the right, Spider-Man is upside down and facing down as well, as indicated by the position of his feet facing upward and his head facing downward.
+3. This suggests that the figure has been flipped over completely from head to toe, which is a 180-degree rotation around the horizontal axis, matching rule number (1).",0,Objects turn 180 degrees
+2,0,0,-90,"(1)
+
+To determine the transformation rule, let's carefully observe the two images of the rocking horse and follow the change in orientation step by step:
+
+1. Looking at the left image, identify the orientation of the horse in relation to the base it's attached to; its head is pointing upwards and the tail is towards the bottom.
+
+2. Now, observe the right image and notice that the horse's head is now pointing to the right, and its tail is to the left, while the base orientation in relation to the viewer has not changed significantly.
+
+3. This shift in orientation from the head being up to the head being right is consistent with a 90-degree turn in a clockwise direction.
+
+4. Since the rocking horse has rotated by 90 degrees from the left image to the right image, the rule describing this transformation is that objects turn 90 degrees.
+
+Therefore, the correct rule describing the transformation is (1).",1,Objects turn 90 degrees
+2,1,0,-90,"(2)
+
+Step 1: Observe both the images carefully.
+Step 2: Notice that in the left image, the head of the rocking horse is pointing upwards and to the left, while in the right image, it's pointing downwards and to the right.
+Step 3: Realize that the rocking horse has been rotated.
+Step 4: Determine the angle of rotation by comparing the position of the head and the rockers.
+Step 5: Conclude the rocking horse has been rotated 90 degrees to the right (clockwise) to match the orientation seen in the right image.
+Therefore, the rule that best describes the transformation is rule number (2), which states that objects turn 90 degrees.",1,Objects turn 90 degrees
+2,2,0,-90,"(1)
+
+Step-by-step reasoning:
+
+1. Observe the position of the object in the left picture. The rocking horse is oriented so that its head is pointing upwards and is clearly visible.
+
+2. Now, look at the right picture. The rocking horse's head is pointing to the right, which is a 90-degree turn clockwise from its position in the left picture.
+
+3. Considering the orientation of the two images, the transformation from the left picture to the right picture shows a rotation of the object by 90 degrees.
+
+4. None of the other rules apply because there is definitely a change between the pictures, and specifically, a 90-degree turn is observed, not a 180-degree turn or no change at all.
+
+Hence, rule (1) Objects turn 90 degrees describes the transformation correctly.",1,Objects turn 90 degrees
+47,0,0,-90,"(1)
+
+To determine the correct rule, let's analyze the transformation step by step:
+
+1. Focus on a distinctive part of the object, such as the hinges attaching the object to the wall.
+2. In the image on the left, the hinges are attached to the wall and positioned on the right side of the object.
+3. In the image on the right, the hinges are still attached to the wall, but now they are positioned on the left side of the object.
+4. This indicates the object has been rotated. Since we need to see the same face of the object in both pictures without changing its relative position to the wall, we can determine that it has been flipped 180 degrees.
+
+Hence, the rule that best describes this left-to-right transformation is that the objects turn 180 degrees.",0,Objects turn 180 degrees
+47,1,0,-90,"(2) Objects turn 90 degrees
+
+Step-by-step reasoning:
+
+1. The object on the left is a wall-mounted shelf that is positioned with the shelves facing leftward and with what seems to be the back panel attached to a wall.
+2. The object on the right is the same shelf, but now it lies flat, with the shelves facing upwards and the previous back panel now touching the ground.
+3. Given this orientation change, if we imagine the object turning from the left picture to the right, it would make a 90-degree rotation around an axis that runs from the top to the bottom of the shelf in the left picture.
+4. There is no indication of a 180-degree turn, which would have the shelves facing another direction entirely. There's also not a 'no change' option applicable, as there's clearly a change in orientation.
+5. Therefore, the rule that describes the transformation best is that the objects turn 90 degrees from their original orientation.",1,Objects turn 90 degrees
+47,2,0,-90,"(1) Objects turn 180 degrees
+
+Step-by-step reasoning:
+
+1. In the initial image on the left, we have a tall, vertical object with what appears to be a hinged door or cover on the front.
+
+2. If we imagine this object rotating 180 degrees from left to right, the bottom face of the object would become the top face in our perspective, making it look wider and shorter.
+
+3. In the final image on the right, the object appears to have rotated 180 degrees. This is evident because the previously visible hinges from the left image are now located on the far side, and we can no longer see them. The shape now looks wider and shorter, consistent with a 180-degree turn of the original shape.
+
+4. The change in orientation of the object neatly matches the 180-degree rotation rule, solidifying rule (1) as the correct transformation description.",0,Objects turn 180 degrees
