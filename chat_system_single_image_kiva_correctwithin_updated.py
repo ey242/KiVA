@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
  
 parser.add_argument('--concept', type=str, default="Resize", help='The concept to be tested')
 parser.add_argument('--model', type=str, default="gpt4", help='model')
-parser.add_argument('--api_key', type=str, default='API-KEY", help='gpt4_api_key')
+parser.add_argument('--api_key', type=str, default="API-KEY", help='gpt4_api_key')
 args = parser.parse_args()
 
 concept = args.concept
