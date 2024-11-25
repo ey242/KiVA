@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+18,0,0,Green,0,Green,(B),1,Green
+18,1,0,Green,0,Green,(B),0,No change
+18,2,0,Green,0,Green,(B),1,Green
+1,0,0,Green,0,Green,(B),0,No change
+1,1,0,Green,0,Green,(B),0,No change
+1,2,0,Green,0,Green,(B),1,Green
+45,0,0,Green,0,Green,(B),1,Green
+45,1,0,Green,0,Green,(B),1,Green
+45,2,0,Green,0,Green,(B),0,No change
+7,0,0,Green,0,Green,(B),0,No change
+7,1,0,Green,0,Green,(B),1,Green
+7,2,0,Green,0,Green,(B),1,Green
+8,0,0,Green,0,Green,(B),1,Green
+8,1,0,Green,0,Green,(B),0,No change
+8,2,0,Green,0,Green,(B),1,Green

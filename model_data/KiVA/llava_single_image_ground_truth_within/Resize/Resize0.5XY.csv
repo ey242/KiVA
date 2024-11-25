@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+45,0,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+45,1,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+45,2,0,0.5XY,0,0.5XY,(B)</s>,0,2XY
+13,0,0,0.5XY,0,0.5XY,(B)</s>,1,0.5XY
+13,1,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+13,2,0,0.5XY,0,0.5XY,(B)</s>,1,0.5XY
+5,0,0,0.5XY,0,0.5XY,(B)</s>,1,0.5XY
+5,1,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+5,2,0,0.5XY,0,0.5XY,(B)</s>,0,2XY
+42,0,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+42,1,0,0.5XY,0,0.5XY,(B)</s>,0,2XY
+42,2,0,0.5XY,0,0.5XY,(B)</s>,0,No change
+36,0,0,0.5XY,0,0.5XY,(B)</s>,1,0.5XY
+36,1,0,0.5XY,0,0.5XY,(B)</s>,0,2XY
+36,2,0,0.5XY,0,0.5XY,(B)</s>,0,No change

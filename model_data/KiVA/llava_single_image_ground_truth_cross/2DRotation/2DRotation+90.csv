@@ -1,0 +1,85 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+19,0,0,90,0,90,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the elephant and the hippo. The elephant is transformed into the hippo, and the hippo is transformed into the elephant. This transformation involves a 180-degree rotation of the objects.
+
+In the bottom of the puzzle, the transformation involves the person and the car. The person is transformed into the car, and the car is transformed into the person. This transformation also involves a 180-degree rotation of the objects.
+
+Therefore, the correct rule is (2) Objects rotate by 180 degrees.</s>",0,Objects rotate by 180 degrees
+19,1,0,90,0,90,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the elephant and the hippo. The elephant is transformed into the hippo, and the hippo is transformed into the elephant. This transformation involves a 180-degree rotation of the objects.
+
+In the bottom of the puzzle, the transformation involves the person and the car. The person is transformed into the car, and the car is transformed into the person. This transformation also involves a 180-degree rotation of the objects.
+
+Therefore, the correct rule is (2) Objects rotate by 180 degrees.</s>",0,Objects rotate by 180 degrees
+19,2,0,90,0,90,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the elephant and the giraffe. The elephant is transformed into the giraffe, which involves a rotation of 180 degrees. The elephant has a long trunk and two tusks, while the giraffe has a long neck and two horns. The transformation requires the elephant's trunk to be rotated and the tusks to be replaced with horns, and the giraffe's neck to be rotated and the horns to be replaced with tusks.
+
+In the bottom of the puzzle, the transformation involves the person riding the elephant. The person is transformed into the person riding the giraffe, which involves a rotation of 180 degrees. The person riding the elephant has a stick in their hand, while the person riding the giraffe has a stick in their hand as well. The transformation requires the stick to be rotated and the person's hand to be replaced with the stick.</s>",0,Objects rotate by 180 degrees
+22,0,0,90,0,90,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left transforming to the picture on the right. This transformation can be described as a rotation of 90 degrees, as the object is flipped horizontally. The top image shows a frog on the left side and a frog on the right side, and the transformation involves flipping the frog horizontally.
+
+In the bottom of the puzzle, there are three left-to-right transformations of a different object, marked by (A) or (B) or (C). The transformation in the bottom left involves flipping the object horizontally, while the transformation in the bottom right involves flipping the object vertically. The transformation in the bottom center is a combination of a horizontal flip and a vertical flip. These transformations do not involve a 90-degree rotation, so the correct answer is (1) Objects rotate by 90 degrees.</s>",1,Objects rotate by 90 degrees
+22,1,0,90,0,90,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the picture of the frog on the left transforming to the picture of the frog on the right. This transformation can be described as a rotation of 90 degrees, as the frog's position and orientation change from one picture to the other. The frog's head is facing the left in the left picture, and it is facing the right in the right picture. This indicates that the frog has rotated 90 degrees along its horizontal axis.</s>",1,Objects rotate by 90 degrees
+22,2,0,90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left transforming to the picture on the right. The image of the frog on the left is rotated 90 degrees to the right, and the image of the frog on the right is rotated 90 degrees to the left. This indicates that the objects are rotating by 90 degrees in the top part of the puzzle.</s>",1,Objects rotate by 90 degrees
+41,0,0,90,0,90,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the orientation of objects. In the top image, the object is initially facing left, and it rotates by 90 degrees to face right in the right image. This transformation is consistent with rule (1) where objects rotate by 90 degrees.
+
+In the bottom of the puzzle, the three left-to-right transformations of the different object involve the orientation of objects as well. The object in the left image is facing left, and it rotates by 90 degrees to face right in the right image. This transformation is consistent with rule (1) where objects rotate by 90 degrees.</s>",1,Objects rotate by 90 degrees
+41,1,0,90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the objects rotating by 90 degrees. This is evident from the fact that the object on the left is a red box with a green handle, while the object on the right is a red box with a green handle. The objects are rotated by 90 degrees, which results in the same orientation but different positions.
+
+In the bottom of the puzzle, the three left-to-right transformations involve the objects rotating by 90 degrees as well. The objects are rotated by 90 degrees, which results in the same orientation but different positions.</s>",1,Objects rotate by 90 degrees
+41,2,0,90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the objects rotating by 90 degrees. This is evident from the fact that the objects are in different orientations in the left and right pictures. The objects are not rotating by 180 degrees or 45 degrees, and there is no change between the pictures. The transformation is a 90-degree rotation, which is the only rule that applies to the top of the puzzle.</s>",1,Objects rotate by 90 degrees
+9,0,0,90,0,90,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup and the cat. The coffee cup is rotated by 180 degrees, which means it is flipped upside down. The cat is also rotated by 180 degrees, which means it is flipped upside down. This transformation is consistent with rule (2) where objects rotate by 180 degrees.
+
+Step-by-step reasoning:
+
+1. The coffee cup on the left is upside down.
+2. The coffee cup is rotated by 180 degrees, which means it is flipped upside down again.
+3. The coffee cup on the right is upside down.
+
+The cat follows the same pattern:
+
+1. The cat on the left is upside down.
+2. The cat is rotated by 180 degrees, which means it is flipped upside down again.
+3. The cat on the right is upside down.</s>",0,Objects rotate by 180 degrees
+9,1,0,90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup, which rotates by 90 degrees in each step. The image on the left shows the coffee cup in a vertical position, while the image on the right shows the coffee cup in a horizontal position. This indicates that the object rotates by 90 degrees in each step, following rule (2).
+
+Step-by-step reasoning:
+
+1. The coffee cup is in a vertical position on the left.
+2. In the middle, the coffee cup rotates by 90 degrees, making it horizontal.
+3. The coffee cup rotates by 90 degrees again, making it vertical once more.
+4. Finally, the coffee cup rotates by 90 degrees for the last time, returning it to its original horizontal position.</s>",1,Objects rotate by 90 degrees
+9,2,0,90,0,90,"(2) Objects rotate by 180 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup and the cat. The coffee cup is transformed into a cat, and the cat is transformed into a coffee cup. This transformation involves a 180-degree rotation of the objects.
+
+In the bottom of the puzzle, the three left-to-right transformations involve the cat and the coffee cup. The cat is transformed into a coffee cup, and the coffee cup is transformed into a cat. These transformations also involve a 180-degree rotation of the objects.
+
+Therefore, the correct rule number is (2) Objects rotate by 180 degrees.</s>",0,Objects rotate by 180 degrees
+6,0,0,90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left rotating by 90 degrees to become the picture on the right. This is evident from the fact that the picture on the left is upside down compared to the picture on the right. The puzzle requires visual analogical reasoning, and the rotation of the objects is a key aspect of the transformation.</s>",1,Objects rotate by 90 degrees
+6,1,0,90,0,90,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left rotating by 90 degrees to transform into the picture on the right. This is evident from the fact that the object in the top image is flipped horizontally compared to the object in the bottom image. The transformation can be described as a rotation of 90 degrees along the horizontal axis.</s>",1,Objects rotate by 90 degrees
+6,2,0,+90,0,90,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left rotating by 90 degrees to become the picture on the right. This is evident from the fact that the picture on the left is upside down compared to the picture on the right. The puzzle requires visual analogical reasoning, and the rotation of the objects is a key aspect of the transformation.</s>",1,Objects rotate by 90 degrees

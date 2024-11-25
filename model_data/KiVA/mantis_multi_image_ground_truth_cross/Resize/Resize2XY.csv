@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Full,MCResponse,Response
+37,0,0,2XY,A (1),1,Objects become bigger
+37,1,0,2XY,A (1),0,Objects become smaller
+37,2,0,2XY,A (1),0,Objects become smaller
+41,0,0,2XY,A (1),1,Objects become bigger
+41,1,0,2XY,A (1),0,Objects become smaller
+41,2,0,2XY,A (1),1,Objects become bigger
+11,0,0,2XY,A (1),0,Objects become smaller
+11,1,0,2XY,A (1),1,Objects become bigger
+11,2,0,2XY,A (1),1,Objects become bigger
+14,0,0,2XY,(1),1,Objects become bigger
+14,1,0,2XY,(1),1,Objects become bigger
+14,2,0,2XY,(2),1,Objects become bigger
+12,0,0,2XY,A (1),0,Objects become smaller
+12,1,0,2XY,A (1),1,Objects become bigger
+12,2,0,2XY,A (1),1,Objects become bigger

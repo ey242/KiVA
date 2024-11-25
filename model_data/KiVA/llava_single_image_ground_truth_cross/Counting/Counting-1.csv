@@ -1,0 +1,150 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+32,0,4,3,4,3,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are four objects in the left picture and five objects in the right picture. This indicates that the number of objects has increased by one as the puzzle progresses from left to right.
+
+Step-by-step reasoning:
+
+1. In the left picture, there are four objects.
+2. In the right picture, there are five objects.
+3. The number of objects has increased by one.
+
+This rule applies to the top row of the puzzle, as the number of objects in each picture increases by one as the puzzle progresses from left to right.</s>",0,Things go up by 1
+32,1,4,3,4,3,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are six objects in the left picture and seven objects in the right picture. This indicates that the number of objects has increased by one as the puzzle progresses from left to right.
+
+Step-by-step reasoning:
+
+1. In the left picture, there are six objects.
+2. In the right picture, there are seven objects.
+3. The number of objects has increased by one.
+
+This rule applies to the top row of the puzzle, as the number of objects in each picture increases by one as the puzzle progresses from left to right.</s>",0,Things go up by 1
+32,2,4,3,4,3,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves a decrease in the number of objects. In the top row, there are 12 objects in the left picture and 11 objects in the right picture. This indicates that the number of objects has decreased by one as the image moves from left to right.
+
+Step-by-step reasoning:
+
+1. In the left picture, there are 12 objects.
+2. In the right picture, there are 11 objects.
+3. The number of objects has decreased by one.
+
+This rule best describes the transformation in the top row of the puzzle.</s>",1,Things go down by 1
+30,0,3,2,3,2,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects going down by one. In the top row, there are four objects in the left picture, and three objects in the right picture. This indicates that the number of objects has decreased by one as the image moves from left to right.
+
+Step-by-step reasoning:
+
+1. In the left picture, there are four objects.
+2. In the right picture, there are three objects.
+3. The number of objects has decreased by one, which is consistent with the rule (1) ""Things go down by 1.""</s>",1,Things go down by 1
+30,1,3,2,3,2,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are three balls in the left picture, and four balls in the right picture. This indicates that the number of balls has increased by one, which is consistent with the rule (1) Things go up by 1.
+
+The step-by-step reasoning for this choice is as follows:
+
+1. In the left picture, there are three balls.
+2. In the right picture, there are four balls.
+3. The number of balls has increased by one, which is consistent with the rule (1) Things go up by 1.</s>",0,Things go up by 1
+30,2,3,2,3,2,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are three balls in the left picture, and four balls in the right picture. This indicates that the number of balls has increased by one, which is consistent with the rule (1) Things go up by 1.
+
+The step-by-step reasoning for this choice is as follows:
+
+1. In the left picture, there are three balls.
+2. In the right picture, there are four balls.
+3. The number of balls has increased by one, which is consistent with the rule (1) Things go up by 1.</s>",0,Things go up by 1
+24,0,4,3,4,3,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top image, there are three objects, while in the right image, there are four objects. This indicates that the number of objects has increased by one, which is consistent with rule (1).
+
+Step-by-step reasoning:
+
+1. In the left image, there are three objects.
+2. In the right image, there are four objects.
+3. The number of objects has increased by one, which is consistent with rule (1).</s>",0,Things go up by 1
+24,1,4,3,4,3,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects going down by one. In the top image, there are four objects, while in the right image, there are three objects. This indicates that the number of objects has decreased by one.
+
+Step-by-step reasoning:
+
+1. In the left image, there are four objects.
+2. In the right image, there are three objects.
+3. The number of objects has decreased by one.
+
+This rule applies to the top transformation, as the number of objects has decreased by one from left to right.</s>",1,Things go down by 1
+24,2,4,3,4,3,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top image, there are three objects, while in the right image, there are four objects. This indicates that the number of objects has increased by one, which is consistent with rule (1).
+
+Step-by-step reasoning:
+
+1. In the left image, there are three objects.
+2. In the right image, there are four objects.
+3. The number of objects has increased by one, which is consistent with rule (1).</s>",0,Things go up by 1
+38,0,3,2,3,2,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are three black circles in the left picture, and four black circles in the right picture. This indicates that the number of objects has increased by one, which is consistent with the rule (1) Things go up by 1.
+
+The step-by-step reasoning for this choice is as follows:
+
+1. In the left picture, there are three black circles.
+2. In the right picture, there are four black circles.
+3. The number of objects has increased by one, which is consistent with the rule (1) Things go up by 1.
+
+Therefore, the correct rule number is (1) Things go up by 1.</s>",0,Things go up by 1
+38,1,3,2,3,2,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves a decrease in the number of objects. In the top row, there are three black circles in the left picture, and two black circles in the right picture. This indicates that the number of objects has decreased by one.
+
+Step-by-step reasoning:
+
+1. In the left picture, there are three black circles.
+2. In the right picture, there are two black circles.
+3. The number of objects has decreased by one, which is consistent with the rule (1) ""Things go down by 1.""</s>",1,Things go down by 1
+38,2,3,2,3,2,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of objects increasing by one. In the top row, there are three black circles, and in the bottom row, there are three white circles. The transformation involves adding one more circle to the bottom row, making it a total of four white circles. This rule is consistent with the visual evidence in the puzzle.</s>",0,Things go up by 1
+14,0,4,3,4,3,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of dogs going down by one. In the image, there are six dogs in the top row, and in the next row, there are five dogs. This indicates that the number of dogs is decreasing by one in each row.
+
+Step-by-step reasoning:
+
+1. In the top row, there are six dogs.
+2. In the next row, there are five dogs.
+3. In the third row, there are four dogs.
+4. In the fourth row, there are three dogs.
+5. In the fifth row, there are two dogs.
+6. In the sixth row, there is one dog.
+
+This pattern shows that the number of dogs is decreasing by one in each row, which is consistent with rule (1) Things go down by 1.</s>",1,Things go down by 1
+14,1,4,3,4,3,"(1) Things go up by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of dogs increasing by one. In the image, there are four dogs in the top row, and in the next row, there are five dogs. This indicates that the number of dogs has increased by one, which is consistent with rule (1) stating that things go up by 1.
+
+The step-by-step reasoning for this choice is as follows:
+
+1. In the top row, there are four dogs.
+2. In the next row, there are five dogs.
+3. The number of dogs has increased by one.
+
+This transformation is consistent with rule (1) and not with rules (2), (3), or (4).</s>",0,Things go up by 1
+14,2,4,3,4,3,"(1) Things go down by 1
+
+The left-to-right transformation in the top of the puzzle involves the number of dogs going down by one. In the image, there are six dogs in the top row, and in the next row, there are five dogs. This indicates that the number of dogs is decreasing by one in each row. The same pattern is followed in the bottom row, where the number of cups is decreasing by one in each row. This rule best describes the transformation in the puzzle.
+
+Step-by-step reasoning:
+
+1. In the top row, there are six dogs.
+2. In the next row, there are five dogs.
+3. In the third row, there are four dogs.
+4. In the bottom row, there are three cups.
+5. In the next row, there are two cups.
+6. In the third row, there is one cup.</s>",1,Things go down by 1

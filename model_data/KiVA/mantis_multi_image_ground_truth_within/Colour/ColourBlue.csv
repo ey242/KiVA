@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+13,0,0,Blue,0,Blue,(B),1,Blue
+13,1,0,Blue,0,Blue,(B),1,Blue
+13,2,0,Blue,0,Blue,(B),0,Red
+47,0,0,Blue,0,Blue,(B),0,No change
+47,1,0,Blue,0,Blue,(B),0,No change
+47,2,0,Blue,0,Blue,(B),0,No change
+22,0,0,Blue,0,Blue,(B),0,No change
+22,1,0,Blue,0,Blue,(B),0,Red
+22,2,0,Blue,0,Blue,(B),0,No change
+5,0,0,Blue,0,Blue,(B),0,No change
+5,1,0,Blue,0,Blue,(B),0,Red
+5,2,0,Blue,0,Blue,(B),0,No change
+28,0,0,Blue,0,Blue,(B),0,No change
+28,1,0,Blue,0,Blue,(B),0,Green
+28,2,0,Blue,0,Blue,(B),0,Green

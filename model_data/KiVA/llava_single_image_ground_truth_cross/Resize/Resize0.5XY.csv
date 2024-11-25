@@ -1,0 +1,74 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+22,0,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. This is evident from the image of the frog on the left, which is larger than the frog on the right. The frog on the left is occupying a larger portion of the image, while the frog on the right is smaller and positioned in a smaller area. This indicates that the objects are transforming in size from left to right, which aligns with rule (1).</s>",1,Objects become smaller
+22,1,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. This is evident from the image of the frog on the left, which is larger than the frog on the right. The frog on the left is occupying a larger portion of the image, while the frog on the right is smaller and positioned closer to the bottom of the image. This indicates that the objects are transforming in size from left to right, following the rule (1).</s>",1,Objects become smaller
+22,2,0,0.5XY,0,0.5XY,"(1) Objects become bigger.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects. In the top image, the object is small, and in the right image, the object is larger. This indicates that the objects are getting bigger as they move from left to right. The other options (2) and (3) do not apply, as the objects are not getting smaller or staying the same size.</s>",0,Objects become bigger
+36,0,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. This is evident from the image of the toy duck on the left, which is larger than the toy duck on the right. The transformation from the left to the right involves a reduction in size, which is consistent with rule (1).
+
+Step-by-step reasoning:
+
+1. The image on the left shows a toy duck that is larger than the toy duck on the right.
+2. The toy duck on the right is smaller than the one on the left.
+3. The transformation from the left to the right involves a reduction in size, which is consistent with rule (1).</s>",1,Objects become smaller
+36,1,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. This is evident from the image of the toy duck on the left, which is larger than the toy duck on the right. The transformation of the toy duck from the left to the right is a visual representation of the object becoming smaller.
+
+In the bottom of the puzzle, the left-to-right transformation involves the size of objects becoming smaller as well. The image of the toy car on the left is larger than the toy car on the right, and the image of the toy car on the right is smaller than the toy car on the left. This transformation is a visual representation of the object becoming smaller.
+
+Therefore, the correct rule number is (1) Objects become smaller.</s>",1,Objects become smaller
+36,2,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. This is evident from the image of the toy duck on the left, which is larger than the toy duck on the right. The transformation from the left to the right involves a reduction in size, which is consistent with rule (1).
+
+Step-by-step reasoning:
+
+1. The image on the left shows a toy duck that is larger than the toy duck on the right.
+2. The toy duck on the right is smaller than the one on the left.
+3. The transformation from the left to the right involves a reduction in size, which is consistent with rule (1).</s>",1,Objects become smaller
+46,0,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. In the top image, there is a bottle on the left side and a bottle on the right side. The bottle on the left is larger than the bottle on the right, indicating that the objects are becoming smaller as they move from left to right.
+
+In the bottom of the puzzle, there are three left-to-right transformations of a different object. The object on the left is larger than the object in the middle, and the object in the middle is larger than the object on the right. This pattern of objects becoming smaller as they move from left to right is consistent with the rule (1) Objects become smaller.</s>",1,Objects become smaller
+46,1,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects becoming smaller. In the top image, there is a bottle on the left side and a bottle on the right side. The bottle on the left is larger than the bottle on the right, indicating that the objects are becoming smaller as they move from left to right.
+
+In the bottom of the puzzle, there are three left-to-right transformations of a different object. The object on the left is larger than the object in the middle, and the object in the middle is larger than the object on the right. This pattern of objects becoming smaller as they move from left to right is consistent with the rule (1) Objects become smaller.</s>",1,Objects become smaller
+46,2,0,0.5XY,0,0.5XY,"(1) Objects become bigger.
+
+The left-to-right transformation in the top of the puzzle involves the size of objects. In the top image, the bottle is small, and in the right image, the bottle is larger. This indicates that the objects are becoming bigger as they move from left to right. The other two transformations in the bottom image involve the size of the sandwiches, which also become bigger as they move from left to right.</s>",0,Objects become bigger
+21,0,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the fire hydrant, which becomes smaller as it moves from the left to the right. This is evident from the image, where the fire hydrant is smaller in size in the right picture compared to the left picture. The transformation of the fire hydrant from the left to the right is a visual representation of the rule (1) where objects become smaller.</s>",1,Objects become smaller
+21,1,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the fire hydrant, which becomes smaller as it moves from the left to the right. This is evident from the image, where the fire hydrant is smaller in size in the right picture compared to the left picture. The transformation of the fire hydrant from the left to the right is a visual representation of the rule (1) where objects become smaller.</s>",1,Objects become smaller
+21,2,0,0.5XY,0,0.5XY,"(1) Objects become bigger.
+
+The left-to-right transformation in the top of the puzzle involves the fire hydrant, which becomes bigger as it moves from the left to the right. This is evident from the image, where the fire hydrant is smaller on the left and larger on the right. The transformation of the fire hydrant's size from left to right is consistent with rule (1) that objects become bigger.</s>",0,Objects become bigger
+20,0,0,0.5XY,0,0.5XY,"(1) Objects become bigger.
+
+The left-to-right transformation in the top of the puzzle involves the camel, which becomes bigger as it moves from the left to the right. This is evident from the size difference between the camel in the left and right images. The transformation of the camel's size from the left to the right is consistent with rule (1) where objects become bigger.
+
+Step-by-step reasoning:
+
+1. The camel in the left image is smaller than the camel in the right image.
+2. The camel in the right image is larger than the camel in the left image.
+3. The transformation from the left to the right involves the camel becoming bigger.
+
+This transformation is consistent with rule (1) where objects become bigger.</s>",0,Objects become bigger
+20,1,0,0.5XY,0,0.5XY,"(1) Objects become smaller.
+
+The left-to-right transformation in the top of the puzzle involves the camel, which becomes smaller as it moves from the left to the right. This is evident from the size difference between the camel in the left and right images. The transformation of the camel from the left to the right is a visual representation of the rule (1) where objects become smaller.</s>",1,Objects become smaller
+20,2,0,0.5XY,0,0.5XY,"(1) Objects become bigger.
+
+The left-to-right transformation in the top of the puzzle involves the camel, which becomes bigger as it moves from the left to the right. This is evident from the size difference between the camel in the left and right images. The transformation of the camel's size from small to large indicates that the rule (1) applies to the top part of the puzzle.</s>",0,Objects become bigger

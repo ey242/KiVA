@@ -1,0 +1,91 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+22,0,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left flipping upside down to become the picture on the right. This is evident from the fact that the two pictures are mirror images of each other.
+
+Step-by-step reasoning:
+
+1. The left picture is a pastry, which is a round object.
+2. The right picture is also a pastry, but it is upside down.
+3. The left picture is a frog, which is a green, four-legged animal.
+4. The right picture is also a frog, but it is upside down.
+
+In both cases, the transformation involves flipping the object upside down, which is consistent with rule (1).</s>",1,Objects flip upside down
+22,1,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left transforming to the picture on the right. In this case, the object is a piece of food, specifically a donut, which is flipped upside down. The image on the left shows the donut with its top facing upwards, while the image on the right shows the donut with its bottom facing upwards. This transformation is a reflection of the object in the vertical plane, which is a characteristic of flipping an object upside down.</s>",1,Objects flip upside down
+22,2,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture of the frog on the left flipping upside down to become the picture of the frog on the right. This is evident from the fact that the frog is shown in different orientations in the top and bottom images. The frog on the left is facing upwards, while the frog on the right is facing downwards. This indicates that the frog has flipped upside down during the transformation.</s>",1,Objects flip upside down
+18,0,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the fish flipping upside down. In the image, the fish is shown in an upside-down position on the right side, which indicates that it flipped from its original position on the left side. This transformation is consistent with the rule (2) where objects flip upside down.
+
+Step-by-step reasoning:
+
+1. The fish is shown in an upside-down position on the left side.
+2. The fish flips upside down to its original position on the right side.
+3. The fish is shown in an upside-down position on the right side.</s>",1,Objects flip upside down
+18,1,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the fish flipping upside down. In the image, the fish is shown in an upside-down position on the right side, which indicates that it flipped from its original position on the left side. This transformation is consistent with rule (1) as it involves the orientation of objects.
+
+Step-by-step reasoning:
+
+1. The fish is shown in an upside-down position on the left side.
+2. The fish is transformed to an upside-down position on the right side.
+3. The fish is shown in an upside-down position on the right side.
+
+This transformation is consistent with rule (1) as it involves the orientation of objects.</s>",1,Objects flip upside down
+18,2,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the fish flipping upside down. In the image, the fish is shown in an upside-down position on the right side, which indicates that it flipped from its original position on the left side. This transformation is consistent with the rule (2) where objects flip upside down.
+
+Step-by-step reasoning:
+
+1. The fish is shown in an upside-down position on the left side.
+2. The fish flips upside down to its original position on the right side.
+3. The fish is shown in an upside-down position on the right side.</s>",1,Objects flip upside down
+29,0,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the bicycle, which flips upside down from one picture to the next. This is evident in the image, where the bicycle is shown in different orientations in each picture. The transformation of the bicycle from one picture to the next is a flip upside down, which is rule (2).</s>",1,Objects flip upside down
+29,1,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the bicycle, which flips upside down from one picture to the next. This is evident in the image, where the bicycle is shown in different orientations in each picture. The transformation is not a sideways flip, as the bicycle's position in the image remains consistent, and there is no change in the picture between the left and right sides.</s>",1,Objects flip upside down
+29,2,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the bicycle flipping upside down. In the image, the bicycle is shown in its original orientation on the left side, and it is flipped upside down on the right side. This indicates that the transformation involves flipping the object upside down.
+
+Step-by-step reasoning:
+
+1. The bicycle is shown in its original orientation on the left side.
+2. The bicycle is flipped upside down on the right side.
+3. The transformation involves flipping the object upside down.</s>",1,Objects flip upside down
+6,0,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left flipping upside down to become the picture on the right. This is evident from the fact that the picture on the left is upside down and the picture on the right is right side up. The transformation is a flip, which is a common way to change the orientation of objects in visual puzzles.</s>",1,Objects flip upside down
+6,1,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left flipping upside down to become the picture on the right. This is evident from the fact that the picture on the left is upside down, and when it is flipped, it becomes the correct orientation on the right.
+
+Step-by-step reasoning:
+
+1. The picture on the left is upside down.
+2. When flipped, the picture on the left becomes the correct orientation on the right.
+3. The transformation involves flipping the picture upside down.
+
+Therefore, rule (1) best describes the left-to-right transformation in the top of the puzzle.</s>",1,Objects flip upside down
+6,2,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the picture on the left flipping upside down to become the picture on the right. This is evident from the fact that the picture on the left is upside down and the picture on the right is right side up. The other two transformations in the bottom of the puzzle involve the objects flipping sideways, as they are not upside down in any of the pictures.</s>",1,Objects flip upside down
+17,0,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the objects flipping upside down. This is evident from the image on the left, which is upside down, and the image on the right, which is right side up. The transformation occurs in the middle of the puzzle, where the object is flipped from upside down to right side up. This rule applies to the top of the puzzle, but not to the bottom, where the objects are not flipped upside down.</s>",1,Objects flip upside down
+17,1,0,X,0,X,"(1) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the objects flipping upside down. This is evident from the fact that the objects in the top row are upside down in the right-side image compared to the left-side image. The objects in the bottom row also flip upside down, but this is not the focus of the top transformation. The transformation in the top row is a clear example of objects flipping upside down, which is why rule (1) is the best description for this transformation.</s>",1,Objects flip upside down
+17,2,0,X,0,X,"(2) Objects flip upside down
+
+The left-to-right transformation in the top of the puzzle involves the objects flipping upside down. This is evident from the image on the left, which is upside down, and the image on the right, which is right side up. The transformation occurs by rotating the objects 180 degrees along the horizontal axis.
+
+In the bottom of the puzzle, the three left-to-right transformations involve the objects flipping sideways. This is evident from the images on the left, which are sideways, and the images on the right, which are sideways as well. The transformation occurs by rotating the objects 90 degrees along the horizontal axis.</s>",1,Objects flip upside down

@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+31,0,0,Y,0,Y,(B),0,X
+31,1,0,Y,0,Y,(B),1,Y
+31,2,0,Y,0,Y,(B),1,Y
+22,0,0,Y,0,Y,(B),1,Y
+22,1,0,Y,0,Y,(B),0,X
+22,2,0,Y,0,Y,(B),0,No change
+33,0,0,Y,0,Y,(B),0,X
+33,1,0,Y,0,Y,(B),0,X
+33,2,0,Y,0,Y,(B),0,No change
+23,0,0,Y,0,Y,(B),1,Y
+23,1,0,Y,0,Y,(B),0,No change
+23,2,0,Y,0,Y,(B),1,Y
+39,0,0,Y,0,Y,(B),1,Y
+39,1,0,Y,0,Y,(B),0,No change
+39,2,0,Y,0,Y,(B),0,X

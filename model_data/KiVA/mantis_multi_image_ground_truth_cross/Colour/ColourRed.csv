@@ -1,0 +1,16 @@
+Variation,Regeneration,Train_input,Train_output,Full,MCResponse,Response
+48,0,0,Red,(2),0,Objects turn Blue
+48,1,0,Red,(1),1,Objects turn Red
+48,2,0,Red,(2),1,Objects turn Red
+29,0,0,Red,(2),1,Objects turn Red
+29,1,0,Red,(2),1,Objects turn Red
+29,2,0,Red,(1),1,Objects turn Red
+9,0,0,Red,(2),1,Objects turn Red
+9,1,0,Red,(2),1,Objects turn Red
+9,2,0,Red,(1),1,Objects turn Red
+10,0,0,Red,(2),1,Objects turn Red
+10,1,0,Red,(2),1,Objects turn Red
+10,2,0,Red,(1),1,Objects turn Red
+19,0,0,Red,(4),0,Doesn't apply
+19,1,0,Red,(4),0,Doesn't apply
+19,2,0,Red,(4),0,Doesn't apply

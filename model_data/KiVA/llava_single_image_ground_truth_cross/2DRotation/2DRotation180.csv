@@ -1,0 +1,84 @@
+Variation,Regeneration,Train_input,Train_output,Test_input,Test_output,Full,MCResponse,Response
+25,0,0,180,0,180,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the orientation of objects. In the top image, the object is rotated by 90 degrees from the left to the right side. This is evident by the change in the position of the object, which is now facing a different direction. The transformation can be described as a rotation of 90 degrees, which is the rule number (1).
+
+In the bottom of the puzzle, the three left-to-right transformations of the different object involve a change in orientation. The objects are rotated by 90 degrees, 180 degrees, and 270 degrees, respectively. These transformations can be described as rotations of 90 degrees, 180 degrees, and 270 degrees, which are the rule numbers (1), (2), and (3).</s>",0,Objects rotate by 90 degrees
+25,1,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the orientation of objects. In the top image, the object is rotated by 90 degrees from the left to the right. This is evident by the change in the position of the object, which is now facing a different direction. The transformation in the bottom image also involves a 90-degree rotation, as the object is rotated from the left to the right. This indicates that the transformation rule for the top and bottom images is the same, which is rotating by 90 degrees.</s>",0,Objects rotate by 90 degrees
+25,2,0,180,0,180,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the orientation of objects. In the top image, the object is rotated by 90 degrees from the left to the right side. This is evident by the change in the position of the object, which is now facing a different direction. The transformation in the bottom image also involves a rotation of 90 degrees, as the object is flipped horizontally. This is consistent with the rule (1) that objects rotate by 90 degrees.</s>",0,Objects rotate by 90 degrees
+26,0,0,180,0,180,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the motorcycle rotating by 90 degrees. In the image, the motorcycle on the left is positioned horizontally, while the motorcycle on the right is positioned vertically. This indicates that the motorcycle has rotated by 90 degrees from left to right.
+
+The left-to-right transformation in the bottom of the puzzle involves the snake rotating by 90 degrees. In the image, the snake on the left is positioned horizontally, while the snake on the right is positioned vertically. This indicates that the snake has rotated by 90 degrees from left to right.</s>",0,Objects rotate by 90 degrees
+26,1,0,180,0,180,"(1) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the motorcycle rotating by 90 degrees. In the image, the motorcycle on the left is positioned horizontally, while the motorcycle on the right is positioned vertically. This indicates that the motorcycle has rotated by 90 degrees from left to right.
+
+The left-to-right transformation in the bottom of the puzzle involves the snake rotating by 90 degrees. In the image, the snake on the left is positioned horizontally, while the snake on the right is positioned vertically. This indicates that the snake has rotated by 90 degrees from left to right.</s>",0,Objects rotate by 90 degrees
+26,2,0,180,0,180,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the motorcycle rotating by 180 degrees. In the image, the motorcycle on the left is facing forward, while the motorcycle on the right is facing backward. This indicates that the motorcycle has rotated by 180 degrees, which is the transformation described by rule (2).
+
+Step-by-step reasoning:
+
+1. The motorcycle on the left is facing forward.
+2. The motorcycle on the right is facing backward.
+3. The difference in orientation between the two motorcycles is a 180-degree rotation.
+4. This 180-degree rotation is the transformation described by rule (2).</s>",1,Objects rotate by 180 degrees
+36,0,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the object rotating by 90 degrees. In the image, the object on the left is a snowman with a red and blue wheel, and the object on the right is a snowman with a red and blue wheel. The snowman on the left is facing the opposite direction of the snowman on the right, indicating that the object has rotated by 90 degrees.
+
+In the bottom of the puzzle, the left-to-right transformation involves the orientation of objects. The object on the left is a pizza, and the object on the right is a pizza. The pizza on the left is facing the opposite direction of the pizza on the right, indicating that the object has rotated by 90 degrees.</s>",0,Objects rotate by 90 degrees
+36,1,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the object rotating by 90 degrees. In the image, the object on the left is a snowman with a red and blue wheel, and the object on the right is a snowman with a red and blue wheel. The snowman on the left is facing the opposite direction of the snowman on the right, indicating that the object has rotated by 90 degrees.
+
+In the bottom of the puzzle, the left-to-right transformation involves the orientation of objects. The object on the left is a pizza, and the object on the right is a pizza. The pizza on the left is facing the opposite direction of the pizza on the right, indicating that the object has rotated by 90 degrees.</s>",0,Objects rotate by 90 degrees
+36,2,0,180,0,180,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the object rotating by 180 degrees. This is evident from the fact that the object on the left is upside down and the object on the right is right side up. The object is a toy car, and the transformation is a reflection of the car in a mirror.
+
+In the bottom of the puzzle, the left-to-right transformation involves the orientation of objects. The object on the left is upside down, and the object on the right is right side up. This transformation is a reflection of the object in a mirror.</s>",1,Objects rotate by 180 degrees
+35,0,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves a shark that rotates by 90 degrees. In the image, the shark is shown in a horizontal position on the left side, and it rotates to a vertical position on the right side. This indicates that the objects are rotating by 90 degrees in the top part of the puzzle.</s>",0,Objects rotate by 90 degrees
+35,1,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves a shark that rotates by 90 degrees. In the image, the shark is shown in a horizontal position on the left side, and it rotates to a vertical position on the right side. This indicates that the objects are rotating by 90 degrees in the top part of the puzzle.</s>",0,Objects rotate by 90 degrees
+35,2,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves a shark that rotates by 90 degrees. In the image, the shark's head is on the left side, and its tail is on the right side. This indicates that the shark has rotated by 90 degrees, with its head now on the right side and its tail on the left side.
+
+In the bottom of the puzzle, there are three left-to-right transformations of a different object, marked by (A) or (B) or (C). The object in the left picture is on the left side, and the object in the right picture is on the right side. This suggests that the object has rotated by 90 degrees, with the object's orientation changing from left to right.</s>",0,Objects rotate by 90 degrees
+9,0,0,180,0,180,"(2) Objects rotate by 180 degrees
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup and the cat. The coffee cup is rotated by 180 degrees, which means it is flipped upside down. The cat is also rotated by 180 degrees, which means it is flipped upside down. This transformation is consistent with rule (2) where objects rotate by 180 degrees.
+
+Step-by-step reasoning:
+
+1. The coffee cup on the left is upside down.
+2. The coffee cup is rotated by 180 degrees, which means it is flipped upside down again.
+3. The coffee cup on the right is upside down.
+
+1. The cat on the left is facing upwards.
+2. The cat is rotated by 180 degrees, which means it is flipped upside down.
+3. The cat on the right is facing upwards.</s>",1,Objects rotate by 180 degrees
+9,1,0,180,0,180,"(2) Objects rotate by 90 degrees
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup and the cat. The coffee cup is rotated by 90 degrees, which means it is flipped horizontally. The cat is also rotated by 90 degrees, which means it is flipped horizontally as well. This transformation is consistent with rule (2) where objects rotate by 90 degrees.
+
+Step-by-step reasoning:
+
+1. The coffee cup on the left is flipped horizontally to the right.
+2. The cat on the left is flipped horizontally to the right.
+3. The coffee cup on the right is flipped horizontally to the left.
+4. The cat on the right is flipped horizontally to the left.</s>",0,Objects rotate by 90 degrees
+9,2,0,180,0,180,"(2) Objects rotate by 90 degrees.
+
+The left-to-right transformation in the top of the puzzle involves the coffee cup, which rotates by 90 degrees in each step. The first image shows the coffee cup in a vertical position, while the second image shows it in a horizontal position. The third image shows the coffee cup in a diagonal position, and the fourth image shows it in a diagonal position with the handle pointing upwards. This demonstrates that the objects are rotating by 90 degrees in each step.</s>",0,Objects rotate by 90 degrees

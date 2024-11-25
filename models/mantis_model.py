@@ -8,9 +8,9 @@ class MantisModel(ChatModel):
 	def __init__(self, system_prompt, max_token=100):
 		super().__init__(system_prompt)
 
+		self.new_tokens = max_token
 		self.model_data = self.load_model()
 		self.model_name = "llava"
-		self.new_tokens = max_token
 		self.history = self.init_history()
 		self.n_call = 0 
 
