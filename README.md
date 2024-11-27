@@ -110,6 +110,14 @@ Ensure the following Python libraries are installed:
 pip install Pillow numpy
 ```
 
+### PyTorch Transformations file prerequisites
+
+Ensure the following Python libraries are installed:
+
+```
+pip install torch torchvision
+```
+
 ### Step-by-Step Guide
 * Prepare the images for transformation in the input directory
 * Create an output directory for which the transformed images will be saved
@@ -154,6 +162,48 @@ python Transformations-KiVA-compositionality.py \
     --resize <resize_factor> \
     --reflect <reflection_axis> \
     --randomize <randomize_parameters>
+```
+
+#### KiVA-compositionality
+This benchmark combines various transformation domains of KiVA to test compositionality. The user can specify the parameters of color, rotation, number, size and reflection in the following code:
+```
+python Transformations-KiVA-compositionality.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --colour <colour_transformation> \
+    --rotate <rotation_angle> \
+    --count <math_operation> \
+    --resize <resize_factor> \
+    --reflect <reflection_axis> \
+    --randomize <randomize_parameters>
+```
+
+#### PyTorch KiVA
+This benchmark uses PyTorch to feature 5 domains (14 subdomains) of transformations. It is solvable by young children.
+```
+python pytorch_transformations_kiva.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --shuffle <true_or_false>
+```
+
+#### PyTorch KiVA-adults
+This benchmark uses PyTorch to involve more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
+```
+python pytorch_transformations_kiva-adults.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --shuffle <true_or_false>
 ```
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
