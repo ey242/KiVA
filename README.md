@@ -164,22 +164,6 @@ python Transformations-KiVA-compositionality.py \
     --randomize <randomize_parameters>
 ```
 
-#### KiVA-compositionality
-This benchmark combines various transformation domains of KiVA to test compositionality. The user can specify the parameters of color, rotation, number, size and reflection in the following code:
-```
-python Transformations-KiVA-compositionality.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --next_index <start_index> \
-    --trials <num_trials> \
-    --colour <colour_transformation> \
-    --rotate <rotation_angle> \
-    --count <math_operation> \
-    --resize <resize_factor> \
-    --reflect <reflection_axis> \
-    --randomize <randomize_parameters>
-```
-
 #### PyTorch KiVA
 This benchmark uses PyTorch to feature 5 domains (14 subdomains) of transformations. It is solvable by young children.
 ```
