@@ -135,6 +135,18 @@ python Transformations-KiVA.py \
     --next_index <start_index> \
     --trials <num_trials>
 ```
+#### PyTorch KiVA
+We also provide a PyTorch version of KiVA to enable users to generate new transformed objects on the fly.
+```
+python pytorch_transformations_kiva.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --shuffle <true_or_false>
+```
 
 #### KiVA-adults
 This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
@@ -146,6 +158,19 @@ python Transformations-KiVA-adults.py \
     --parameter <parameter> \
     --next_index <start_index> \
     --trials <num_trials>
+```
+
+#### PyTorch KiVA-adults
+We also provide a PyTorch version of KiVA-adults to enable users to generate new transformed objects on the fly.
+```
+python pytorch_transformations_kiva-adults.py \
+    --input_directory <input_dir> \
+    --output_directory <output_dir> \
+    --transformation <transformation_type> \
+    --parameter <parameter> \
+    --next_index <start_index> \
+    --trials <num_trials> \
+    --shuffle <true_or_false>
 ```
 
 #### KiVA-compositionality
@@ -164,31 +189,7 @@ python Transformations-KiVA-compositionality.py \
     --randomize <randomize_parameters>
 ```
 
-#### PyTorch KiVA
-This benchmark uses PyTorch to feature 5 domains (14 subdomains) of transformations. It is solvable by young children.
-```
-python pytorch_transformations_kiva.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
-    --next_index <start_index> \
-    --trials <num_trials> \
-    --shuffle <true_or_false>
-```
 
-#### PyTorch KiVA-adults
-This benchmark uses PyTorch to involve more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
-```
-python pytorch_transformations_kiva-adults.py \
-    --input_directory <input_dir> \
-    --output_directory <output_dir> \
-    --transformation <transformation_type> \
-    --parameter <parameter> \
-    --next_index <start_index> \
-    --trials <num_trials> \
-    --shuffle <true_or_false>
-```
 
 [1] Downs, L., Francis, A., Koenig, N., Kinman, B., Hickman, R., Reymann, K., ... & Vanhoucke, V. (2022, May). Google scanned objects: A high-quality dataset of 3d scanned household items. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2553-2560). IEEE.
 
