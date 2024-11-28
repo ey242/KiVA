@@ -136,7 +136,7 @@ python pytorch_transformations_kiva.py \
 ```
 
 #### KiVA-adults
-This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by human adults.
+This benchmark involves more transformation subdomains (29 domains) and different input values, demanding further abstraction and generalization. It is solvable by adults.
 ```
 python Transformations-KiVA-adults.py \
     --input_directory <input_dir> \
