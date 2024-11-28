@@ -12,7 +12,7 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 * For *KiVA-adults*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the transformed objects/stitched_KiVA-adults folder.
 * We provide the individual (without stitching) images of each object before and after transformation under the transformed objects/KiVA-adults folder.
   
-* We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the untransformed objects folder. In particular, we used achiral objects for rotation and reflection, planar objects for resize to avoid ambiguous transformations.
+* We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the untransformed objects folder. In particular, we used achiral objects for rotation and reflection (Achiral Objects for Reflect, 2DRotation folder), planar objects for resize (Planar Objects for Resize folder) to avoid ambiguous object transformations.
 
 The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
 
