@@ -6,13 +6,13 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
 ## Dataset Artifacts
 
 
-* For *KiVA*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA folder.
-* We provide the individual (without stitching) images of each object before and after transformation under the stimuli/KiVA folder.
+* For *KiVA*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the transformed objects/stitched_KiVA folder.
+* We provide the individual (without stitching) images of each object before and after transformation under the transformed objects/KiVA folder.
 
-* For *KiVA-adults*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the stimuli/stitched_KiVA-adults folder.
-* We provide the individual (without stitching) images of each object before and after transformation under the stimuli/KiVA-adults folder.
+* For *KiVA-adults*: we provide the exact stitched image format (stitching images of objects before and after transformation) shown to models & humans in every trial under the transformed objects/stitched_KiVA-adults folder.
+* We provide the individual (without stitching) images of each object before and after transformation under the transformed objects/KiVA-adults folder.
   
-* We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the objects folder. 
+* We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the untransformed objects folder. In particular, we used achiral objects for rotation and reflection, planar objects for resize to avoid ambiguous transformations.
 
 The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
 
@@ -20,7 +20,7 @@ The python scripts that run the experiments (as outlined below) use the images u
 
 Please find below instructions on how to reproduce our results for each model. 
 
-The scripts that are prefixed with "chat_system" generates the input data to the models, including the exact images and text on which they are evaluated. 
+The scripts that are in the "chat_systems" folder and are prefixed with "chat_system" generate the input data to the models, including the exact images and text on which they are evaluated. 
 
 ### GPT4
 
