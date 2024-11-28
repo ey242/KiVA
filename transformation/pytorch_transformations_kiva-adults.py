@@ -82,43 +82,52 @@ test_loader = DataLoader(test_set, batch_size=1, shuffle=False)
 # Transformation functions
 
 def apply_color(image, target_color, type, train_color=None):
-    color_channels = {
-        "Red": torch.tensor([1.0, 0.0, 0.0]),  
-        "Green": torch.tensor([0.0, 1.0, 0.0]),
-        "Blue": torch.tensor([0.0, 0.0, 1.0]), 
-        "Yellow": torch.tensor([1.0, 1.0, 0.2]), # Red + Green
-        "Grey": None  
+    color_map = {
+        "Red": torch.tensor([255, 0, 0], dtype=torch.float32),     
+        "Green": torch.tensor([0, 128, 0], dtype=torch.float32),   
+        "Blue": torch.tensor([0, 0, 255], dtype=torch.float32),    
+        "Yellow": torch.tensor([255, 255, 50], dtype=torch.float32), # (R + G)
+        "Grey": None  # Special case for greyscale
     }
 
-    if target_color not in color_channels:
+    if target_color not in color_map:
         raise ValueError("Invalid color. Choose from 'Red', 'Yellow', 'Green', 'Blue', or 'Grey'.")
 
-    available_colors = [color for color in color_channels if color != target_color and color != train_color]
+    available_colors = [color for color in color_map if color != target_color and color != train_color]
 
     initial_color, incorrect_color = random.sample(available_colors, 2) # Sample without overlap
 
-    def apply_color_overlay(img, color):
-        # Separate RGB and alpha channels (helps with transparency handling)
-        rgb_channels = img[:3, :, :].clone().float() / 255.0 
-        alpha_channel = img[3, :, :].clone() if img.shape[0] == 4 else None 
+    def color_overlap(img, color):
+        has_alpha = img.shape[0] == 4
+        alpha_channel = None
 
-        if color == "Grey": # Simply make greyscale
-            grayscale = rgb_channels.mean(dim=0, keepdim=True)
-            colored_image = grayscale.expand_as(rgb_channels) 
-        else: # Get color tensor and apply overlay to RGB channels
-            color_tensor = color_channels[color].view(3, 1, 1)
-            colored_image = rgb_channels * color_tensor
+        if has_alpha: # Separate alpha channel if present
+            alpha_channel = img[3, :, :].clone()
+            img = img[:3, :, :]  
 
-        colored_image = (colored_image * 255).byte()
+        img = img.float() / 255.0 # Normalize to [0, 1]
+        height, width = img.shape[1], img.shape[2]
 
-        if alpha_channel is not None: # Add the alpha channel back if it exists
-            colored_image = torch.cat((colored_image, alpha_channel.unsqueeze(0)), dim=0)
+        if color == "Grey":  # Convert to grayscale
+            grayscale = img.mean(dim=0, keepdim=True) # Average over RGB channels
+            blended_img = grayscale.expand_as(img)  
+        else:
+            target_color = color_map[color].view(3, 1, 1).repeat(1, height, width) / 255.0
+            blended_img = (img + target_color) / 2  # Blend the original image with the target color
+            # To create a more distinctive change, use the option below; increasing the color distinction will decrease differentiation in object details
+            # blended_img = img * (1 - 0.7) + target_color * 0.7 # Blend the original image (0.3) with target color (0.7)
 
-        return colored_image
+        blended_img = torch.clamp(blended_img, 0, 1)
+        blended_img = (blended_img * 255).byte()  
 
-    initial_image = apply_color_overlay(image, initial_color)
-    correct_image = apply_color_overlay(image, target_color)
-    incorrect_image = apply_color_overlay(image, incorrect_color)
+        if has_alpha: # Reattach alpha channel if it exists
+            blended_img = torch.cat((blended_img, alpha_channel.unsqueeze(0)), dim=0)
+
+        return blended_img
+
+    initial_image = color_overlap(image, initial_color)
+    correct_image = color_overlap(image, target_color)
+    incorrect_image = color_overlap(image, incorrect_color)
 
     if (type == "train"):
         return initial_image, correct_image, initial_color, target_color
@@ -311,8 +320,8 @@ while True:
         elif transformation == "2DRotation":
             original_image, correct_image, train_input, train_output = apply_rotation(original_image, args.parameter, type="train")
 
-        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_input.png"))
-        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_output.png"))
+        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_0_input.png"))
+        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_0_output.png"))
 
         # Process one item from test_loader
         original_image = next(test_iter)[0]
@@ -328,9 +337,9 @@ while True:
         elif transformation == "2DRotation":
             original_image, correct_image, incorrect_image, test_input, incorrect_option = apply_rotation(original_image, args.parameter, type="test", train_angle=train_input)
 
-        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_input.png"))
-        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_correct_output.png"))
-        transforms.ToPILImage()(incorrect_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_incorrect_output.png"))
+        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_0_input.png"))
+        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_mc_0_input.png"))
+        transforms.ToPILImage()(incorrect_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_mc_1_input.png"))
 
         save_values_to_txt(train_input, train_output, test_input, incorrect_option)
 

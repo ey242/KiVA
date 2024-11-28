@@ -458,8 +458,6 @@ for param in concept_to_parameters[concept]:
 
             print("="*20)
 
-            print(concept_result)
-
             if os.path.exists(output_file): 
                 df = pd.read_csv(output_file)
                 df_to_add = pd.DataFrame(concept_result)

@@ -82,7 +82,11 @@ test_loader = DataLoader(test_set, batch_size=1, shuffle=False)
 # Transformation functions
 
 def apply_color(image, target_color, type, initial_color=None):
-    color_channels = {"Red": 0, "Green": 1, "Blue": 2}
+    color_map = {
+            "Red": torch.tensor([255, 0, 0], dtype=torch.float32),  # Red RGB
+            "Green": torch.tensor([0, 128, 0], dtype=torch.float32),  # Green RGB
+            "Blue": torch.tensor([0, 0, 255], dtype=torch.float32),  # Blue RGB
+        }
     colors = ["Red", "Green", "Blue"]
     if target_color in colors:
         colors.remove(target_color) 
@@ -92,16 +96,34 @@ def apply_color(image, target_color, type, initial_color=None):
     initial_color = random.choice(colors) if initial_color is None else initial_color # Randomly select initial color if not provided
     incorrect_color = colors[0] if initial_color == colors[1] else colors[1]  # Remaining color for incorrect test option
 
-    def isolate_channel(img, color):
-        channels = img.clone()
-        for idx in range(3):
-            if idx != color_channels[color]:  # Zero out channels not equal to target
-                channels[idx, :, :] = 0
-        return channels
+    def color_overlap(img, color):
+        has_alpha = img.shape[0] == 4
+        alpha_channel = None
 
-    initial_image = isolate_channel(image, initial_color)
-    correct_image = isolate_channel(image, target_color)
-    incorrect_image = isolate_channel(image, incorrect_color)
+        if has_alpha: # Separate alpha channel if present
+            alpha_channel = img[3, :, :].clone() 
+            img = img[:3, :, :]  
+
+        img = img.float() / 255.0  # (3, H, W)
+        height, width = img.shape[1], img.shape[2]
+
+        target_color = color_map[color].view(3, 1, 1).repeat(1, height, width) / 255.0
+
+        blended_img = (img + target_color) / 2 # Blend the original image with target color
+        # To create a more distinctive change, use the option below; increasing the color distinction will decrease differentiation in object details
+        # blended_img = img * (1 - 0.7) + target_color * 0.7 # Blend the original image (0.3) with target color (0.7)
+
+        blended_img = torch.clamp(blended_img, 0, 1)
+        blended_img = (blended_img * 255).byte()
+
+        if has_alpha: # Reattach the alpha channel if it was present
+            blended_img = torch.cat((blended_img, alpha_channel.unsqueeze(0)), dim=0)
+
+        return blended_img
+
+    initial_image = color_overlap(image, initial_color)
+    correct_image = color_overlap(image, target_color)
+    incorrect_image = color_overlap(image, incorrect_color)
 
     if (type == "train"):
         return initial_image, correct_image, initial_color, args.parameter
@@ -263,8 +285,8 @@ while True:
         elif transformation == "2DRotation":
             correct_image, train_input, train_output = apply_rotation(original_image, args.parameter, type="train")
 
-        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_input.png"))
-        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_output.png"))
+        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_0_input.png"))
+        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_train_0_output.png"))
 
         # Process one item from test_loader
         original_image = next(test_iter)[0]
@@ -280,9 +302,9 @@ while True:
         elif transformation == "2DRotation":
             correct_image, incorrect_image, test_input, incorrect_option = apply_rotation(original_image, args.parameter, type="test")
 
-        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_input.png"))
-        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_correct_output.png"))
-        transforms.ToPILImage()(incorrect_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_incorrect_output.png"))
+        transforms.ToPILImage()(original_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_0_input.png"))
+        transforms.ToPILImage()(correct_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_mc_0_input.png"))
+        transforms.ToPILImage()(incorrect_image).save(os.path.join(args.output_directory, f"{transformation}{args.parameter}_{i}_test_mc_1_input.png"))
 
         save_values_to_txt(train_input, train_output, test_input, incorrect_option)
 
