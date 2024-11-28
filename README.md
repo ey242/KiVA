@@ -85,19 +85,6 @@ As outlined in our paper, we test additional prompt settings (instruction prompt
 
 We provide full output responses and scores of GPT4 (in both single-image and multi_image settings), LLaVA and MANTIS for KiVA and KiVA-adults under the model_data folder. See gpt4_multi_image_extrapolation and gpt4_single_image_extrapolation for results on the non-verbal visual extrapolation task only. 
 
-## Human Data
-
-We provide scores and reaction times of child and adult participants for KiVA (KiVA_children and KiVA_adults); scores and response times of adult participants for KiVA-adults (KiVA-adults_adults) under the human_data folder. Participant identifiers are removed for confidentiality.
-
-## Basic Analysis
-
-We provide some basic analyses that compare model and human performance on KiVA under the analysis folder. 
-
-* Comparing models and humans: We provide two tables that summarize the mean accuracies and standard errors across 14 different transformations and 3 question types (cross-domain, within-domain and extrapolation). 
-Performance_14Transformations_fullbenchmark_withoutkids.xlsx compares models to adults on the full benchmark. Performance_14Transformations_400samples_withkids.xlsx compares models to both children and adults on a random subset of the benchmark completed by children.
-
-* Analyzing model errors and biases: We provide a table of the frequency of option labels selected by each model in Model_option_frequency.xlsx. We provide a table of the frequency of different types of wrong responses (incorrect transformation, "No change", "Doesn't apply") made by each model in Model_wrong_frequency.xlsx.
-
 ## Generating your own dataset with the Transformation scripts
 
 Our transformation scripts take in any .png image file (note transparent background for color transformations) and perform transformations specified by the user, automatically saving output files annotated with the ground truth. The instructions to run the scripts for stimuli creation are as follows. 
