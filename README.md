@@ -123,6 +123,7 @@ python Transformations-KiVA.py \
     --trials <num_trials>
 ```
 This is a trial of 2D Rotation (+90°) in KiVA. Both train object (duck) and test object (boy) have the same input value of orientation (starting upright, 0°):
+
 <img src="transformed%20objects/stitched_KiVA/single_image/gpt4/2DRotation_stitch/2DRotation%2B90_13_0.jpg" alt="2D Rotation +90° Example" width="80%">
 
 #### PyTorch KiVA
@@ -150,6 +151,7 @@ python Transformations-KiVA-adults.py \
     --trials <num_trials>
 ```
 This is a trial of 2D Rotation (+45°, parameter not included in KiVA) in KiVA-adults. Both train object (duck) and test object (boy) have different input values of orientation (starting -135° for train, -90° for test):
+
 <img src="transformed%20objects/stitched_KiVA-adults/single_image/llava/2DRotation_stitch/2DRotation%2B45_13_1.jpg" alt="2D Rotation +45° Example" width="80%">
 
 #### PyTorch KiVA-adults
