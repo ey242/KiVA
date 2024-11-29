@@ -14,7 +14,7 @@ KiVA: Kid-inspired Visual Analogies is a visual analogical reasoning benchmark d
   
 * We provide the individual PNG images for each object (sourced from [1] and [2]) in its original format under the untransformed objects folder. In particular, we used achiral objects for rotation and reflection (Achiral Objects for Reflect, 2DRotation folder), planar objects for resize (Planar Objects for Resize folder) to avoid ambiguous object transformations.
 
-The python scripts that run the experiments (as outlined below) use the images under the stimuli folder to construct our trial.
+The python scripts that run the experiments (as outlined below) use the images under the transformed objects folder to construct our trial.
 
 ## Benchmarking the Models
 
@@ -87,7 +87,7 @@ We provide full output responses and scores of GPT4 (in both single-image and mu
 
 ## Generating your own dataset with the Transformation scripts
 
-Our transformation scripts take in any .png image file (note transparent background for color transformations) and perform transformations specified by the user, automatically saving output files annotated with the ground truth. The instructions to run the scripts for stimuli creation are as follows. 
+Our transformation scripts take in any .png image file (note transparent background for color transformations) and perform transformations specified by the user, automatically saving output files annotated with the ground truth. The instructions to run the scripts for creating the transformed objects are as follows. 
 
 ### Prerequisites
 
