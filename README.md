@@ -122,7 +122,7 @@ python Transformations-KiVA.py \
     --next_index <start_index> \
     --trials <num_trials>
 ```
-This is a trial of 2D Rotation (+90°) in KiVA. Both train and test objects start from the same input value of orientation:
+This is a trial of 2D Rotation (+90°) in KiVA. Both train and test objects start from the same input value of orientation (upright):
 <img src="transformed%20objects/stitched_KiVA/single_image/gpt4/2DRotation_stitch/2DRotation%2B90_13_0.jpg" alt="2D Rotation +90° Example" width="80%">
 
 #### PyTorch KiVA
