@@ -122,6 +122,8 @@ python Transformations-KiVA.py \
     --next_index <start_index> \
     --trials <num_trials>
 ```
+![Example of 2D Rotation (+90°) in KiVA: the input objects start from the same orientation](transformed%20objects/stitched_KiVA/single_image/gpt4/2DRotation_stitch/2DRotation%2B90_13_0.jpg)
+
 #### PyTorch KiVA
 We also provide a PyTorch version of KiVA to enable users to generate new transformed objects on the fly.
 ```
@@ -146,6 +148,7 @@ python Transformations-KiVA-adults.py \
     --next_index <start_index> \
     --trials <num_trials>
 ```
+![Example of 2D Rotation (+45°, parameter not included in KiVA) in KiVA-adults: the input objects start from different orientations](transformed%20objects/stitched_KiVA-adults/single_image/llava/2DRotation_stitch/2DRotation%2B45_13_0.jpg)
 
 #### PyTorch KiVA-adults
 We also provide a PyTorch version of KiVA-adults to enable users to generate new transformed objects on the fly.
