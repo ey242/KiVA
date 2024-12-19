@@ -1,0 +1,2 @@
+You are given a visual puzzle. The puzzle features a left-to-right transformation of an object on top and three left-to-right
+transformations of a different object on the bottom marked by (A) or (B) or (C). The transformations involve a change of either the size, orientation, number, or color of an object

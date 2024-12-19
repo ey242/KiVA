@@ -1,0 +1,2 @@
+Observe the left-to-right transformation of an object. The object picture on the left transforms to the object picture on the right.
+Denote this transformation as training transformation. The transformation involves a change of either the size, orientation, number, or color of an object
