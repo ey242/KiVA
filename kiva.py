@@ -82,81 +82,95 @@ def main():
 
     for items in data: 
 
-        tracker_data_point = {}
 
-        images = items["images"]
-        exps_details = items["exps_details"]
+        retry_count = 0  
+        regeneration_successful = False
 
-        for exp in exps_details:
-            tracker_data_point[exp] = exps_details[exp]
-        
+        while retry_count < 2 and not regeneration_successful: # Redo regeneration if any of model responses are uncertain
 
-        if args.image_num == "single":
-            out_chatmodel = chat_model.run_model(items["prompts"]["general_cross_rule_prompt"], items["images"][0])
-        elif args.image_num == "multi": 
-            out_chatmodel = chat_model.run_model_indiv(items["prompts"]["general_cross_rule_prompt"], items["images"][0])
+            tracker_data_point = {}
 
-        tracker_data_point["Full#1"] = out_chatmodel["response"]
+            images = items["images"]
+            exps_details = items["exps_details"]
 
-        print("Cross Domain Response: ", out_chatmodel["response"])
-
-        answers_cross = items["answers"]["general_cross"]
-        result_boolean, result_text = eval_response(out_chatmodel["response"], 
-                                                    answers_cross["correct_answers"], 
-                                                    answers_cross["incorrect_answers"],
-                                                    answers_cross["all_answers"])
-        
-        tracker_data_point["MCResponse#1"] = result_boolean 
-        tracker_data_point["Response#1"] = result_text
-
-        if result_boolean == "1":
+            for exp in exps_details:
+                tracker_data_point[exp] = exps_details[exp]
             
+
             if args.image_num == "single":
-                out_chatmodel = chat_model.run_model(items["prompts"]["general_within_rule_prompt"])
-            elif args.image_num == "multi":
-                out_chatmodel = chat_model.run_model_indiv(items["prompts"]["general_within_rule_prompt"])
+                out_chatmodel = chat_model.run_model(items["prompts"]["general_cross_rule_prompt"], items["images"][0])
+            elif args.image_num == "multi": 
+                out_chatmodel = chat_model.run_model_indiv(items["prompts"]["general_cross_rule_prompt"], items["images"][0])
 
-            tracker_data_point["Full#2"] = out_chatmodel["response"]
+            tracker_data_point["Full#1"] = out_chatmodel["response"]
 
-            print("Within Domain Response: ", out_chatmodel["response"])
+            print("Cross Domain Response: ", out_chatmodel["response"])
 
-            answers_within = items["answers"]["general_within"]
+            answers_cross = items["answers"]["general_cross"]
             result_boolean, result_text = eval_response(out_chatmodel["response"], 
-                                                        answers_within["correct_answers"], 
-                                                        answers_within["incorrect_answers"],
-                                                        answers_within["all_answers"])
+                                                        answers_cross["correct_answers"], 
+                                                        answers_cross["incorrect_answers"],
+                                                        answers_cross["all_answers"])
             
-            tracker_data_point["MCResponse#2"] = result_boolean
-            tracker_data_point["Response#2"] = result_text
+            tracker_data_point["MCResponse#1"] = result_boolean 
+            tracker_data_point["Response#1"] = result_text
 
-        else: 
-            tracker_data_point["Full#2"] = "[Skipped mcq#2, incorrect previous response]"
-            tracker_data_point["MCResponse#2"] = ""
-            tracker_data_point["Response#2"] = ""
-        
+            if result_boolean == "1":
+                
+                if args.image_num == "single":
+                    out_chatmodel = chat_model.run_model(items["prompts"]["general_within_rule_prompt"])
+                elif args.image_num == "multi":
+                    out_chatmodel = chat_model.run_model_indiv(items["prompts"]["general_within_rule_prompt"])
 
-        if args.image_num == "single":
-            out_chatmodel = chat_model.run_model(items["prompts"]["extrapolation_prompt"])
-        if args.image_num == "multi":
-            out_chatmodel = chat_model.run_model_multi(items["prompts"]["extrapolation_prompt"], images[1:])    
-        
-        tracker_data_point["Full#3"] = out_chatmodel["response"]
-        answers_extrapolation = items["answers"]["extrapolation"]
+                tracker_data_point["Full#2"] = out_chatmodel["response"]
 
-        print("Extrapolation Response: ", out_chatmodel["response"])
+                print("Within Domain Response: ", out_chatmodel["response"])
 
-        result_boolean, result_text = eval_response(out_chatmodel["response"],
-                                                    answers_extrapolation["correct_answers"], 
-                                                    answers_extrapolation["incorrect_answers"],
-                                                    answers_extrapolation["all_answers_with_params"])
+                answers_within = items["answers"]["general_within"]
+                result_boolean, result_text = eval_response(out_chatmodel["response"], 
+                                                            answers_within["correct_answers"], 
+                                                            answers_within["incorrect_answers"],
+                                                            answers_within["all_answers"])
+                
+                tracker_data_point["MCResponse#2"] = result_boolean
+                tracker_data_point["Response#2"] = result_text
 
-        tracker_data_point["MCResponse#3"] = result_boolean
-        tracker_data_point["Response#3"] = result_text
+            else: 
+                tracker_data_point["Full#2"] = "[Skipped mcq#2, incorrect previous response]"
+                tracker_data_point["MCResponse#2"] = ""
+                tracker_data_point["Response#2"] = ""
+            
+
+            if args.image_num == "single":
+                out_chatmodel = chat_model.run_model(items["prompts"]["extrapolation_prompt"])
+            if args.image_num == "multi":
+                out_chatmodel = chat_model.run_model_multi(items["prompts"]["extrapolation_prompt"], images[1:])    
+            
+            tracker_data_point["Full#3"] = out_chatmodel["response"]
+            answers_extrapolation = items["answers"]["extrapolation"]
+
+            print("Extrapolation Response: ", out_chatmodel["response"])
+
+            result_boolean, result_text = eval_response(out_chatmodel["response"],
+                                                        answers_extrapolation["correct_answers"], 
+                                                        answers_extrapolation["incorrect_answers"],
+                                                        answers_extrapolation["all_answers_with_params"])
+
+            tracker_data_point["MCResponse#3"] = result_boolean
+            tracker_data_point["Response#3"] = result_text
+
+
+            if "Null" not in [tracker_data_point["MCResponse#1"], tracker_data_point["MCResponse#2"], tracker_data_point["MCResponse#3"]]:
+                regeneration_successful = True
+            elif retry_count == 2:
+                regeneration_successful = True
+            elif retry_count <= 0:
+                retry_count += 1
+                print(f"Retrying due to null response; this is try {retry_count} of 3.")
 
 
         tracker.update(tracker_data_point)
-
-    tracker.save_df()
+        tracker.save_df()
 
 
 if __name__ == "__main__":

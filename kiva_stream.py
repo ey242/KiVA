@@ -206,9 +206,8 @@ class KiVAStream():
 
 				for regeneration in range(self.num_trials):
 
-					# retry_count = 0  
-					# regeneration_successful = False
-					# while retry_count < self.retry_num and not regeneration_successful: 
+					print("-----------------------------")
+					print(f"Beginning Regeneration {regeneration + 1} of 3")
 					
 					with open(f"{self.text_files_dir}/output_{self.concept}{param}.txt", "r") as file:
 						lines = file.readlines()
