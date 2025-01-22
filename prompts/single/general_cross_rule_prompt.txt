@@ -1,2 +1,2 @@
-Which one of the following rules {options} best describes the left-to-right transformation on top of the puzzle where the picture on the left transforms to the picture on the right? Answer with the correct rule number
+Which one of the following rules {options} best describes the left-to-right transformation on top of the puzzle where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number
 surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice
