@@ -48,7 +48,7 @@ initi_prompt =  ("Observe the left-to-right transformation of an object. The obj
 # original last sentence:  The transformation involves a change of either the size, orientation, number, or color of an object")
 
 general_within_rule_prompt = initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation where the picture"
-                               "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,")
+                               "on the left transforms to the picture on the right?. In your answer start with the correct rule number surrounded by parentheses,")
 general_within_rule_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 concept_to_parameters = {

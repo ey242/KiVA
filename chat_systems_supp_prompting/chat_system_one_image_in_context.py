@@ -36,16 +36,16 @@ initi_prompt =  ("You are given a visual puzzle. The puzzle features a left-to-r
 	 			 "The transformations involve a change of either the size, orientation, number, or color of an object")
 
 general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation on top of the"
-							 "puzzle where the picture on the left transforms to the picture on the right? Answer with the correct rule number"
+							 "puzzle where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number"
 							 "surrounded by parentheses, then provide a “step-by step” reasoning for your choice.")
 general_within_rule_prompt = ("Which one of the following rules {} best describes the transformation in the top of the puzzle where the picture"
-	 						  "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,"
+	 						  "on the left transforms to the picture on the right?. In your answer start with the correct rule number surrounded by parentheses,"
 							  "then provide a “step-by step” reasoning for your choice. ")
 
 extrapolation_prompt = ("Which one of three left-to-right object transformations (marked by either (A), (B) or (C) ) on the bottom of the puzzle is"
 	 				    "the same as the left-to-right transformation on the top of the puzzle?"
 						"Note that each transformation involves two pictures (a left picture and a right picture). The move from left to right in the chosen transformation should match that of the top transformation."
-						"Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), then provide a step-by-step reasoning for your choice. ")
+						"In your answer start with the correct letter surrounded by parentheses (or (D) if none of the options apply), then provide a step-by-step reasoning for your choice. ")
 
 
 concept_to_parameters = {

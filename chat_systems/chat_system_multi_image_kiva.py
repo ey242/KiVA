@@ -37,16 +37,16 @@ initi_prompt =  ("Observe the left-to-right transformation of an object. The obj
 	 			 "Denote this transformation as training transformation. The transformation involves a change of either the size, orientation, number, or color of an object")
 
 general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation"
-							 "where the picture on the left transforms to the picture on the right? Answer with the correct rule number")
+							 "where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number")
 general_cross_rule_prompt += f"surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice."
 
 general_within_rule_prompt = ("Which one of the following rules {} best describes the left-to-right transformation where the picture"
-	 						  "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,")
+	 						  "on the left transforms to the picture on the right?. In your answer start with the correct rule number surrounded by parentheses,")
 general_within_rule_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 extrapolation_prompt = ("Now you are given three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C) )."
 						"Which one of these three left-to-right transformations follows the identified transformation."
-						"Answer with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
+						"In your answer start with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 

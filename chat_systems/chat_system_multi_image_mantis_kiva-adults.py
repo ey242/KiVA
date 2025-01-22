@@ -31,16 +31,16 @@ initi_prompt =  ("Observe the left-to-right transformation of an object in <imag
 	 			 "Denote this transformation as training transformation. The transformation involves a change of either the size, orientation, number, or color of an object")
 
 general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation in the training image"
-							 "where the picture on the left transforms to the picture on the right? Answer with the correct rule number")
+							 "where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number")
 general_cross_rule_prompt += f"surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice."
 
 general_within_rule_prompt = ("Which one of the following rules {} best describes the left-to-right transformation best describes the left-to-right transformation in the training image where the picture"
-	 						  "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,")
+	 						  "on the left transforms to the picture on the right?. In your answer start with the correct rule number surrounded by parentheses,")
 general_within_rule_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 extrapolation_prompt = ("Here are three test images <image> <image> <image> each labeled with (A), (B), (C). Each image contains a left-to-right object transformations."
 						"Which one of these images (test images) contain a left-to-right transformations that follows the same transformation as this <image> ?"
-						"Answer with either (A) or (B) or (C). Answer with (D) if none of the images apply ")
+						"In your answer start with either (A) or (B) or (C). Answer with (D) if none of the images apply ")
 
 concept_to_parameters = {
     "2DRotation": (["+45", "-45", "+90", "-90", "+135", "-135", 180]), #7

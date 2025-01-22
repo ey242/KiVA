@@ -43,7 +43,7 @@ extrapolation_prompt = (
     initi_prompt
     + "Which one of the three left-to-right object transformations (marked by either (A), (B) or (C)) on the bottom of the puzzle is"
     "the same as the left-to-right transformation on the top of the puzzle?"
-    "Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), "
+    "In your answer start with the correct letter surrounded by parentheses (or (D) if none of the options apply), "
 )
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 

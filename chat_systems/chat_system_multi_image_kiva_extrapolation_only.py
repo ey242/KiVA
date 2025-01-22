@@ -39,7 +39,7 @@ extrapolation_prompt = (
     initi_prompt
     + "Now you are given three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C))."
     "Which one of these three left-to-right transformations follows the training transformation?"
-    "Answer with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of the options apply."
+    "In your answer start with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of the options apply."
 )
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 

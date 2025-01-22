@@ -32,7 +32,7 @@ system_prompt += f"You will think {step_by_step_text} and carefully examine the 
 
 extrapolation_prompt = ("Now you are given three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C) )."
                         "Which one of these three left-to-right transformations follows the identified transformation."
-                        "Answer with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
+                        "In your answer start with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply.")
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 concept_to_parameters = {

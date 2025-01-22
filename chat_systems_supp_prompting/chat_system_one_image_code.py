@@ -40,17 +40,17 @@ initi_prompt =  ("You are given a visual puzzle. The puzzle features a left-to-r
 	 			 "The transformations involve a change of either the size, orientation, number, or color of an object")
 
 general_cross_rule_prompt =  initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation on top of the"
-							 "puzzle where the picture on the left transforms to the picture on the right? Answer with the correct rule number")
+							 "puzzle where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number")
 general_cross_rule_prompt += f"surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice."
 
 code_within = "Generate python code using the package pillow that takes in the left image in the left-to-right transformation on top and outputs the right image. Denote this snippet as training snippet"
 general_within_rule_prompt = ("Using the insights from the training code snippet, which one of the following rules {} best describes the left-to-right transformation in the top of the puzzle where the picture"
-	 						  "on the left transforms to the picture on the right?. Answer with the correct rule number surrounded by parentheses,")
+	 						  "on the left transforms to the picture on the right?. In your answer start with the correct rule number surrounded by parentheses,")
 general_within_rule_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
 code_extrap = "Generate a brief code snippet using python and the pillow package for each left-to-right transformation in the bottom. Each snippet takes in the left picture of the transformation and outputs the right one."
 extrapolation_prompt = ("Now Which one of three code snippets is the same as the training code snippet you have produced before."
-	 				    "Answer with the correct snippet letter ((A) or (B) or (C))"
+	 				    "In your answer start with the correct snippet letter ((A) or (B) or (C))"
 						"surrounded by parentheses (or (D) if none of the options apply), ")
 extrapolation_prompt += f"then provide a {step_by_step_text} reasoning for your choice."
 
