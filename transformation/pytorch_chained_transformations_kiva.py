@@ -48,6 +48,8 @@ class Objects(Dataset):
     
 args = parse_arguments()
 
+args.output_directory = args.output_directory + f"/{args.transformation_list}"
+
 if not os.path.exists(args.output_directory):
     os.makedirs(args.output_directory)
 
@@ -106,6 +108,21 @@ duplicates = {key: values for key, values in transformation_counts.items() if le
 
 if duplicates:
     raise ValueError(f"Multiple parameter values are identified with more than one transformation type(s) {duplicates}")
+
+num_transformations = len(transformations)
+base_count = trials // num_transformations # Each transformation should be last at least this many times
+remainder = trials % num_transformations  
+
+# Build a list with equal counts for each transformation (list of "last" transformations for each trial)
+last_trans_list = []
+for t in transformations:
+    last_trans_list.extend([t] * base_count)
+
+if remainder: # For any extra trials, randomly assign one extra occurrence to a concept
+    last_trans_list.extend(random.sample(transformations, remainder))
+
+# Shuffle list to randomize the order extra-occurrence concepts appear
+random.shuffle(last_trans_list)
 
 #---------------------------------------------------------------
 # Transformation functions
@@ -337,7 +354,11 @@ while True:
         current_train_input = train_image.clone()
         current_test_input = test_image.clone()
         
-        random.shuffle(transformations)
+        designated_last = last_trans_list[i] # Pick designated "last" transformation for this trial
+        other_transformations = [t for t in transformations if t != designated_last]
+        random.shuffle(other_transformations)
+        transformations = other_transformations + [designated_last] # Create final order with designated last transformation at end
+        
         count_index = None # Ensure Counting transformation happens last
 
         for transform_idx, (transform_name, parameter) in enumerate(transformations):
