@@ -26,9 +26,10 @@ def prepare_data():
     json_files = ['Colour.json','Resize.json','Counting.json','2DRotation.json','Reflect.json']
     total_images = 0
 
+    json_base_path = os.path.join(base_path, "test")
     for json_file in json_files:
         task_name = json_file.split(".")[0]  # Extract task name
-        with open(os.path.join(base_path, json_file), 'r') as f:
+        with open(os.path.join(json_base_path, json_file), 'r') as f:
             data_dict = data_dict | json.load(f)
 
     print("Image Categories:")
@@ -37,9 +38,9 @@ def prepare_data():
         total_images += len(images)
 
     print('----------------------------------------')
-    print(f"Total number of image files: {total_images}") # 2100
-    print(f"Total number of answer keys: {len(data_dict)}") # 2100
-
+    print(f"Total number of image files: {total_images}") # 7000 (1 train + 9 separate images per unique trial)
+    print(f"Total number of answer keys: {len(data_dict)}") # 2100 (3 regenerations per unique trial)
+ 
     return data_dict
 
 def show_concept_example(data_dict, concept):
@@ -449,7 +450,7 @@ def process_extrapolation(img_id, img_paths, img_info, correct_concept, correct_
             opposite_sign = "+" if counting_type == "-" else "-"
             full_extra_ans = f"{opposite_sign}{1}"
         else:
-            full_extra_ans = ['incorrect_test_output_value']
+            full_extra_ans = img_info['incorrect_test_output_value']
     elif model_extra_ans == img_info['nochange']:
         full_extra_ans = "No change between pictures"
     elif model_extra_ans == "D":

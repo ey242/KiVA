@@ -25,9 +25,10 @@ def prepare_data():
     json_files = ['Resize.json', 'Reflect.json', 'Counting.json', 'Colour.json', '2DRotation.json']
     total_images = 0
 
+    json_base_path = os.path.join(base_path, "test")
     for json_file in json_files:
         task_name = json_file.split(".")[0]  # Extract task name
-        with open(os.path.join(base_path, json_file), 'r') as f:
+        with open(os.path.join(json_base_path, json_file), 'r') as f:
             data_dict = data_dict | json.load(f)
 
     print("Image Categories:")
@@ -319,7 +320,7 @@ def process_extrapolation(img_id, img_path, img_info, correct_concept, correct_p
             opposite_sign = "+" if counting_type == "-" else "-"
             full_extra_ans = f"{opposite_sign}{1}"
         else:
-            full_extra_ans = ['incorrect_test_output_value']
+            full_extra_ans = img_info['incorrect_test_output_value']
     elif model_extra_ans == img_info['nochange']:
         full_extra_ans = "No change between pictures"
     elif model_extra_ans == "D":
