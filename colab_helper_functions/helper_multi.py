@@ -13,7 +13,7 @@ import csv
 
 def prepare_data():
     image_categories = {task: [] for task in ['2DRotation', 'Colour', 'Counting', 'Reflect', 'Resize']}
-    base_path = "/content/multi"
+    base_path = "/content/multi_image"
 
     for root, _, files in os.walk(base_path):
         for file in files:
