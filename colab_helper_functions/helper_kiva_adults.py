@@ -207,13 +207,13 @@ def display_all_prompts(presentation_type):
             f"then provide a {step_by_step_text} reasoning for your choice."
         )
 
-    print("System Prompt:")
+    print("--- System Prompt -------------------------------------")
     print(textwrap.fill(system_prompt, width=100))
-    print("-" * 80, "\nVerbal Classification Prompt:")
+    print("--- Verbal Classification -----------------------------")
     print(textwrap.fill(general_cross_rule_prompt, width=100))
-    print("-" * 80, "\nVerbal Specification Prompt:")
+    print("--- Verbal Specification ------------------------------")
     print(textwrap.fill(general_within_rule_prompt, width=100))
-    print("-" * 80, "\nVisual Extrapolation Prompt:")
+    print("--- Visual Extrapolation ------------------------------")
     print(textwrap.fill(extrapolation_prompt, width=100))
 
     return system_prompt, general_cross_rule_prompt, general_within_rule_prompt, extrapolation_prompt
