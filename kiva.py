@@ -3,8 +3,8 @@ from kiva_stream import KiVAStream
 from tracker import Tracker
 
 
-SUPPORTED_PAIRS = [("gpt4", "single"), ("gpt4o", "single"), ("llava", "single"), 
-                ("gpt4", "multi"), ("gpt4o", "multi"), ("mantis", "multi")]
+SUPPORTED_PAIRS = [("gpt4", "single"), ("gpt4o", "single"), ("gpto1", "single"), ("llava", "single"), 
+                ("gpt4", "multi"), ("gpt4o", "multi"), ("gpto1", "multi"), ("mantis", "multi")]
 
 
 def eval_response(response, correct_answers, incorrect_answers, all_choices): 
@@ -70,6 +70,11 @@ def main():
         from models.gpt4o_model import GPT4OModel
         assert api_key is not None, "API key is required for GPT4 model"
         chat_model = GPT4OModel(system_prompt, api_key=api_key, max_token=300)
+
+    elif args.model_name == "gpto1":
+        from models.gpto1_model import GPTO1Model
+        assert api_key is not None, "API key is required for GPTo1 model"
+        chat_model = GPTO1Model(system_prompt, api_key=api_key)
 
     else: 
         raise ValueError("Model name not recognized.")
