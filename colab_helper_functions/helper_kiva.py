@@ -209,11 +209,11 @@ def display_all_prompts(presentation_type):
 
     print("System Prompt:")
     print(textwrap.fill(system_prompt, width=100))
-    print("-" * 80, "\nGeneral Cross Rule Prompt:")
+    print("-" * 80, "\Verbal Classification Prompt:")
     print(textwrap.fill(general_cross_rule_prompt, width=100))
-    print("-" * 80, "\nGeneral Within Rule Prompt:")
+    print("-" * 80, "\Verbal Specification Prompt:")
     print(textwrap.fill(general_within_rule_prompt, width=100))
-    print("-" * 80, "\nExtrapolation Prompt:")
+    print("-" * 80, "\nVisual Extrapolation Prompt:")
     print(textwrap.fill(extrapolation_prompt, width=100))
 
     return system_prompt, general_cross_rule_prompt, general_within_rule_prompt, extrapolation_prompt
