@@ -1,18 +1,19 @@
 import PIL
 import os
 import json
+import csv
+import random
 from IPython import display
 from IPython.display import display
 import numpy as np
 import matplotlib.pyplot as plt
-import random
 import pandas as pd
 import PIL.Image
-import csv
+from PIL import ImageOps
 
-def prepare_data():
+def prepare_data(presentation_type):
     image_categories = {task: [] for task in ['2DRotation', 'Colour', 'Counting', 'Reflect', 'Resize']}
-    base_path = "/content/single_image"
+    base_path = f"/content/{presentation_type}_image"
 
     for root, _, files in os.walk(base_path):
         for file in files:
@@ -22,7 +23,7 @@ def prepare_data():
                         image_categories[task].append(os.path.join(root, file))
 
     data_dict = {}
-    json_files = ['Resize.json', 'Reflect.json', 'Counting.json', 'Colour.json', '2DRotation.json']
+    json_files = ['Colour.json','Resize.json','Counting.json','2DRotation.json','Reflect.json']
     total_images = 0
 
     json_base_path = os.path.join(base_path, "test")
@@ -36,36 +37,175 @@ def prepare_data():
         total_images += len(images)
 
     print('----------------------------------------')
-    print(f"Total number of image files: {total_images}") # 2100
-    print(f"Total number of answer keys: {len(data_dict)}") # 2100
-
+    print(f"Total number of image files: {total_images}") # 7000 (1 train + 9 separate images per unique trial)
+    print(f"Total number of answer keys: {len(data_dict)}") # 2100 (3 regenerations per unique trial)
+ 
     return data_dict
 
-def show_concept_example(data_dict, concept):
+def show_concept_example(data_dict, concept, presentation_type):
     for img_id in data_dict.keys():
         if extract_concept_name(img_id) == concept:
-            img_path = f'/content/single/{img_id}_single.jpg'
-            print(f"Matching image found: {img_path}")
-            
-            img = PIL.Image.open(img_path)
-            max_size = (500, 500)  # Resize to be smaller
-            img.thumbnail(max_size)
-            
-            display(img)
-
             img_info = data_dict[img_id]
+
+            if presentation_type == "single":
+                img_path = f'/content/single_image/{img_id}_single.jpg'
+                print(f"Matching transformation: {img_path}")
+                
+                img = PIL.Image.open(img_path)
+                img.thumbnail((500, 500)) # Resize to be smaller
+
+                border_size, border_color = 5, 'black'
+                img_with_border = ImageOps.expand(img, border=border_size, fill=border_color)
+
+                img_padded = ImageOps.expand(img_with_border, border=7, fill='white')
+
+                # Display the image
+                fig, ax = plt.subplots(figsize=(6, 6)) 
+                ax.imshow(img_padded)
+                ax.axis('off') 
+
+                plt.show()
+
+            elif presentation_type == "multi":
+                def get_test_title(letter):
+                    if letter == img_info['correct']:
+                        return f"Test transformation: Correct"
+                    elif letter == img_info['nochange']:
+                        return f"Test transformation: No change"
+                    elif letter == img_info['incorrect']:
+                        return f"Test transformation: Incorrect"
+                    else:
+                        return f"Test {letter}"
+
+                train_id = '_'.join(img_id.split('_')[:2])
+                train_path = f'/content/multi_image/{train_id}_train.jpg'
+                test0_path = f'/content/multi_image/{img_id}_test_0.jpg'
+                test1_path = f'/content/multi_image/{img_id}_test_1.jpg'
+                test2_path = f'/content/multi_image/{img_id}_test_2.jpg'
+
+                print(f"Training transformation: {train_path}")
+                print(f"Test transformation (A): {test0_path}")
+                print(f"Test transformation (B): {test1_path}")
+                print(f"Test transformation (C): {test2_path}")
+                
+                train = PIL.Image.open(train_path)
+                test0 = PIL.Image.open(test0_path)
+                test1 = PIL.Image.open(test1_path)
+                test2 = PIL.Image.open(test2_path)
+                
+                # Resize all images to the same max size
+                max_size = (300, 300)
+                train.thumbnail(max_size)
+                test0.thumbnail(max_size)
+                test1.thumbnail(max_size)
+                test2.thumbnail(max_size)
+                
+                # Add a small border around each image
+                border_size, border_color = 5, 'black'
+                train_b = ImageOps.expand(train, border=border_size, fill=border_color)
+                test0_b = ImageOps.expand(test0, border=border_size, fill=border_color)
+                test1_b = ImageOps.expand(test1, border=border_size, fill=border_color)
+                test2_b = ImageOps.expand(test2, border=border_size, fill=border_color)
+                
+                # 1) DISPLAY THE TRAIN IMAGE
+                # Make the figure roughly a square that matches the test subplots
+                fig1, ax1 = plt.subplots(figsize=(3, 3))
+                plt.subplots_adjust(left=0, right=1, bottom=0, top=0.85)
+                
+                ax1.imshow(train_b)
+                ax1.set_title("Training transformation", fontsize=12)
+                ax1.axis('off')
+                
+                plt.show()
+                
+                # 2) DISPLAY THE THREE TEST IMAGES
+                # For 3 images side by side, use width ~3× bigger than height
+                fig2, axes2 = plt.subplots(nrows=1, ncols=3, figsize=(9, 3))
+                
+                plt.subplots_adjust(
+                    left=0, right=1, bottom=0, top=0.8,  # More top space for titles
+                    wspace=0.2  # Spacing between the 3 subplots
+                )
+                
+                axes2[0].imshow(test0_b)
+                axes2[0].set_title(get_test_title('(A)'), fontsize=10)
+                axes2[0].axis('off')
+                
+                axes2[1].imshow(test1_b)
+                axes2[1].set_title(get_test_title('(B)'), fontsize=10)
+                axes2[1].axis('off')
+                
+                axes2[2].imshow(test2_b)
+                axes2[2].set_title(get_test_title('(C)'), fontsize=10)
+                axes2[2].axis('off')
+                
+                plt.show()
+
             print('----------------------------------------')
             print('img ID: ', img_id)
             print('image_transform: ', img_info['transform'])
             print('Correct Answer: ', img_info['correct'])
             print('No Change Answer: ', img_info['nochange'])
             print('Incorrect Answer: ', img_info['incorrect'])
-            #print('Train input value: ', img_info['train_input_value'])
-            #print('Train output value: ', img_info['train_output_value'])
-            #print('Test input value: ', img_info['test_input_value'])
-            #print('Incorrect test output value: ', img_info['incorrect_test_output_value'])
             break
 
+def display_stimuli(img_paths, presentation_type):
+    if presentation_type == "single":
+        img = PIL.Image.open(img_paths[0])
+        img.thumbnail((500,500))
+        img = ImageOps.expand(train, border=border_size, fill=border_color)
+        display(img)
+
+    elif presentation_type == "multi":
+        train = PIL.Image.open(img_paths[0])
+        test0 = PIL.Image.open(img_paths[1])
+        test1 = PIL.Image.open(img_paths[2])
+        test2 = PIL.Image.open(img_paths[3])
+        
+        # Resize all images to the same max size
+        max_size = (300, 300)
+        train.thumbnail(max_size)
+        test0.thumbnail(max_size)
+        test1.thumbnail(max_size)
+        test2.thumbnail(max_size)
+        
+        # Add a small border around each image
+        border_size = 5
+        border_color = 'black'
+        train_b = ImageOps.expand(train, border=border_size, fill=border_color)
+        test0_b = ImageOps.expand(test0, border=border_size, fill=border_color)
+        test1_b = ImageOps.expand(test1, border=border_size, fill=border_color)
+        test2_b = ImageOps.expand(test2, border=border_size, fill=border_color)
+        
+        # 1) DISPLAY THE TRAIN IMAGE
+        fig1, ax1 = plt.subplots(figsize=(3, 3))
+        plt.subplots_adjust(left=0, right=1, bottom=0, top=0.85)
+        
+        ax1.imshow(train_b)
+        ax1.axis('off')
+
+        plt.show()
+        
+        # 2) DISPLAY THE 3 TEST IMAGES
+        # For 3 images side by side, use width ~3× bigger than height
+        fig2, axes2 = plt.subplots(nrows=1, ncols=3, figsize=(9, 3))
+        
+        plt.subplots_adjust(
+            left=0, right=1, bottom=0, top=0.8,  # more top space for titles
+            wspace=0.2  # spacing between the 3 subplots
+        )
+        
+        axes2[0].imshow(test0_b)
+        axes2[0].axis('off')
+        
+        axes2[1].imshow(test1_b)
+        axes2[1].axis('off')
+        
+        axes2[2].imshow(test2_b)
+        axes2[2].axis('off')
+        
+        plt.show()
+    
 def extract_concept_name(img_id):
     concepts = ["Colour", "2DRotation", "Counting", "Resize", "Reflect"]
 
@@ -128,37 +268,51 @@ def generate_within_options(img_id, img_info):
     tuple: A tuple containing the list of 4 options and the number of the correct option (ex, "(1)").
     """
     parameters_mapping = {
-        "2DRotation": ["+90", "-90", "180"],
-        "Counting": ["+1", "+2", "-1", "-2"],
-        "Colour": ["Red", "Green", "Blue"],
-        "Reflect": ["X", "Y", "XY"],
-        "Resize": ["0.5XY", "2XY"]
+        "2DRotation": ["+45","-45","+90","-90","+135","-135","180"],
+        "Counting": ["+1","+2","-1","-2","x2","x3","d2","d3"],
+        "Colour": ["Red","Yellow","Green","Blue","Grey"],
+        "Reflect": ["X","Y","XY"],
+        "Resize": ["0.5X","0.5Y","0.5XY","2X","2Y","2XY"]
     }
 
-    def map_parameter_to_option(concept, parameter):
+    def map_parameter_to_option(concept, param):
         if concept == "2DRotation":
-            degrees = 90 if parameter in ["+90", "-90"] else 180
-            return f"Objects rotate by {degrees} degrees"
+            if param == "180" or param == 180:
+                worded_options += ["Objects turn 180 degrees"]
+            else: 
+                worded_options += [f"Objects turn {param[1:]} degrees"]
         elif concept == "Counting":
-            counting_type, value = parameter[0], parameter[1:]
+            counting_type, param = param[0], param[1:]
             if counting_type == "+":
-                return f"Things go up by {value}"
+                worded_options += [f"Things go up by {param}"] 
             elif counting_type == "-":
-                return f"Things go down by {value}"
+                worded_options += [f"Things go down by {param}"] 
+            elif counting_type == "x":
+                worded_options += [f"Things multiply by {param}"] 
+            elif counting_type == "d":
+                worded_options += [f"Things divide by {param}"] 
         elif concept == "Colour":
-            return f"Objects turn {parameter}"
+            worded_options += [f"Objects turn {param}"]
         elif concept == "Reflect":
-            if parameter == "X":
-                return "Objects flip upside down"
-            elif parameter == "Y":
-                return "Objects flip sideways"
-            else:
-                return "Objects rotate by 180 degrees"
+            if param == "X":
+                worded_options += [f"Objects flip upside down"]
+            elif param == "Y":
+                worded_options += [f"Objects flip sideways"]
+            elif param == "XY":
+                worded_options += [f"Objects flip sideways and upside down"]
         elif concept == "Resize":
-            if parameter == "0.5XY":
-                return "Objects become smaller"
-            elif parameter == "2XY":
-                return "Objects become bigger"
+            if param == "0.5X":
+                worded_options += [f"Objects become thinner only"]
+            elif param == "0.5Y":
+                worded_options += [f"Objects become shorter only"]
+            elif param == "0.5XY":
+                worded_options += [f"Objects become smaller"]
+            elif param == "2X":
+                worded_options += [f"Objects become wider only"]
+            elif param == "2Y":
+                worded_options += [f"Objects become taller only"]
+            elif param == "2XY":
+                worded_options += [f"Objects become bigger"]
 
     concept = extract_concept_name(img_id)
 
@@ -170,8 +324,12 @@ def generate_within_options(img_id, img_info):
     if concept == "Counting":
         # Special case for "Counting": incorrect parameter is the opposite sign of correct parameter
         counting_type, value = correct_parameter[0], correct_parameter[1:]
-        opposite_sign = "+" if counting_type == "-" else "-"
-        incorrect_parameter = f"{opposite_sign}{value}"
+        if (counting_type == "+" or counting_type == "-"):
+            opposite_sign = "+" if counting_type == "-" else "-"
+            incorrect_parameter = f"{opposite_sign}{value}"
+        elif (counting_type == "x" or counting_type == "d"):
+            opposite_sign = "x" if counting_type == "d" else "d"
+            incorrect_parameter = f"{opposite_sign}{value}"
     else:
         incorrect_parameter = img_info.get('incorrect_test_output_value', None)
 
@@ -291,15 +449,22 @@ def process_within_domain(img_id, img_path, img_info, general_within_rule_prompt
     
     return within_options, correct_within, correct_param, raw_within_text, model_within_ans, full_within_ans
 
-def process_extrapolation(img_id, img_path, img_info, correct_concept, correct_param, extrapolation_prompt, model):
+def process_extrapolation(img_paths, img_info, correct_concept, correct_param, extrapolation_prompt, model):
     """
-    Runs the extrapolation step.
+    Runs the extrapolation step with multiple images.
+    Parameters:
+      img_paths (list of str): List of image paths; 1 if "single" & 2 if "multi".
+      img_info (dict): Dictionary of image metadata.
+      correct_concept (str): The correct concept.
+      correct_param (str): The correct parameter.
+      extrapolation_prompt (str): The fixed prompt for extrapolation.
+      model: The model object, which must have methods encode_image and run_model.
     Returns:
-      raw_extra_text: raw text response.
-      model_extra_ans: parsed (letter) answer.
-      full_extra_ans: final interpreted answer.
+      raw_extra_text: The raw text response.
+      model_extra_ans: The parsed (letter) answer.
+      full_extra_ans: The final interpreted answer.
     """
-    response_dict = model.run_model(extrapolation_prompt, image_path=img_path)
+    response_dict = model.run_model(extrapolation_prompt, image_path=img_paths)
     raw_extra_text = response_dict["response"]
     print("Visual Extrapolation response:\n", raw_extra_text)
     
@@ -326,7 +491,7 @@ def process_extrapolation(img_id, img_path, img_info, correct_concept, correct_p
     elif model_extra_ans == "D":
         full_extra_ans = "Doesn't apply"
     else:
-        full_extra_ans = None # Fallback if needed
+        full_extra_ans = None  # Fallback if needed
     
     return raw_extra_text, model_extra_ans, full_extra_ans
 
@@ -340,16 +505,16 @@ def save_results(output_folder, transform, img_id, variation, regeneration,
     Saves a single result entry to the CSV file.
     """
     output_file = os.path.join(output_folder, f"{transform}_results.csv")
-    if os.path.exists(output_file):
-        # Read existing results
-        existing_results = pd.read_csv(output_file)
-    else:
-        existing_results = pd.DataFrame(columns=[
-            "Img_id", "Variation", "Regeneration", 
-            "Full#1", "Full#2", "Full#3", 
-            "MCResponse#1", "MCResponse#2", "MCResponse#3", 
-            "Response#1", "Response#2", "Response#3"
-        ])
+    # if os.path.exists(output_file):
+    #     # Read existing results
+    #     existing_results = pd.read_csv(output_file)
+    # else:
+    #     existing_results = pd.DataFrame(columns=[
+    #         "Img_id", "Variation", "Regeneration", 
+    #         "Full#1", "Full#2", "Full#3", 
+    #         "MCResponse#1", "MCResponse#2", "MCResponse#3", 
+    #         "Response#1", "Response#2", "Response#3"
+    #     ])
 
     result_entry = {
         "Img_id": img_id,
@@ -372,19 +537,14 @@ def save_results(output_folder, transform, img_id, variation, regeneration,
         df_to_add.to_csv(output_file, index=False)
     print(f"Saved results for {img_id} in {output_file}")
 
-def display_image(img_path, max_size=(500, 500)):
-    img = PIL.Image.open(img_path)
-    img.thumbnail(max_size)
-    display(img)
-
 def load_correctness_from_csv(folder_path):
     """
-    Reads all CSV files in `folder_path`. Each CSV has columns:
+    Reads all CSV files in 'folder_path'. Each CSV has columns:
         Img_id, MCResponse#1, MCResponse#2, MCResponse#3
     with 0/1 indicating correctness for each phase.
 
     Returns:
-        dict: e.g. {
+        dict: ex {
             'ColourRed_0_1': [0, 1, 0],
             '2DRotation+90_0_0': [1, 1, 0],
             ...
@@ -398,31 +558,16 @@ def load_correctness_from_csv(folder_path):
         if filename.endswith(".csv"):
             csv_path = os.path.join(folder_path, filename)
             with open(csv_path, mode='r', encoding='utf-8') as f:
-                # Adjust delimiter if your CSVs are tab-delimited:
                 reader = csv.DictReader(f)
                 for row in reader:
                     img_id = row["Img_id"]  # ex "ColourRed_0_1"
-                    # Convert each MCResponse to int (0 or 1)
                     mc1 = int(row["MCResponse#1"])
                     mc2 = int(row["MCResponse#2"])
                     mc3 = int(row["MCResponse#3"])
 
-                    # Store in the dictionary
                     correctness_dict[img_id] = [mc1, mc2, mc3]
 
     return correctness_dict
-
-def filter_incomplete_answers(answer_dict):
-    """
-    Remove entries from answer_dict that do not have all 3 phases (cross, within, extrapolation).
-
-    Parameters:
-    answer_dict (dict): Dictionary of img_ids and their associated answers.
-
-    Returns:
-    dict: Filtered answer_dict with only complete entries.
-    """
-    return {img_id: answers for img_id, answers in answer_dict.items() if len(answers) == 3}
 
 def init_analysis_results(answer_types, transform_types):
     """
@@ -455,12 +600,12 @@ def update_analysis_results(analysis_results, data_dict, correctness_dict, answe
         # If data_dict is keyed by the same exact string:
         transform_type = data_dict[img_id]['transform']  # ex '2DRotation'
 
-        # If you need to parse out subcomponents from img_id:
+        # To parse out subcomponents from img_id:
         # ex "ColourRed_0_1" => transform_type_and_subtype="ColourRed", trial_number="0"
         parts = img_id.split("_")
         transform_type_and_subtype = parts[0]  # ex 'ColourRed'
-        trial_number = parts[1]               # e.g. '0'
-        # The third part might be '1' if you have 3 underscores, etc.
+        trial_number = parts[1]               # ex '0'
+        # The 3rd part might be '1' if 3 underscores, etc.
 
         trial_id = f"{transform_type_and_subtype}_{trial_number}"
 
@@ -537,7 +682,7 @@ def print_subcategory_results(analysis_results):
         elif answer_type == 'extrapolation':
             return 'Visual Extrapolation'
         else:
-            return answer_type  # Fallback
+            return answer_type # Fallback
 
     # Iterate over each answer type in the analysis results
     for answer_key, answer_analysis in analysis_results.items():
@@ -561,7 +706,7 @@ def plot_results(analysis_results):
     for each answer type. Only show a transformation concept if there is data for it.
     """
     # Build a pivoted data structure: for each answer type (mapped to its label),
-    # store transformation concept -> (mean accuracy, std error)
+    # Store transformation concept -> (mean accuracy, std error)
     data_by_answer = {
         "Verbal Classification": {},
         "Verbal Specification": {},

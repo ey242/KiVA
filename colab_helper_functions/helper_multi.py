@@ -28,7 +28,6 @@ def prepare_data():
 
     json_base_path = os.path.join(base_path, "test")
     for json_file in json_files:
-        task_name = json_file.split(".")[0]  # Extract task name
         with open(os.path.join(json_base_path, json_file), 'r') as f:
             data_dict = data_dict | json.load(f)
 
@@ -51,7 +50,6 @@ def show_concept_example(data_dict, concept):
             nochange_label  = img_info['nochange']   
             incorrect_label = img_info['incorrect']  
 
-            # Helper function to map '(A)'/'(B)'/'(C)' to a subplot title
             def get_test_title(letter):
                 if letter == correct_label:
                     return f"Test transformation: Correct"
@@ -218,9 +216,10 @@ def generate_cross_options(img_id):
     # Get the correct option text
     correct_option = concept_mapping.get(correct_concept, "")
 
-    # Get incorrect options by sampling from the remaining concepts
-    incorrect_concepts = [concept_mapping[concept] for concept in concept_mapping if concept != correct_concept]
-    sampled_incorrect = random.sample(incorrect_concepts, 2)
+    # Get 2 incorrect options by sampling from the remaining concepts
+    all_options = list(set(concept_mapping.values()))
+    all_options.remove(correct_option)
+    sampled_incorrect = random.sample(all_options, 2)
 
     no_change_option = "No change between pictures"
     doesnt_apply_option = "Doesn't apply"
