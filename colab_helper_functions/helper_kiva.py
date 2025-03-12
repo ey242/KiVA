@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import PIL.Image
 from PIL import ImageOps
+import textwrap
 
 def prepare_data(presentation_type):
     image_categories = {task: [] for task in ['2DRotation', 'Colour', 'Counting', 'Reflect', 'Resize']}
@@ -149,6 +150,74 @@ def show_concept_example(data_dict, concept, presentation_type):
             print('Incorrect Answer: ', img_info['incorrect'])
             break
 
+def display_all_prompts(presentation_type):
+    step_by_step_text = "step-by-step"
+
+    # System prompt
+    system_prompt = (
+        "You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning. "
+        f"You will think {step_by_step_text} and carefully examine the visual evidence before providing an answer. "
+    )
+
+    if presentation_type == "single":
+        initi_prompt = (
+            "You are given a visual puzzle. The puzzle features a left-to-right transformation of an object on top and three left-to-right "
+            "transformations of a different object in the bottom marked by (A) or (B) or (C). "
+            "The transformations involve a change in either the size, orientation, number, or color of an object. "
+        )   
+    elif presentation_type == "multi":
+        initi_prompt = (
+            "Observe the left-to-right transformation of an object. The object picture on the left transforms to the object picture on the right. "
+            "Denote this transformation as training transformation. The transformation involves a change of either the size, orientation, number, or color of an object. "
+        )
+
+    # Verbal Classification prompt
+    if presentation_type == "single":
+        general_cross_rule_prompt = initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation on top of the "
+                                    "puzzle where the picture on the left transforms to the picture on the right? In your answer start with the correct rule number "
+                                    f"surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice.")
+    elif presentation_type == "multi":
+        general_cross_rule_prompt = initi_prompt + ("Which one of the following rules {} best describes the left-to-right transformation where the picture on the left transforms to the picture on the right? "
+            f"In your answer start with the correct rule number surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice. ")
+
+    # Verbal Specification prompt
+    if presentation_type == "single":
+        general_within_rule_prompt = ("Which one of the following rules {} best describes the left-to-right transformation in the top of the puzzle where the picture "
+                                    "on the left transforms to the picture on the right? In your answer start with the correct rule number surrounded by parentheses, "
+                                    f"then provide a {step_by_step_text} reasoning for your choice.")
+    elif presentation_type == "multi":
+        general_within_rule_prompt = (
+            "Which one of the following rules {} best describes the left-to-right transformation where the picture on the left transforms to the picture on the right? "
+            f"In your answer start with the correct rule number surrounded by parentheses, then provide a {step_by_step_text} reasoning for your choice."
+        )
+
+    # Visual Extrapolation prompt
+    if presentation_type == "single":
+        extrapolation_prompt = (
+            "Which one of the three left-to-right object transformations (marked by either (A), (B) or (C)) in the bottom of the puzzle is "
+            "the same as the left-to-right transformation on the top of the puzzle? "
+            "In your answer start with the correct letter surrounded by parentheses (or (D) if none of the options apply), "
+            f"then provide a {step_by_step_text} reasoning for your choice."
+        )
+    elif presentation_type == "multi":
+        extrapolation_prompt = (
+            "Now you are given three new pictures. Each new picture contains a left-to-right transformation of a new object (marked by either (A), (B) or (C)). "
+            "Which one of these three left-to-right transformations follows the original object transformation? "
+            "In your answer start with the correct transformation letter first (A) or (B) or (C). Answer with (D) if none of options apply. "
+            f"then provide a {step_by_step_text} reasoning for your choice."
+        )
+
+    print("System Prompt:")
+    print(textwrap.fill(system_prompt, width=100))
+    print("-" * 80, "\nGeneral Cross Rule Prompt:")
+    print(textwrap.fill(general_cross_rule_prompt, width=100))
+    print("-" * 80, "\nGeneral Within Rule Prompt:")
+    print(textwrap.fill(general_within_rule_prompt, width=100))
+    print("-" * 80, "\nExtrapolation Prompt:")
+    print(textwrap.fill(extrapolation_prompt, width=100))
+
+    return system_prompt, general_cross_rule_prompt, general_within_rule_prompt, extrapolation_prompt
+
 def display_stimuli(img_paths, presentation_type):
     if presentation_type == "single":
         img = PIL.Image.open(img_paths[0])
@@ -254,7 +323,6 @@ def generate_cross_options(img_id):
     # Determine the number of the correct option
     correct_option_number = f"({randomized_first_three.index(correct_option) + 1})"
 
-    print(formatted_options)
     return formatted_options, correct_option_number, correct_concept
 
 def generate_within_options(img_id, img_info):
@@ -334,7 +402,6 @@ def generate_within_options(img_id, img_info):
     # Determine the number of the correct option
     correct_option_number = f"({randomized_first_two.index(correct_option) + 1})"
 
-    print(formatted_options)
     return formatted_options, correct_option_number, correct_parameter
 
 def extract_model_answer(response_text, type):
@@ -519,7 +586,7 @@ def save_results(output_folder, transform, img_id, variation, regeneration,
         df_to_add.to_csv(output_file, mode='a', header=False, index=False)
     else:
         df_to_add.to_csv(output_file, index=False)
-    print(f"Saved results for {img_id} in {output_file}")
+    print("-" * 80, "\n", f"Saved results for {img_id} in {output_file}")
 
 def load_correctness_from_csv(folder_path):
     """
