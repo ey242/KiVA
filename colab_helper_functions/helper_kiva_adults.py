@@ -347,41 +347,43 @@ def generate_within_options(img_id, img_info):
     def map_parameter_to_option(concept, param):
         if concept == "2DRotation":
             if param == "180" or param == 180:
-                worded_options += ["Objects turn 180 degrees"]
+                worded_options += "Objects turn 180 degrees"
             else: 
-                worded_options += [f"Objects turn {param[1:]} degrees"]
+                worded_options += f"Objects turn {param[1:]} degrees"
         elif concept == "Counting":
             counting_type, param = param[0], param[1:]
             if counting_type == "+":
-                worded_options += [f"Things go up by {param}"] 
+                worded_options += f"Things go up by {param}" 
             elif counting_type == "-":
-                worded_options += [f"Things go down by {param}"] 
+                worded_options += f"Things go down by {param}"
             elif counting_type == "x":
-                worded_options += [f"Things multiply by {param}"] 
+                worded_options += f"Things multiply by {param}"
             elif counting_type == "d":
-                worded_options += [f"Things divide by {param}"] 
+                worded_options += f"Things divide by {param}"
         elif concept == "Colour":
-            worded_options += [f"Objects turn {param}"]
+            worded_options += f"Objects turn {param}"
         elif concept == "Reflect":
             if param == "X":
-                worded_options += [f"Objects flip upside down"]
+                worded_options += f"Objects flip upside down"
             elif param == "Y":
-                worded_options += [f"Objects flip sideways"]
+                worded_options += f"Objects flip sideways"
             elif param == "XY":
-                worded_options += [f"Objects flip sideways and upside down"]
+                worded_options += f"Objects flip sideways and upside down"
         elif concept == "Resize":
             if param == "0.5X":
-                worded_options += [f"Objects become thinner only"]
+                worded_options += f"Objects become thinner only"
             elif param == "0.5Y":
-                worded_options += [f"Objects become shorter only"]
+                worded_options += f"Objects become shorter only"
             elif param == "0.5XY":
-                worded_options += [f"Objects become smaller"]
+                worded_options += f"Objects become smaller"
             elif param == "2X":
-                worded_options += [f"Objects become wider only"]
+                worded_options += f"Objects become wider only"
             elif param == "2Y":
-                worded_options += [f"Objects become taller only"]
+                worded_options += f"Objects become taller only"
             elif param == "2XY":
-                worded_options += [f"Objects become bigger"]
+                worded_options += f"Objects become bigger"
+
+        return worded_options
 
     concept = extract_concept_name(img_id)
 
