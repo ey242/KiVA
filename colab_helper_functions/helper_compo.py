@@ -598,7 +598,7 @@ def process_extrapolation(
             incorrect_concept = "Resize"
         else:
             numeric_value = float(incorrect_value)
-            if numeric_value == 0 or numeric_value >= 45:
+            if numeric_value <= 0 or numeric_value >= 45:
                 param = get_param(concepts, "2DRotation")
                 if param in ["+90", "-90"]:
                     incorrect_concept = "2DRotation"
