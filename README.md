@@ -169,6 +169,9 @@ python pytorch_transformations_kiva-adults.py \
     --shuffle <true_or_false>
 ```
 
+#### KiVA Google Colab
+Here is a [Google Colab Notebook](https://colab.research.google.com/drive/1lfzHXvKyKYxUOYgvZGV9-5eC2f5_c3eE?usp=sharing) to run KiVA on a model of your choice.
+
 #### KiVA-compositionality
 This benchmark combines various transformation domains of KiVA to test compositionality. The user can specify the parameters of color, rotation, number, size and reflection in the following code:
 ```
