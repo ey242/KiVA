@@ -185,8 +185,8 @@ python Transformations-KiVA-compositionality.py \
     --randomize <randomize_parameters>
 ```
 
-## KiVA on Google Colab
-Here is a [Google Colab Notebook](https://colab.research.google.com/drive/1lfzHXvKyKYxUOYgvZGV9-5eC2f5_c3eE?usp=sharing) to run KiVA on a model of your choice.
+## Running KiVA on Google Colab
+Here is a [Google Colab Notebook](https://colab.research.google.com/drive/1lfzHXvKyKYxUOYgvZGV9-5eC2f5_c3eE?usp=sharing) to test KiVA on a model of your choice. The notebook runs through the benchmark and outputs statistical analyses of the model's performance.
 
 
 ## References 
