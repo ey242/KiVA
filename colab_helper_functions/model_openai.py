@@ -1,3 +1,7 @@
+import base64
+import time
+import requests
+
 def encode_image(image_path):
     """Encode an image file to a base64 string."""
     with open(image_path, "rb") as image_file:
