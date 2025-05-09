@@ -222,7 +222,8 @@ def display_stimuli(img_paths, presentation_type):
     if presentation_type == "single":
         img = PIL.Image.open(img_paths[0])
         img.thumbnail((500,500))
-        img = ImageOps.expand(train, border=border_size, fill=border_color)
+        border_size, border_color = 5, 'black' 
+        img = ImageOps.expand(img, border=border_size, fill=border_color)
         display(img)
 
     elif presentation_type == "multi":
