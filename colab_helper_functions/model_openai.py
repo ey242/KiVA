@@ -15,7 +15,7 @@ class Model:
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}"
         }
-        self.max_token = max_token
+        #self.max_token = max_token
 
     def init_history(self):
         """Initialize conversation history and run counter."""
@@ -39,7 +39,7 @@ class Model:
                     ]
                 },
             ],
-            "max_tokens": self.max_token
+            #"max_tokens": self.max_token
         }
         return payload
 
