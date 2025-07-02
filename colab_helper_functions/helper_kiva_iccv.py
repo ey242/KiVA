@@ -12,7 +12,7 @@ import textwrap
 import random
 
 def prepare_data(eval):
-    extract_path = f"/content/kiva_{eval}"
+    extract_path = f"/content/{eval}"
 
     # Walk through the extracted folder to collect all .jpg files
     image_files = []
