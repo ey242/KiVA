@@ -11,6 +11,75 @@ from PIL import ImageOps
 import textwrap
 import random
 
+def setup_kiva_data_set(name, base_data_path):
+    """
+    Downloads Kiva images and JSON for a given dataset ('train' or 'validation'),
+    unzipping images into a flat folder structure within base_data_path,
+    loading JSON, and then removing the downloaded zip file and macOS metadata.
+
+    Args:
+        name (str): 'train' or 'validation'.
+        base_data_path (str): The base path where data should be stored (e.g., './data/').
+    """
+    print(f"\n--- Setting up {name} data within {base_data_path} ---")
+
+    zip_file_name = f"{name}.zip" # e.g., 'train.zip'
+    json_file_name = f"{name}.json" # e.g., 'train.json'
+
+    # Define full paths for where files will reside
+    target_img_dir = os.path.join(base_data_path, name) # e.g., './data/train/'
+    full_json_path = os.path.join(base_data_path, json_file_name) # e.g., './data/train.json'
+    
+    # Temporarily download zip to the current working directory, then remove it
+    download_zip_location = os.path.join(os.getcwd(), zip_file_name) 
+
+    # 1. Create target directory for images (e.g., ./data/train)
+    os.makedirs(target_img_dir, exist_ok=True)
+
+    # 2. Download images zip file
+    get_ipython().system(f"wget -q https://storage.googleapis.com/kiva-challenge/{zip_file_name} -O {download_zip_location}")
+
+    # 3. Unzip images into the target image directory (e.g., ./data/train/)
+    get_ipython().system(f"unzip -qo {download_zip_location} -d {target_img_dir}")
+
+    # 4. FIX: Flatten nested directory if it occurred (e.g., ./data/train/train/ -> ./data/train/)
+    nested_path = os.path.join(target_img_dir, name) # This would be like './data/train/train'
+    if os.path.isdir(nested_path) and os.listdir(nested_path):
+        print(f"  Flattening directory: Moving contents from '{nested_path}/' to '{target_img_dir}/'")
+        get_ipython().system(f'mv {nested_path}/* {target_img_dir}/')
+        get_ipython().system(f'rmdir {nested_path}') # Remove the now empty nested folder
+    else:
+        print(f"  No nested directory detected for '{name}'.")
+
+    # 5. REMOVE: macOS metadata directories and files
+    macos_dir = os.path.join(target_img_dir, '__MACOSX')
+    if os.path.exists(macos_dir):
+        print(f"  Removing macOS metadata directory: {macos_dir}")
+        get_ipython().system(f'rm -rf {macos_dir}')
+    
+    # Also remove any stray ._ files directly in target_img_dir or its subdirectories
+    print(f"  Removing any stray '._' files in {target_img_dir} and its subdirectories...")
+    get_ipython().system(f'find {target_img_dir} -name "._*" -delete')
+
+
+    # 6. Remove the original zip file
+    get_ipython().system(f'rm {download_zip_location}')
+    print(f"  Removed '{zip_file_name}'.")
+
+    # 7. Download JSON annotations file directly to the data_path
+    get_ipython().system(f"wget -q -O {full_json_path} \"https://storage.googleapis.com/kiva-key/{json_file_name}\"")
+
+    # 8. Load JSON data
+    with open(full_json_path,'r') as f:
+        trials_data = json.load(f)
+    print(f"  Loaded {len(trials_data)} {name} trials from {json_file_name}.")
+
+    # 9. Use helper to prepare stimuli (collect image paths)
+    stimuli_data = helper.prepare_data(os.path.relpath(target_img_dir, '/content'))
+    print(f"  Helper found {len(stimuli_data)} images in '{target_img_dir}/'.")
+
+    return trials_data, stimuli_data
+
 def prepare_data(eval):
     extract_path = f"/content/{eval}"
 
