@@ -89,7 +89,6 @@ def setup_kiva_data_set(name, base_data_path):
 
     # 9. Use helper to prepare stimuli (collect image paths)
     stimuli_data = prepare_data(os.path.relpath(target_img_dir, '/content'))
-    print(f"  Helper found {len(stimuli_data)} images in '{target_img_dir}/'.")
 
     return trials_data, stimuli_data
 
