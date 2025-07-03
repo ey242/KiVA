@@ -11,6 +11,19 @@ from PIL import ImageOps
 import textwrap
 import random
 
+def prepare_data(eval):
+    extract_path = f"/content/{eval}"
+
+    # Walk through the extracted folder to collect all .jpg files
+    image_files = []
+    for root, dirs, files in os.walk(extract_path):
+        for file in files:
+            if file.endswith(".jpg"):
+                image_files.append(os.path.join(root, file))
+
+    print(f"Found {len(image_files)} images for {eval} evaluation")
+    return image_files
+
 def setup_kiva_data_set(name, base_data_path):
     """
     Downloads Kiva images and JSON for a given dataset ('train' or 'validation'),
@@ -75,23 +88,10 @@ def setup_kiva_data_set(name, base_data_path):
     print(f"  Loaded {len(trials_data)} {name} trials from {json_file_name}.")
 
     # 9. Use helper to prepare stimuli (collect image paths)
-    stimuli_data = helper.prepare_data(os.path.relpath(target_img_dir, '/content'))
+    stimuli_data = prepare_data(os.path.relpath(target_img_dir, '/content'))
     print(f"  Helper found {len(stimuli_data)} images in '{target_img_dir}/'.")
 
     return trials_data, stimuli_data
-
-def prepare_data(eval):
-    extract_path = f"/content/{eval}"
-
-    # Walk through the extracted folder to collect all .jpg files
-    image_files = []
-    for root, dirs, files in os.walk(extract_path):
-        for file in files:
-            if file.endswith(".jpg"):
-                image_files.append(os.path.join(root, file))
-
-    print(f"Found {len(image_files)} images for {eval} evaluation")
-    return image_files
 
 def show_concept_example(eval, image_files):
     if not image_files:
