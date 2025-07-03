@@ -17,7 +17,7 @@ import PIL.Image
 from PIL import ImageOps
 import textwrap
 import random
-from typing import Dict, Any, List, Tuple # <--- ADD THIS LINE
+from typing import Dict, Any, List, Tuple
 
 # Define constants for data access (ensure these are consistent with your helper file)
 LEVEL_KIVA_DB_KEY = 'kiva'
