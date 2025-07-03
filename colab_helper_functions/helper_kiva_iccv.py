@@ -31,7 +31,7 @@ def show_concept_example(eval, image_files):
 
     img_path = random.choice(image_files)
     image_id = os.path.splitext(os.path.basename(img_path))[0]
-    print(f"Selected image_id: {image_id}")
+    print(f"Trial_id: {image_id}")
     img = PIL.Image.open(img_path)
     img.thumbnail((700, 700))
     display(img)
