@@ -193,9 +193,8 @@ def display_stimuli(img_path):
     img = ImageOps.expand(img, border=border_size, fill=border_color)
     display(img)
 
-# --- Start of Analysis Visualisation Functions ---
-# (Copied from previous 'Analysis Visualization Functions' immersive)
-
+# --- Analysis Visualisation Functions ---
+# radar plots
 def radar_factory(num_vars: int, frame: str = 'circle'):
   theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
   class RadarTransform(PolarAxes.PolarTransform):
@@ -264,6 +263,7 @@ def radar_plot_pt(scores: Dict[str, List[float]], labels: List[str],
     plt.savefig(save_file, bbox_inches='tight')
   plt.show()
 
+# bar plots
 def plot_tags(exp_results: Dict[str, float],
               tags: Dict[str, Any], title: str, save_file: Any = None, # Added title parameter
               width: float = 0.8, offset: float = 0.0) -> None:
@@ -295,7 +295,7 @@ def plot_tags(exp_results: Dict[str, float],
     plt.savefig(save_file, bbox_inches='tight')
   plt.show()
 
-# --- End of Analysis Visualisation Functions ---
+# --- Model Query & Evaluation ---
 
 def extract_model_answer(response_text):
   options = ["(A)", "(B)", "(C)", "(D)"]
