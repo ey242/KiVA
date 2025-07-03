@@ -175,6 +175,105 @@ def display_stimuli(img_path):
     img = ImageOps.expand(img, border=border_size, fill=border_color)
     display(img)
 
+def radar_factory(num_vars: int, frame: str = 'circle'):
+  theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
+  class RadarTransform(PolarAxes.PolarTransform):
+    def transform_path_non_affine(self, path):
+      if path._interpolation_steps > 1:
+        path = path.interpolated(num_vars)
+      return Path(self.transform(path.vertices), path.codes)
+  class RadarAxes(PolarAxes):
+    name = 'radar'
+    RESOLUTION = 1
+    PolarTransform = RadarTransform
+    def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+      self.set_theta_zero_location('N')
+    def fill(self, *args, closed=True, **kwargs):
+      return super().fill(closed=closed, *args, **kwargs)
+    def plot(self, *args, **kwargs):
+      lines = super().plot(*args, **kwargs)
+      for line in lines:
+        self._close_line(line)
+    def _close_line(self, line):
+      x, y = line.get_data()
+      if x[0] != x[-1]:
+        x = np.append(x, x[0])
+        y = np.append(y, y[0])
+        line.set_data(x, y)
+    def set_varlabels(self, labels):
+      self.set_thetagrids(np.degrees(theta), labels, fontsize=10, linespacing=1.2)
+    def _gen_axes_patch(self):
+      if frame == 'circle':
+        return patches.Circle((0.5, 0.5), 0.5)
+      elif frame == 'polygon':
+        return patches.RegularPolygon((0.5, 0.5), num_vars, radius=.5, edgecolor='k')
+      else:
+        raise ValueError("Unknown value for 'frame': %s" % frame)
+    def _gen_axes_spines(self):
+      if frame == 'circle':
+        return super()._gen_axes_spines()
+      elif frame == 'polygon':
+        spine = Spine(axes=self, spine_type='circle', path=Path.unit_regular_polygon(num_vars))
+        spine.set_transform(Affine2D().scale(.5).translate(.5, .5) + self.transAxes)
+        return {'polar': spine}
+      else:
+        raise ValueError("Unknown value for 'frame': %s" % frame)
+  register_projection(RadarAxes)
+  return theta
+
+def radar_plot_pt(scores: Dict[str, List[float]], labels: List[str],
+                  title: str, baselines: List[str], save_file: Any = None
+                  ) -> None:
+  theta = radar_factory(len(labels), frame='polygon')
+  fig, axs = plt.subplots(figsize=(8, 8), nrows=1, ncols=1, subplot_kw=dict(projection='radar'))
+  fig.subplots_adjust(wspace=0.4, hspace=0.3, top=0.85, bottom=0.05)
+  axs.set_rgrids([0.2, 0.4, 0.6, 0.8, 1.0]) 
+  axs.set_ylim(0, 1) 
+  for method, score in scores.items():
+    if method in baselines:
+      axs.plot(theta, score, color='red', linestyle='dashed', label=method) # Red for random baseline (chance level = 1/3)
+    else:
+      axs.plot(theta, score, color='blue', label=method) # Blue for 8-shot frequency
+      axs.fill(theta, score, facecolor='blue', alpha=0.15, label='_nolegend_')
+  axs.set_title(title, size=14, position=(0.1, 1.1), horizontalalignment='center', verticalalignment='center')
+  axs.set_varlabels(labels)
+  axs.legend(prop={'size': 14}, loc='upper right', bbox_to_anchor=(1.3, 1.))
+  if save_file is not None:
+    plt.savefig(save_file, bbox_inches='tight')
+  plt.show()
+
+def plot_tags(exp_results: Dict[str, float],
+              tags: Dict[str, Any], title: str, save_file: Any = None, # Added title parameter
+              width: float = 0.8, offset: float = 0.0) -> None:
+  _, ax = plt.subplots(figsize=(18, 5))
+  labels = [key for key in tags]
+  plot_values = [exp_results.get(label, 0.0) for label in labels]
+
+  for idx, label in enumerate(labels):
+    ax.bar(idx - offset, plot_values[idx], color='#6495ED', width=width) # Set bars to blue
+
+  ax.set_xticks(np.arange(len(labels)))
+  ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=12)
+  
+  ax.set_ylim(0, 1)
+  ax.set_yticks(np.arange(0, 1.1, 0.2)) # Labels from 0 to 1 at intervals of 0.2
+  ax.set_ylabel('Accuracy')
+  ax.set_title(title, fontsize=14) # Set the title for the bar plot
+
+  handles_exp = [plt.Rectangle((0, 0), 1, 1, color='#6495ED')]
+  leg_exp = ax.legend(handles_exp, ['8-shot Frequency'], ncol=1, loc='upper left', bbox_to_anchor=(0.01, 0.99),
+                   edgecolor='white')
+  plt.gca().add_artist(leg_exp)
+
+  plt.axhline(y=0.33, color='black', linestyle='dashed', label='Random Level (33%)') # Black for random baseline
+  plt.legend(loc='upper right') # Ensure the 'Random Level' legend is visible
+  plt.margins(x=0)
+
+  if save_file is not None:
+    plt.savefig(save_file, bbox_inches='tight')
+  plt.show()
+
 def extract_model_answer(response_text):
   options = ["(A)", "(B)", "(C)", "(D)"]
 
