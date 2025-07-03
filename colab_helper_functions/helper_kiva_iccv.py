@@ -58,26 +58,19 @@ def setup_kiva_data_set(name, base_data_path):
     # 4. FIX: Flatten nested directory if it occurred (e.g., ./data/train/train/ -> ./data/train/)
     nested_path = os.path.join(target_img_dir, name) # This would be like './data/train/train'
     if os.path.isdir(nested_path) and os.listdir(nested_path):
-        print(f"  Flattening directory: Moving contents from '{nested_path}/' to '{target_img_dir}/'")
         get_ipython().system(f'mv {nested_path}/* {target_img_dir}/')
         get_ipython().system(f'rmdir {nested_path}') # Remove the now empty nested folder
-    else:
-        print(f"  No nested directory detected for '{name}'.")
 
     # 5. REMOVE: macOS metadata directories and files
     macos_dir = os.path.join(target_img_dir, '__MACOSX')
     if os.path.exists(macos_dir):
-        print(f"  Removing macOS metadata directory: {macos_dir}")
         get_ipython().system(f'rm -rf {macos_dir}')
     
     # Also remove any stray ._ files directly in target_img_dir or its subdirectories
-    print(f"  Removing any stray '._' files in {target_img_dir} and its subdirectories...")
     get_ipython().system(f'find {target_img_dir} -name "._*" -delete')
-
 
     # 6. Remove the original zip file
     get_ipython().system(f'rm {download_zip_location}')
-    print(f"  Removed '{zip_file_name}'.")
 
     # 7. Download JSON annotations file directly to the data_path
     get_ipython().system(f"wget -q -O {full_json_path} \"https://storage.googleapis.com/kiva-key/{json_file_name}\"")
