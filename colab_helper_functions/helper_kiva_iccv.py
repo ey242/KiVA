@@ -5,11 +5,18 @@ import csv
 from IPython import display
 from IPython.display import display
 import numpy as np
-import matplotlib.pyplot as plt
 import PIL.Image
 from PIL import ImageOps
 import textwrap
 import random
+from typing import Dict, Any, List, Tuple
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from matplotlib.projections import PolarAxes
+from matplotlib.path import Path
+from matplotlib.transforms import Affine2D
+from matplotlib.projections import register_projection
+from matplotlib.spines import Spine 
 
 def prepare_data(eval):
     extract_path = f"/content/{eval}"
