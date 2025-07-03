@@ -78,7 +78,7 @@ def setup_kiva_data_set(name, base_data_path):
     # 8. Load JSON data
     with open(full_json_path,'r') as f:
         trials_data = json.load(f)
-    print(f"  Loaded {len(trials_data)} {name} trials from {json_file_name}.")
+    print(f"Loaded {len(trials_data)} {name} trials from {json_file_name}")
 
     # 9. Use helper to prepare stimuli (collect image paths)
     stimuli_data = prepare_data(os.path.relpath(target_img_dir, '/content'))
