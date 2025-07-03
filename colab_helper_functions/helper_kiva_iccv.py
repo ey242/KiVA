@@ -35,6 +35,7 @@ def show_concept_example(eval, image_files):
     img = PIL.Image.open(img_path)
     img.thumbnail((700, 700))
     display(img)
+    return image_id
 
 def get_trial_info(trial_id, json_path='train.json'):
     """
