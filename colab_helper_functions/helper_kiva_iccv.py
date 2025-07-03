@@ -36,6 +36,52 @@ def show_concept_example(eval, image_files):
     img.thumbnail((700, 700))
     display(img)
 
+def get_trial_info(trial_id, json_path='train.json'):
+    """
+    Load trial metadata from a JSON file and return the entry for the given trial_id.
+    
+    Parameters:
+    - trial_id (str): The ID of the trial (e.g., "0000").
+    - json_path (str): Path to the JSON file containing trial data.
+    
+    Returns:
+    - dict: A dictionary containing the trial's metadata, or None if not found.
+    """
+    try:
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print(f"JSON file not found: {json_path}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from: {json_path}")
+        return None
+    
+    entry = data.get(trial_id)
+    if entry is None:
+        print(f"Trial ID '{trial_id}' not found in {json_path}.")
+        return None
+    
+    # Extract the desired fields
+    keys = [
+        "level",
+        "transformation_domain",
+        "concept",
+        "correct",
+        "incorrect1",
+        "incorrect2",
+        "train_object_name",
+        "test_object_name",
+        "train_input_value",
+        "train_output_value",
+        "test_input_value",
+        "correct_test_value",
+        "incorrect_test_output_value1",
+        "incorrect_test_output_value2"
+    ]
+    trial_info = {k: entry.get(k) for k in keys}
+    return trial_info
+
 def display_all_prompts():
     step_by_step_text = "step-by-step"
 
