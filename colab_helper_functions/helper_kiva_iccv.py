@@ -98,7 +98,7 @@ def show_concept_example(eval, image_files):
     display(img)
     return image_id
 
-def get_trial_info(trial_id, json_path='train.json'):
+def get_trial_info(trial_id, json_path):
     """
     Load trial metadata from a JSON file and return the entry for the given trial_id.
     
