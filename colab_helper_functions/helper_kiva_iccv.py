@@ -166,17 +166,22 @@ def display_all_prompts():
     step_by_step_text = "step-by-step"
 
     system_prompt = (
-        "You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning. "
-        f"You will think {step_by_step_text} and carefully examine the visual evidence before providing an answer. In each image, observe the left-to-right transformation of an object. "
-        "The object picture on the left transforms to the object picture on the right. Denote the transformation in the first image as training transformation. "
-        "The transformation involves changes of either the size, orientation, and/or number of an object. "
+    "You are an expert visual puzzle solver, using analogical reasoning on simple object transforms. "
+    "Each puzzle is presented as a single composite image, split into two regions:\n"
+    "  • A **training example** at the top: a single object shown transforming from left to right.\n"
+    "  • A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  \n\n"
+    "Your job is:\n"
+    "  1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).\n"
+    "  2. **Find** which one of the three test panels applies that **same** change to the new object.\n"
+    "Think step by step, describing the transformation you see before you choose."
     )
-
+    
     extrapolation_prompt = (
-        "Now look at the next three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C)). "
-        "Which one of these three left-to-right transformations follows the identified transformation? "
-        "In your answer start with the correct transformation letter first: (A) or (B) or (C). Answer with (D) if none of the options apply. "
-        "Make sure to start with the correct letter first, then continue."
+    "Now look at the three bottom panels, labelled (A), (B), and (C).\n"
+    "Each shows a left-to-right transformation of a new object.\n"
+    "Which one **matches** the training transformation you identified above?  \n\n"
+    "• Reply **only** with the letter of the correct panel: (A), (B), or (C).  \n"
+    "• If **none** of them match, reply with (D)."
     )
 
     print("--- System Prompt -------------------------------------")
