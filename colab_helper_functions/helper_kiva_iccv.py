@@ -302,7 +302,7 @@ def plot_tags(exp_results: Dict[str, float],
 
 # --- Model Query & Evaluation ---
 
-def extract_model_answer1(response_text):
+def extract_model_answer(response_text):
   options = ["(A)", "(B)", "(C)", "(D)"]
 
   model_option = None
@@ -316,7 +316,7 @@ def extract_model_answer1(response_text):
 
   return model_option if model_option else "Null"
 
-def extract_model_answer(response_text):
+def extract_model_answer1(response_text):
     options = ["A", "B", "C", "D"]
     model_option = None
     earliest_index = len(response_text)
