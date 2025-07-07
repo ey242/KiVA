@@ -412,16 +412,8 @@ def save_json_results(username, eval, output_folder, randomized_id, answer, imag
     display_stimuli(image)
 
 def save_csv_results(id, model_response, original_json_path, csv_out_path):
-    """
-    For a given (id, model_response), updates the progressive CSV file with the enriched entry.
-    Avoids duplicates by checking if the id is already written.
+    import json, csv, os
 
-    Args:
-        id (str): ID of the example to update.
-        model_response (str): Model's predicted response ex. "(A)".
-        original_json_path (str): Path to the original full results JSON.
-        csv_out_path (str): Path to the progressive CSV output file.
-    """
     # Load original results JSON
     with open(original_json_path) as f:
         original_data = json.load(f)
@@ -443,22 +435,28 @@ def save_csv_results(id, model_response, original_json_path, csv_out_path):
 
     # Prepare row
     entry = original_data[id].copy()
-    entry["model_response"] = model_response
     entry.pop("seed", None)
-    entry["id"] = id  # Ensure ID is present
+    entry["model_response"] = model_response
+    entry["id"] = id  # Put 'id' explicitly
 
-    # Determine CSV field order
-    write_header = not os.path.exists(csv_out_path)
-    fieldnames = ["id"] + sorted(k for k in entry if k != "id")
+    # Custom field order
+    base_fields = list(entry.keys())
+    if "model_response" in base_fields and "correct" in base_fields:
+        base_fields.remove("model_response")
+        insert_idx = base_fields.index("correct")
+        base_fields.insert(insert_idx, "model_response")
+
+    fieldnames = base_fields
 
     # Write to CSV
+    write_header = not os.path.exists(csv_out_path)
     with open(csv_out_path, mode='a', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         if write_header:
             writer.writeheader()
         writer.writerow(entry)
 
-    print(f"Saved results in {csv_out_path}",  "\n", "-" * 80)
+    print(f"Saved results in {csv_out_path}", "\n", "-" * 80)
 
 # EVALUATING CORRECTNESS
 def load_correctness_from_csv(username, eval, output_folder):
