@@ -378,7 +378,7 @@ def process_extrapolation(img_path, extrapolation_prompt, model):
     
     model_ans = extract_model_answer(raw_extra_text)
     
-    return model_ans
+    return model_ans, raw_extra_text
 
 def save_json_results(username, eval, output_folder, randomized_id, answer, image):
     """
@@ -411,7 +411,7 @@ def save_json_results(username, eval, output_folder, randomized_id, answer, imag
     print("-" * 80, "\n",f"Saved results in {output_file}",  "\n", "-" * 80)
     display_stimuli(image)
 
-def save_csv_results(id, model_response, original_json_path, csv_out_path):
+def save_csv_results(id, model_response, full_model_response, original_json_path, csv_out_path):
     import json, csv, os
 
     # Load original results JSON
@@ -436,15 +436,25 @@ def save_csv_results(id, model_response, original_json_path, csv_out_path):
     # Prepare row
     entry = original_data[id].copy()
     entry.pop("seed", None)
-    entry["model_response"] = model_response
+    entry["model_answer"] = model_response
+    entry["model_response"] = full_model_response
     entry["id"] = id  # Put 'id' explicitly
 
     # Custom field order
     base_fields = list(entry.keys())
-    if "model_response" in base_fields and "correct" in base_fields:
+    if "model_response" in base_fields:
         base_fields.remove("model_response")
+    if "model_answer" in base_fields:
+        base_fields.remove("model_answer")
+
+    # Insert model_answer before model_response
+    if "correct" in base_fields:
         insert_idx = base_fields.index("correct")
-        base_fields.insert(insert_idx, "model_response")
+    else:
+        insert_idx = len(base_fields)
+
+    base_fields.insert(insert_idx, "model_answer")
+    base_fields.insert(insert_idx + 1, "model_response")
 
     fieldnames = base_fields
 
