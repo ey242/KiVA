@@ -166,22 +166,22 @@ def display_all_prompts():
     step_by_step_text = "step-by-step"
 
     system_prompt = (
-    "You are an expert visual puzzle solver, using analogical reasoning on simple object transforms. "
-    "Each puzzle is presented as a single composite image, split into two regions:\n"
-    "  • A **training example** at the top: a single object shown transforming from left to right.\n"
-    "  • A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  \n\n"
-    "Your job is:\n"
-    "  1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).\n"
-    "  2. **Find** which one of the three test panels applies that **same** change to the new object.\n"
-    "Think step by step, describing the transformation you see before you choose."
+    "You are an excellent visual puzzle solver! "
+    "You will be given a visual puzzle that requires using visual analogical reasoning. "
+    "Each puzzle is presented as a single composite image, split into two regions:  "
+    "• A **training example** at the top: a single object shown transforming from left to right.  "
+    "• A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  "
+    "Your job is:  "
+    "1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).  "
+    "2. **Find** which one of the three test panels applies that **same** change to the new object. "
+    "You will think step-by-step and carefully examine the visual evidence before providing an answer. "
     )
     
     extrapolation_prompt = (
-    "Now look at the three bottom panels, labelled (A), (B), and (C).\n"
-    "Each shows a left-to-right transformation of a new object.\n"
-    "Which one **matches** the training transformation you identified above?  \n\n"
-    "• Reply **only** with the letter of the correct panel: (A), (B), or (C).  \n"
-    "• If **none** of them match, reply with (D)."
+    "Now look at the three bottom panels, labelled (A), (B), and (C). "
+    "Which one of the three left-to-right object transformations (marked by either (A), (B) or (C)) "
+    "on the bottom of the puzzle is the **same** as the left-to-right transformation on the top of the puzzle? "
+    "Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), then provide a a step-by-step reasoning for your choice."
     )
 
     print("--- System Prompt -------------------------------------")
@@ -407,8 +407,8 @@ def save_json_results(username, eval, output_folder, randomized_id, answer, imag
     with open(output_file, 'w') as file:
         json.dump(data, file, indent=4)
 
-    print("-" * 80, "\n", f"Model response: {answer}")
-    print(f"Saved results in {output_file}",  "\n", "-" * 80)
+    #print("-" * 80, "\n", f"Model response: {answer}")
+    print("-" * 80, "\n",f"Saved results in {output_file}",  "\n", "-" * 80)
     display_stimuli(image)
 
 def save_csv_results(id, model_response, original_json_path, csv_out_path):
