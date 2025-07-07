@@ -322,7 +322,6 @@ def extract_model_answer(response_text):
     earliest_index = len(response_text)
 
     for opt in options:
-        # Look for both "(A)" and "A"
         paren_form = f"({opt})"
         bare_form = opt
 
@@ -332,7 +331,7 @@ def extract_model_answer(response_text):
                 earliest_index = idx
                 model_option = paren_form  # Always return in (A) format
 
-    return model_option if model_option else "Null"
+    return model_option if model_option is not None else "Null"
 
 def extract_earliest_letter(response_text):
     letters = ["(A)", "(B)", "(C)", "(D)"]
