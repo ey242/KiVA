@@ -126,7 +126,7 @@ def process_extrapolation(img_path, extrapolation_prompt, model):
     
     return model_ans
 
-def save_results(username, eval, output_folder, randomized_id, answer, image):
+def save_json_results(username, eval, output_folder, randomized_id, answer, image):
     """
     Saves a single result entry to a flat list of dicts:
     [
@@ -157,34 +157,84 @@ def save_results(username, eval, output_folder, randomized_id, answer, image):
     print(f"Saved results in {output_file}",  "\n", "-" * 80)
     display_stimuli(image)
 
-# EVALUATING CORRECTNESS
-def load_correctness_from_csv(folder_path):
+def save_csv_results(id, model_response, original_json_path, csv_out_path):
     """
-    Reads all CSV files in 'folder_path'. Each CSV has columns:
-        Img_id, MCResponse#1, MCResponse#2, MCResponse#3
-    with 0/1 indicating correctness for each phase.
+    For a given (id, model_response), updates the progressive CSV file with the enriched entry.
+    Avoids duplicates by checking if the id is already written.
 
-    Returns:
-        dict: ex {
-            'ColourRed_0_1': [0, 1, 0],
-            '2DRotation+90_0_0': [1, 1, 0],
-            ...
-        }
-        where each key is the Img_id from the CSV, and the value is
-        a list of correctness values [cross, within, extrapolation].
+    Args:
+        id (str): ID of the example to update.
+        model_response (str): Model's predicted response ex. "(A)".
+        original_json_path (str): Path to the original full results JSON.
+        csv_out_path (str): Path to the progressive CSV output file.
     """
+    # Load original results JSON
+    with open(original_json_path) as f:
+        original_data = json.load(f)
+
+    if id not in original_data:
+        print(f"[Warning] ID {id} not found in original JSON.")
+        return
+
+    # Load existing IDs in CSV to avoid duplicates
+    existing_ids = set()
+    if os.path.exists(csv_out_path):
+        with open(csv_out_path, newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                existing_ids.add(row["id"])
+
+    if id in existing_ids:
+        return
+
+    # Prepare row
+    entry = original_data[id].copy()
+    entry["model_response"] = model_response
+    entry.pop("seed", None)
+    entry["id"] = id  # Ensure ID is present
+
+    # Determine CSV field order
+    write_header = not os.path.exists(csv_out_path)
+    fieldnames = ["id"] + sorted(k for k in entry if k != "id")
+
+    # Write to CSV
+    with open(csv_out_path, mode='a', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        if write_header:
+            writer.writeheader()
+        writer.writerow(entry)
+
+    print(f"Saved results in {csv_out_path}",  "\n", "-" * 80)
+
+# EVALUATING CORRECTNESS
+def load_correctness_from_csv(username, eval, output_folder):
+    """
+    
+    """
+    if eval != "train":
+        print("Performance is unavailable here for non-train evaluations.")
+        return {}
+
+    # for a json file in correct_path = f"/content/kiva_{eval}"
+    correct_path = f"/content/kiva_{eval}"
+    answer_path = os.path.join(output_folder, f"{username}_{eval}_results.json")
+
+    if not os.path.exists(correct_path):
+        print(f"Correct path {correct_path} does not exist.")
+        return {}
+
     correctness_dict = {}
 
-    for filename in os.listdir(folder_path):
-        if filename.endswith(".csv"):
-            csv_path = os.path.join(folder_path, filename)
-            with open(csv_path, mode='r', encoding='utf-8') as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    img_id = row["Img_id"]  # ex "ColourRed_0_1"
-                    mc1 = int(row["MCResponse#1"])
-                    mc2 = int(row["MCResponse#2"])
-                    mc3 = int(row["MCResponse#3"])
+    for filename in os.listdir(correct_path):
+        if filename.endswith(".json"):
+            json_path = os.path.join(correct_path, filename)
+            with open(json_path, mode='r', encoding='utf-8') as f:
+                data = json.load(f)
+                for entry in data:
+                    img_id = entry["id"]  # ex "ColourRed_0_1"
+                    mc1 = int(entry["MCResponse#1"])
+                    mc2 = int(entry["MCResponse#2"])
+                    mc3 = int(entry["MCResponse#3"])
 
                     correctness_dict[img_id] = [mc1, mc2, mc3]
 
