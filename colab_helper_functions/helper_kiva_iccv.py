@@ -302,7 +302,7 @@ def plot_tags(exp_results: Dict[str, float],
 
 # --- Model Query & Evaluation ---
 
-def extract_model_answer(response_text):
+def extract_model_answer1(response_text):
   options = ["(A)", "(B)", "(C)", "(D)"]
 
   model_option = None
@@ -315,6 +315,24 @@ def extract_model_answer(response_text):
           model_option = option
 
   return model_option if model_option else "Null"
+
+def extract_model_answer(response_text):
+    options = ["A", "B", "C", "D"]
+    model_option = None
+    earliest_index = len(response_text)
+
+    for opt in options:
+        # Look for both "(A)" and "A"
+        paren_form = f"({opt})"
+        bare_form = opt
+
+        for form in [paren_form, bare_form]:
+            idx = response_text.find(form)
+            if idx != -1 and idx < earliest_index:
+                earliest_index = idx
+                model_option = paren_form  # Always return in (A) format
+
+    return model_option if model_option else "Null"
 
 def extract_earliest_letter(response_text):
     letters = ["(A)", "(B)", "(C)", "(D)"]
