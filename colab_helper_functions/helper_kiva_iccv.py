@@ -163,25 +163,12 @@ def get_trial_info(trial_id, json_path):
     return trial_info
 
 def display_all_prompts():
-    step_by_step_text = "step-by-step"
-
     system_prompt = (
-    "You are an excellent visual puzzle solver! "
-    "You will be given a visual puzzle that requires using visual analogical reasoning. "
-    "Each puzzle is presented as a single composite image, split into two regions:  "
-    "• A **training example** at the top: a single object shown transforming from left to right.  "
-    "• A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  "
-    "Your job is:  "
-    "1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).  "
-    "2. **Find** which one of the three test panels applies that **same** change to the new object. "
-    "You will think step-by-step and carefully examine the visual evidence before providing an answer. "
+    "You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning. Each puzzle is presented as a single composite image, split into two regions:\n  • A **training example** at the top: a single object shown transforming from left to right.\n  • A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  \n\nYour job is:\n  1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).\n  2. **Find** which one of the three test panels applies that **same** change to the new object.\nYou will think step-by-step and carefully examine the visual evidence before providing an answer."
     )
     
     extrapolation_prompt = (
-    "Now look at the three bottom panels, labelled (A), (B), and (C). "
-    "Which one of the three left-to-right object transformations (marked by either (A), (B) or (C)) "
-    "on the bottom of the puzzle is the **same** as the left-to-right transformation on the top of the puzzle? "
-    "Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), then provide a a step-by-step reasoning for your choice."
+    "Now look at the three bottom panels, labelled (A), (B), and (C). Which one of the three left-to-right object transformations (marked by either (A), (B) or (C)) on the bottom of the puzzle is the **same** as the left-to-right transformation on the top of the puzzle? Answer with the correct letter surrounded by parentheses (or (D) if none of the options apply), then provide a a step-by-step reasoning for your choice."
     )
 
     print("--- System Prompt -------------------------------------")
