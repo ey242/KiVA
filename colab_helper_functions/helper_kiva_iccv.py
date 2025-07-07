@@ -6,13 +6,31 @@ from IPython import display
 from IPython.display import display
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from matplotlib.projections import PolarAxes
+from matplotlib.path import Path
+from matplotlib.transforms import Affine2D
+from matplotlib.projections import register_projection
+from matplotlib.spines import Spine 
 import PIL.Image
 from PIL import ImageOps
 import textwrap
 import random
+from typing import Dict, Any, List, Tuple
+
+# Define constants for data access (ensure these are consistent with your helper file)
+LEVEL_KIVA_DB_KEY = 'kiva'
+LEVEL_KIVA_FUNCTIONS_DB_KEY = 'kiva-functions'
+LEVEL_KIVA_FUNCTIONS_COMPOSITIONALITY_DB_KEY = 'kiva-functions-compositionality'
+
+TRANSFORMATIONS_FOR_SIMPLE_GROUP = ['Counting', 'Resizing', 'Reflect', 'Rotation']
+TRANSFORMATIONS_FOR_COMPOSITE_GROUP = sorted(list(
+    {'Counting,Reflect', 'Counting,Resizing', 'Counting,Rotation', 'Reflect,Resizing', 'Resizing,Rotation'}
+))
 
 def prepare_data(eval):
-    extract_path = f"/content/kiva_{eval}"
+    extract_path = f"/content/{eval}"
 
     # Walk through the extracted folder to collect all .jpg files
     image_files = []
@@ -24,31 +42,146 @@ def prepare_data(eval):
     print(f"Found {len(image_files)} images for {eval} evaluation")
     return image_files
 
+def setup_kiva_data_set(name, base_data_path):
+    """
+    Downloads Kiva images and JSON for a given dataset ('train' or 'validation'),
+    unzipping images into a flat folder structure within base_data_path,
+    loading JSON, and then removing the downloaded zip file and macOS metadata.
+
+    Args:
+        name (str): 'train' or 'validation'.
+        base_data_path (str): The base path where data should be stored (e.g., './data/').
+    """
+    print(f"\n--- Setting up {name} data within {base_data_path} ---")
+
+    zip_file_name = f"{name}.zip" # e.g., 'train.zip'
+    json_file_name = f"{name}.json" # e.g., 'train.json'
+
+    # Define full paths for where files will reside
+    target_img_dir = os.path.join(base_data_path, name) # e.g., './data/train/'
+    full_json_path = os.path.join(base_data_path, json_file_name) # e.g., './data/train.json'
+    
+    # Temporarily download zip to the current working directory, then remove it
+    download_zip_location = os.path.join(os.getcwd(), zip_file_name) 
+
+    # 1. Create target directory for images (e.g., ./data/train)
+    os.makedirs(target_img_dir, exist_ok=True)
+
+    # 2. Download images zip file
+    get_ipython().system(f"wget -q https://storage.googleapis.com/kiva-challenge/{zip_file_name} -O {download_zip_location}")
+
+    # 3. Unzip images into the target image directory (e.g., ./data/train/)
+    get_ipython().system(f"unzip -qo {download_zip_location} -d {target_img_dir}")
+
+    # 4. FIX: Flatten nested directory if it occurred (e.g., ./data/train/train/ -> ./data/train/)
+    nested_path = os.path.join(target_img_dir, name) # This would be like './data/train/train'
+    if os.path.isdir(nested_path) and os.listdir(nested_path):
+        get_ipython().system(f'mv {nested_path}/* {target_img_dir}/')
+        get_ipython().system(f'rmdir {nested_path}') # Remove the now empty nested folder
+
+    # 5. REMOVE: macOS metadata directories and files
+    macos_dir = os.path.join(target_img_dir, '__MACOSX')
+    if os.path.exists(macos_dir):
+        get_ipython().system(f'rm -rf {macos_dir}')
+    
+    # Also remove any stray ._ files directly in target_img_dir or its subdirectories
+    get_ipython().system(f'find {target_img_dir} -name "._*" -delete')
+
+    # 6. Remove the original zip file
+    get_ipython().system(f'rm {download_zip_location}')
+
+    # 7. Download JSON annotations file directly to the data_path
+    get_ipython().system(f"wget -q -O {full_json_path} \"https://storage.googleapis.com/kiva-key/{json_file_name}\"")
+
+    # 8. Load JSON data
+    with open(full_json_path,'r') as f:
+        trials_data = json.load(f)
+    print(f"Loaded {len(trials_data)} {name} trials from {json_file_name}")
+
+    # 9. Use helper to prepare stimuli (collect image paths)
+    stimuli_data = prepare_data(os.path.relpath(target_img_dir, '/content'))
+
+    return trials_data, stimuli_data
+
 def show_concept_example(eval, image_files):
     if not image_files:
         print(f"No images found for evaluation: {eval}")
         return
 
     img_path = random.choice(image_files)
+    image_id = os.path.splitext(os.path.basename(img_path))[0]
+    print(f"Trial_id: {image_id}")
     img = PIL.Image.open(img_path)
     img.thumbnail((700, 700))
     display(img)
+    return image_id
+
+def get_trial_info(trial_id, json_path):
+    """
+    Load trial metadata from a JSON file and return the entry for the given trial_id.
+    
+    Parameters:
+    - trial_id (str): The ID of the trial (e.g., "0000").
+    - json_path (str): Path to the JSON file containing trial data.
+    
+    Returns:
+    - dict: A dictionary containing the trial's metadata, or None if not found.
+    """
+    try:
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print(f"JSON file not found: {json_path}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from: {json_path}")
+        return None
+    
+    entry = data.get(trial_id)
+    if entry is None:
+        print(f"Trial ID '{trial_id}' not found in {json_path}.")
+        return None
+    
+    # Extract the desired fields
+    keys = [
+        "level",
+        "transformation_domain",
+        "concept",
+        "correct",
+        "incorrect1",
+        "incorrect2",
+        "train_object_name",
+        "test_object_name",
+        "train_input_value",
+        "train_output_value",
+        "test_input_value",
+        "correct_test_value",
+        "incorrect_test_output_value1",
+        "incorrect_test_output_value2"
+    ]
+    trial_info = {k: entry.get(k) for k in keys}
+    return trial_info
 
 def display_all_prompts():
     step_by_step_text = "step-by-step"
 
     system_prompt = (
-        "You are an excellent visual puzzle solver! You will be given a visual puzzle that requires using visual analogical reasoning. "
-        f"You will think {step_by_step_text} and carefully examine the visual evidence before providing an answer. In each image, observe the left-to-right transformation of an object. "
-        "The object picture on the left transforms to the object picture on the right. Denote the transformation in the first image as training transformation. "
-        "The transformation involves changes of either the size, orientation, and/or number of an object. "
+    "You are an expert visual puzzle solver, using analogical reasoning on simple object transforms. "
+    "Each puzzle is presented as a single composite image, split into two regions:\n"
+    "  • A **training example** at the top: a single object shown transforming from left to right.\n"
+    "  • A **test panel** at the bottom: three candidate transformations of a new object, labelled (A), (B), and (C).  \n\n"
+    "Your job is:\n"
+    "  1. **Carefully inspect** the training example to identify exactly what changed (size, orientation, number, or a combination).\n"
+    "  2. **Find** which one of the three test panels applies that **same** change to the new object.\n"
+    "Think step by step, describing the transformation you see before you choose."
     )
-
+    
     extrapolation_prompt = (
-        "Now look at the next three images. Each image contains a left-to-right object transformations (marked by either (A), (B) or (C)). "
-        "Which one of these three left-to-right transformations follows the identified transformation? "
-        "In your answer start with the correct transformation letter first: (A) or (B) or (C). Answer with (D) if none of the options apply. "
-        "Make sure to start with the correct letter first, then continue."
+    "Now look at the three bottom panels, labelled (A), (B), and (C).\n"
+    "Each shows a left-to-right transformation of a new object.\n"
+    "Which one **matches** the training transformation you identified above?  \n\n"
+    "• Reply **only** with the letter of the correct panel: (A), (B), or (C).  \n"
+    "• If **none** of them match, reply with (D)."
     )
 
     print("--- System Prompt -------------------------------------")
@@ -64,6 +197,110 @@ def display_stimuli(img_path):
     border_size, border_color = 5, 'black' 
     img = ImageOps.expand(img, border=border_size, fill=border_color)
     display(img)
+
+# --- Analysis Visualisation Functions ---
+# radar plots
+def radar_factory(num_vars: int, frame: str = 'circle'):
+  theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
+  class RadarTransform(PolarAxes.PolarTransform):
+    def transform_path_non_affine(self, path):
+      if path._interpolation_steps > 1:
+        path = path.interpolated(num_vars)
+      return Path(self.transform(path.vertices), path.codes)
+  class RadarAxes(PolarAxes):
+    name = 'radar'
+    RESOLUTION = 1
+    PolarTransform = RadarTransform
+    def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+      self.set_theta_zero_location('N')
+    def fill(self, *args, closed=True, **kwargs):
+      return super().fill(closed=closed, *args, **kwargs)
+    def plot(self, *args, **kwargs):
+      lines = super().plot(*args, **kwargs)
+      for line in lines:
+        self._close_line(line)
+    def _close_line(self, line):
+      x, y = line.get_data()
+      if x[0] != x[-1]:
+        x = np.append(x, x[0])
+        y = np.append(y, y[0])
+        line.set_data(x, y)
+    def set_varlabels(self, labels):
+      self.set_thetagrids(np.degrees(theta), labels, fontsize=10, linespacing=1.2)
+    def _gen_axes_patch(self):
+      if frame == 'circle':
+        return patches.Circle((0.5, 0.5), 0.5)
+      elif frame == 'polygon':
+        return patches.RegularPolygon((0.5, 0.5), num_vars, radius=.5, edgecolor='k')
+      else:
+        raise ValueError("Unknown value for 'frame': %s" % frame)
+    def _gen_axes_spines(self):
+      if frame == 'circle':
+        return super()._gen_axes_spines()
+      elif frame == 'polygon':
+        spine = Spine(axes=self, spine_type='circle', path=Path.unit_regular_polygon(num_vars))
+        spine.set_transform(Affine2D().scale(.5).translate(.5, .5) + self.transAxes)
+        return {'polar': spine}
+      else:
+        raise ValueError("Unknown value for 'frame': %s" % frame)
+  register_projection(RadarAxes)
+  return theta
+
+def radar_plot_pt(scores: Dict[str, List[float]], labels: List[str],
+                  title: str, baselines: List[str], save_file: Any = None
+                  ) -> None:
+  theta = radar_factory(len(labels), frame='polygon')
+  fig, axs = plt.subplots(figsize=(8, 8), nrows=1, ncols=1, subplot_kw=dict(projection='radar'))
+  fig.subplots_adjust(wspace=0.4, hspace=0.3, top=0.85, bottom=0.05)
+  axs.set_rgrids([0.2, 0.4, 0.6, 0.8, 1.0]) 
+  axs.set_ylim(0, 1) 
+  for method, score in scores.items():
+    if method in baselines:
+      axs.plot(theta, score, color='red', linestyle='dashed', label=method) # Red for random baseline (chance level = 1/3)
+    else:
+      axs.plot(theta, score, color='blue', label=method) # Blue for 8-shot frequency
+      axs.fill(theta, score, facecolor='blue', alpha=0.15, label='_nolegend_')
+  axs.set_title(title, size=14, position=(0.1, 1.1), horizontalalignment='center', verticalalignment='center')
+  axs.set_varlabels(labels)
+  axs.legend(prop={'size': 14}, loc='upper right', bbox_to_anchor=(1.3, 1.))
+  if save_file is not None:
+    plt.savefig(save_file, bbox_inches='tight')
+  plt.show()
+
+# bar plots
+def plot_tags(exp_results: Dict[str, float],
+              tags: Dict[str, Any], title: str, save_file: Any = None, # Added title parameter
+              width: float = 0.8, offset: float = 0.0) -> None:
+  _, ax = plt.subplots(figsize=(18, 5))
+  labels = [key for key in tags]
+  plot_values = [exp_results.get(label, 0.0) for label in labels]
+
+  for idx, label in enumerate(labels):
+    ax.bar(idx - offset, plot_values[idx], color='#6495ED', width=width) # Set bars to blue
+
+  ax.set_xticks(np.arange(len(labels)))
+  ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=12)
+  
+  ax.set_ylim(0, 1)
+  ax.set_yticks(np.arange(0, 1.1, 0.2)) # Labels from 0 to 1 at intervals of 0.2
+  ax.set_ylabel('Accuracy')
+  ax.set_title(title, fontsize=14) # Set the title for the bar plot
+
+  handles_exp = [plt.Rectangle((0, 0), 1, 1, color='#6495ED')]
+  leg_exp = ax.legend(handles_exp, ['8-shot Frequency'], ncol=1, loc='upper left', bbox_to_anchor=(0.01, 0.99),
+                   edgecolor='white')
+  plt.gca().add_artist(leg_exp)
+
+  plt.axhline(y=0.33, color='black', linestyle='dashed', label='Random Level (33%)') # Black for random baseline
+  plt.legend(loc='upper right') # Ensure the 'Random Level' legend is visible
+  plt.margins(x=0)
+
+  if save_file is not None:
+    plt.savefig(save_file, bbox_inches='tight')
+  plt.show()
+
+# --- Model Query & Evaluation ---
 
 def extract_model_answer(response_text):
   options = ["(A)", "(B)", "(C)", "(D)"]
