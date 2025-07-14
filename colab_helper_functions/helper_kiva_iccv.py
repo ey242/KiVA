@@ -396,7 +396,7 @@ def save_json_results(username, eval, output_folder, randomized_id, answer, imag
 
     #print("-" * 80, "\n", f"Model response: {answer}")
     print("-" * 80, "\n",f"Saved results in {output_file}",  "\n", "-" * 80)
-    display_stimuli(image)
+    #display_stimuli(image)
 
 def save_csv_results(id, model_response, full_model_response, original_json_path, csv_out_path):
     import json, csv, os
